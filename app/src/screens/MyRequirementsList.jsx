@@ -55,7 +55,7 @@ function MyRequirementsList({ onNavigate }) {
           <ArrowLeft size={24} />
         </button>
         <h1>My Requirements</h1>
-        <button className="header-action" style={{color: '#8B5CF6'}}>
+        <button className="header-action" style={{color: '#8B5CF6'}} onClick={() => onNavigate('add-requirement')}>
           <Plus size={20} /> Add
         </button>
       </header>
@@ -148,7 +148,7 @@ function MyRequirementsList({ onNavigate }) {
       </div>
 
       {/* FAB */}
-      <button className="fab purple">
+      <button className="fab purple" onClick={() => onNavigate('add-requirement')}>
         <Plus size={24} />
       </button>
 

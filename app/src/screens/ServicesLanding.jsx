@@ -32,10 +32,10 @@ function ServicesLanding({ onNavigate }) {
           <span>✓ Agreement Drafting</span>
           <span>✓ Registration Support</span>
         </div>
-        <button className="explore-btn">
+        <button className="explore-btn" onClick={() => onNavigate('legal-services')}>
           Explore Services <ArrowRight size={16} />
         </button>
-        <div className="service-count">50+ Services Available</div>
+        <div className="service-count" onClick={() => onNavigate('service-tracking')} style={{cursor: 'pointer'}}>50+ Services Available</div>
       </div>
 
       {/* Trust Indicators */}

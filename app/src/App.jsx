@@ -14,20 +14,43 @@ import MyRequirementsList from './screens/MyRequirementsList'
 import MyEnquiries from './screens/MyEnquiries'
 import PropertyDetail from './screens/PropertyDetail'
 import ServicesLanding from './screens/ServicesLanding'
+import LegalServicesDetail from './screens/LegalServicesDetail'
+import ServiceRequestForm from './screens/ServiceRequestForm'
+import ServiceTracking from './screens/ServiceTracking'
 import ProfileScreen from './screens/ProfileScreen'
+import EditProfile from './screens/EditProfile'
+import SubscriptionManagement from './screens/SubscriptionManagement'
+import AddPropertyForm from './screens/AddPropertyForm'
+import AddRequirementForm from './screens/AddRequirementForm'
+import HelpSupport from './screens/HelpSupport'
 
 const screens = [
+  // Home & Search
   { id: 'home', name: 'ACN Home', category: 'Home', component: HomeScreen },
-  { id: 'search', name: 'Search', category: 'Search', component: SearchScreen },
-  { id: 'search-results', name: 'Search Results', category: 'Search', component: SearchResultsScreen },
-  { id: 'filter', name: 'Filters', category: 'Search', component: FilterSheet },
-  { id: 'dashboard', name: 'My Business', category: 'Business', component: BusinessDashboard },
-  { id: 'properties', name: 'My Properties', category: 'Business', component: MyPropertiesList },
-  { id: 'requirements', name: 'My Requirements', category: 'Business', component: MyRequirementsList },
-  { id: 'enquiries', name: 'My Enquiries', category: 'Business', component: MyEnquiries },
-  { id: 'property-detail', name: 'Property Detail', category: 'Detail', component: PropertyDetail },
-  { id: 'services', name: 'Services', category: 'Services', component: ServicesLanding },
+  { id: 'search', name: 'Search', category: 'Home', component: SearchScreen },
+  { id: 'search-results', name: 'Search Results', category: 'Home', component: SearchResultsScreen },
+  { id: 'filter', name: 'Filter Sheet', category: 'Home', component: FilterSheet },
+  { id: 'property-detail', name: 'Property Detail', category: 'Home', component: PropertyDetail },
+  
+  // My Business
+  { id: 'dashboard', name: 'Dashboard', category: 'My Business', component: BusinessDashboard },
+  { id: 'properties', name: 'My Properties', category: 'My Business', component: MyPropertiesList },
+  { id: 'add-property', name: 'Add Property', category: 'My Business', component: AddPropertyForm },
+  { id: 'requirements', name: 'My Requirements', category: 'My Business', component: MyRequirementsList },
+  { id: 'add-requirement', name: 'Add Requirement', category: 'My Business', component: AddRequirementForm },
+  { id: 'enquiries', name: 'My Enquiries', category: 'My Business', component: MyEnquiries },
+  
+  // Services
+  { id: 'services', name: 'Services Hub', category: 'Services', component: ServicesLanding },
+  { id: 'legal-services', name: 'Legal Services', category: 'Services', component: LegalServicesDetail },
+  { id: 'service-request', name: 'Request Service', category: 'Services', component: ServiceRequestForm },
+  { id: 'service-tracking', name: 'Service Tracking', category: 'Services', component: ServiceTracking },
+  
+  // Profile & Settings
   { id: 'profile', name: 'Profile', category: 'Profile', component: ProfileScreen },
+  { id: 'edit-profile', name: 'Edit Profile', category: 'Profile', component: EditProfile },
+  { id: 'subscription', name: 'Subscription', category: 'Profile', component: SubscriptionManagement },
+  { id: 'help-support', name: 'Help & Support', category: 'Profile', component: HelpSupport },
 ]
 
 function App() {
@@ -42,7 +65,7 @@ function App() {
           <span className="logo-icon">◆</span>
           <span className="logo-text">ACN v3</span>
         </div>
-        <p className="tagline">Design System Preview</p>
+        <p className="tagline">Design System Preview • {screens.length} Screens</p>
       </header>
 
       <main className="main-content">
@@ -58,7 +81,7 @@ function App() {
       </main>
 
       <footer className="app-footer">
-        <p>Click on screens to navigate • Built with React</p>
+        <p>Click screens in sidebar or tap elements to navigate • Built with React + Vite</p>
       </footer>
     </div>
   )

@@ -1,383 +1,669 @@
-import { Settings, Building2, FileText, Phone, Mail, Star, ChevronRight, CreditCard, HelpCircle, LogOut, Award, Shield, Edit3 } from 'lucide-react'
+import { ArrowLeft, Star, Zap, CreditCard, Calendar, Check, Phone, HelpCircle, FileText, LogOut, Crown, Mail, Building2 } from 'lucide-react'
 import './screens.css'
 
 function ProfileScreen({ onNavigate }) {
-  const menuItems = [
-    {
-      title: 'Profile Settings',
-      items: [
-        { icon: Edit3, label: 'Edit Profile Details', color: '#0066CC' },
-        { icon: Settings, label: 'Notification Preferences', color: '#8B5CF6' },
-        { icon: Shield, label: 'Privacy Settings', color: '#00C853' }
-      ]
-    },
-    {
-      title: 'Business',
-      items: [
-        { icon: CreditCard, label: 'Manage Subscription', color: '#FF9800' },
-        { icon: FileText, label: 'Payment History', color: '#00BCD4' },
-        { icon: Award, label: 'Credits & Usage', color: '#E91E63' }
-      ]
-    },
-    {
-      title: 'Support',
-      items: [
-        { icon: HelpCircle, label: 'Help & Support', color: '#607D8B' },
-        { icon: Phone, label: 'Contact KAM', color: '#4CAF50' }
-      ]
-    }
+  const profileDetails = [
+    { label: 'Area of operation', value: 'South Mumbai' },
+    { label: 'Categories', value: 'Residential, Commercial' },
+    { label: 'Alternate phone', value: '+91 99999 88888' },
+    { label: 'Firm name', value: 'Doe Estates Pvt Ltd' },
+    { label: 'Firm Address', value: '101, Business Bay, Nariman Point, Mumbai' },
+    { label: 'RERA number', value: 'A51800000001', verified: true }
   ]
 
   return (
-    <div className="screen profile-screen">
-      {/* Profile Header */}
-      <div className="profile-bg gradient-blue-purple">
-        <button className="settings-btn">
-          <Settings size={22} color="white" />
+    <div className="screen profile-screen-new">
+      {/* Header */}
+      <header className="profile-header-new">
+        <button className="back-btn-round" onClick={() => onNavigate('home')}>
+          <ArrowLeft size={20} />
         </button>
-      </div>
-      
-      <div className="profile-header">
-        <div className="profile-avatar">
-          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=agent" alt="Profile" />
-          <button className="edit-avatar">
-            <Edit3 size={14} />
-          </button>
-        </div>
-        <h2 className="profile-name">Rahul Sharma</h2>
-        <p className="profile-role">Premium Agent</p>
-        <div className="profile-badge">✓ Verified Agent • RERA Registered</div>
-        
-        <div className="profile-stats">
-          <div className="profile-stat">
-            <span className="number">48</span>
-            <span className="label">Properties</span>
-          </div>
-          <div className="profile-stat">
-            <span className="number">23</span>
-            <span className="label">Requirements</span>
-          </div>
-          <div className="profile-stat">
-            <span className="number">4.8</span>
-            <span className="label">Rating</span>
-          </div>
-        </div>
-      </div>
+        <button className="edit-profile-btn" onClick={() => onNavigate('edit-profile')}>
+          Edit Profile
+        </button>
+      </header>
 
-      {/* Subscription Card */}
-      <div className="subscription-card">
-        <div className="sub-header">
-          <span className="sub-badge">👑 Premium Plan</span>
-          <span className="sub-status">Active</span>
-        </div>
-        <div className="sub-validity">
-          <span>Valid until Jan 30, 2026</span>
-          <span className="days-left">25 days left</span>
-        </div>
-        <div className="sub-progress">
-          <div className="progress-bar" style={{width: '80%'}}></div>
-        </div>
-        <div className="sub-credits">
-          <div className="credit-info">
-            <span className="credit-count">48</span>
-            <span className="credit-label">Credits Remaining</span>
+      {/* Profile Section */}
+      <section className="profile-hero">
+        {/* Plan Badge */}
+        <div className="plan-badge-container">
+          <div className="plan-badge basic">
+            <Star size={14} />
+            <span>Basic Plan</span>
           </div>
-          <button className="add-credits-btn">+ Add Credits</button>
         </div>
-      </div>
 
-      {/* Menu Sections */}
-      {menuItems.map((section, i) => (
-        <div key={i} className="menu-section">
-          <span className="menu-section-title">{section.title}</span>
-          <div className="menu-list">
-            {section.items.map((item, j) => (
-              <div key={j} className="menu-item">
-                <div className="menu-icon" style={{background: `${item.color}15`}}>
-                  <item.icon size={18} color={item.color} />
-                </div>
-                <span className="menu-text">{item.label}</span>
-                <ChevronRight size={18} className="menu-arrow" />
+        {/* Avatar */}
+        <div className="avatar-container">
+          <div className="avatar-circle">
+            <span className="avatar-initial">J</span>
+          </div>
+          <div className="online-indicator"></div>
+        </div>
+
+        {/* Name & Phone */}
+        <div className="profile-info">
+          <h1 className="profile-name-new">John Doe</h1>
+          <p className="profile-phone">+91 98765 43210</p>
+        </div>
+
+        {/* CTA Button */}
+        <button className="trial-btn">
+          <span>Start Free Trial</span>
+          <Zap size={18} />
+        </button>
+      </section>
+
+      {/* Content */}
+      <div className="profile-content">
+        {/* Credits Card */}
+        <section className="credits-card">
+          <div className="credits-header">
+            <div className="credits-info">
+              <div className="credits-icon">
+                <CreditCard size={20} />
+              </div>
+              <div>
+                <p className="credits-label">Available Balance</p>
+                <p className="credits-value">150 Credits</p>
+              </div>
+            </div>
+            <button className="add-credits-btn" onClick={() => onNavigate('subscription')}>
+              Add Credits
+            </button>
+          </div>
+          <div className="credits-footer">
+            <Calendar size={14} />
+            <p>Next renewal date: <strong>Dec 12, 2026</strong></p>
+          </div>
+        </section>
+
+        {/* Profile Details */}
+        <section className="details-card">
+          <div className="details-header">
+            <h3>Profile Details</h3>
+            <span className="badge-icon">🪪</span>
+          </div>
+          <div className="details-list">
+            {profileDetails.map((item, i) => (
+              <div key={i} className="detail-row">
+                <span className="detail-label">{item.label}</span>
+                <span className="detail-value">
+                  {item.value}
+                  {item.verified && <Check size={14} className="verified-check" />}
+                </span>
               </div>
             ))}
           </div>
-        </div>
-      ))}
+        </section>
 
-      {/* KAM Section */}
-      <div className="kam-card">
-        <div className="kam-avatar">
-          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=priya" alt="" />
-        </div>
-        <div className="kam-info">
-          <h4>Your Relationship Manager</h4>
-          <p>Priya Desai • Senior KAM</p>
-        </div>
-        <div className="kam-actions">
-          <button className="kam-btn"><Phone size={16} /></button>
-          <button className="kam-btn whatsapp"><Mail size={16} /></button>
-        </div>
-      </div>
+        {/* Dashboard Stats */}
+        <section className="dashboard-section">
+          <div className="dashboard-header">
+            <h3>Your Dashboard</h3>
+            <button className="link-btn" onClick={() => onNavigate('dashboard')}>View Full Summary</button>
+          </div>
+          <div className="stats-row">
+            <div className="stat-box" onClick={() => onNavigate('enquiries')}>
+              <div className="stat-icon green">
+                <Mail size={18} />
+              </div>
+              <div>
+                <p className="stat-number">12</p>
+                <p className="stat-label">New Enquiries</p>
+              </div>
+            </div>
+            <div className="stat-box" onClick={() => onNavigate('properties')}>
+              <div className="stat-icon yellow">
+                <Building2 size={18} />
+              </div>
+              <div>
+                <p className="stat-number">05</p>
+                <p className="stat-label">Properties Live</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      {/* Logout */}
-      <button className="logout-btn">
-        <LogOut size={18} />
-        Logout
-      </button>
+        {/* Go Premium Card */}
+        <section className="premium-card" onClick={() => onNavigate('subscription')}>
+          <div className="premium-glow-1"></div>
+          <div className="premium-glow-2"></div>
+          <div className="premium-content">
+            <div className="premium-header">
+              <div>
+                <h3>Go Premium</h3>
+                <p>Unlock unlimited potential for your business</p>
+              </div>
+              <div className="premium-icon">
+                <Crown size={24} />
+              </div>
+            </div>
+            <ul className="premium-features">
+              <li><Check size={14} /> Unlimited property listings</li>
+              <li><Check size={14} /> Verified leads & contacts</li>
+              <li><Check size={14} /> Priority support</li>
+            </ul>
+            <button className="premium-btn">Get Premium</button>
+          </div>
+        </section>
 
-      <div className="app-version">
-        <p>ACN v3.0.2</p>
-        <button className="link-btn">Check for updates</button>
+        {/* Support & History */}
+        <section className="support-section">
+          <h3>Support & History</h3>
+          <div className="support-grid">
+            <button className="support-tile">
+              <Phone size={22} />
+              <span>Contact<br/>KAM</span>
+            </button>
+            <button className="support-tile" onClick={() => onNavigate('help-support')}>
+              <HelpCircle size={22} />
+              <span>Help &<br/>Support</span>
+            </button>
+            <button className="support-tile">
+              <FileText size={22} />
+              <span>Transac.<br/>Records</span>
+            </button>
+          </div>
+        </section>
+
+        {/* Rate Us */}
+        <section className="rate-card">
+          <div className="rate-content">
+            <Star size={20} className="star-icon" />
+            <span>Loving the app?</span>
+          </div>
+          <button className="rate-btn">Rate us</button>
+        </section>
+
+        {/* Logout */}
+        <button className="logout-btn-new">
+          <LogOut size={18} />
+          <span>Log Out</span>
+        </button>
+
+        {/* Version */}
+        <p className="version-text">Version 2.4.1 (Build 204)</p>
       </div>
 
       <style>{`
-        .profile-screen {
-          padding-bottom: 40px;
+        .profile-screen-new {
+          background: #fdfbf7;
+          padding-bottom: 32px;
         }
-        .profile-bg {
-          height: 120px;
-          position: relative;
+        .profile-header-new {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 12px 16px;
+          background: rgba(253, 251, 247, 0.95);
+          backdrop-filter: blur(8px);
+          position: sticky;
+          top: 0;
+          z-index: 10;
+          border-bottom: 1px solid rgba(214, 211, 209, 0.5);
         }
-        .settings-btn {
-          position: absolute;
-          top: 16px;
-          right: 16px;
-          background: rgba(255,255,255,0.2);
-          border: none;
+        .back-btn-round {
           width: 40px;
           height: 40px;
-          border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
+          background: none;
+          border: none;
+          color: #57534e;
+          border-radius: 50%;
           cursor: pointer;
         }
-        .profile-header {
-          margin-top: -60px;
-          text-align: center;
-          padding: 0 16px 24px;
+        .back-btn-round:hover {
+          background: #f5f5f4;
         }
-        .profile-avatar {
-          width: 100px;
-          height: 100px;
-          border-radius: 50%;
-          margin: 0 auto 12px;
-          overflow: visible;
-          position: relative;
-          border: 4px solid white;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-          background: white;
+        .edit-profile-btn {
+          background: none;
+          border: none;
+          color: #15803d;
+          font-weight: 700;
+          font-size: 15px;
+          cursor: pointer;
         }
-        .profile-avatar img {
+        .profile-hero {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 16px 16px 24px;
+        }
+        .plan-badge-container {
           width: 100%;
-          height: 100%;
-          border-radius: 50%;
+          display: flex;
+          justify-content: flex-start;
+          margin-bottom: 16px;
         }
-        .edit-avatar {
+        .plan-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 6px 12px;
+          border-radius: 20px;
+          font-size: 11px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+        .plan-badge.basic {
+          background: #e7e5e4;
+          color: #57534e;
+          border: 1px solid #d6d3d1;
+        }
+        .avatar-container {
+          position: relative;
+          margin-bottom: 16px;
+        }
+        .avatar-circle {
+          width: 96px;
+          height: 96px;
+          border-radius: 50%;
+          background: #dcfce7;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 4px solid white;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .avatar-initial {
+          font-size: 40px;
+          font-weight: 700;
+          color: #15803d;
+        }
+        .online-indicator {
           position: absolute;
           bottom: 0;
           right: 0;
-          width: 32px;
-          height: 32px;
-          background: #0066CC;
-          border: 3px solid white;
+          width: 20px;
+          height: 20px;
+          background: #16a34a;
           border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-          cursor: pointer;
+          border: 3px solid white;
         }
-        .profile-name {
-          font-size: 22px;
+        .profile-info {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+        .profile-name-new {
+          font-size: 26px;
           font-weight: 700;
+          color: #14532d;
           margin-bottom: 4px;
         }
-        .profile-role {
-          font-size: 14px;
-          color: #666;
-          margin-bottom: 8px;
-        }
-        .profile-badge {
-          display: inline-block;
-          background: #E8F5E9;
-          color: #2E7D32;
-          padding: 6px 14px;
-          border-radius: 16px;
-          font-size: 12px;
+        .profile-phone {
+          font-size: 15px;
+          color: #57534e;
           font-weight: 500;
         }
-        .profile-stats {
-          display: flex;
-          justify-content: center;
-          gap: 40px;
-          margin-top: 20px;
-        }
-        .profile-stat {
-          text-align: center;
-        }
-        .profile-stat .number {
-          font-size: 22px;
+        .trial-btn {
+          width: 100%;
+          padding: 14px 24px;
+          background: #15803d;
+          color: white;
           font-weight: 700;
-          color: #1A1A1A;
-          display: block;
-        }
-        .profile-stat .label {
-          font-size: 12px;
-          color: #888;
-        }
-        .subscription-card {
-          background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-          margin: 0 16px 24px;
-          border-radius: 16px;
-          padding: 16px;
-          color: #1A1A1A;
-        }
-        .sub-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 8px;
-        }
-        .sub-badge {
-          font-weight: 700;
-          font-size: 16px;
-        }
-        .sub-status {
-          background: rgba(255,255,255,0.4);
-          padding: 4px 10px;
-          border-radius: 10px;
-          font-size: 12px;
-          font-weight: 600;
-        }
-        .sub-validity {
-          display: flex;
-          justify-content: space-between;
-          font-size: 13px;
-          margin-bottom: 8px;
-        }
-        .days-left {
-          font-weight: 600;
-        }
-        .sub-progress {
-          height: 6px;
-          background: rgba(255,255,255,0.4);
-          border-radius: 3px;
-          margin-bottom: 12px;
-        }
-        .progress-bar {
-          height: 100%;
-          background: white;
-          border-radius: 3px;
-        }
-        .sub-credits {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-        .credit-info {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-        .credit-count {
-          font-size: 28px;
-          font-weight: 700;
-        }
-        .credit-label {
-          font-size: 12px;
-          opacity: 0.8;
-        }
-        .add-credits-btn {
-          background: rgba(0,0,0,0.15);
+          font-size: 15px;
           border: none;
-          padding: 8px 14px;
-          border-radius: 8px;
-          font-size: 12px;
-          font-weight: 600;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          box-shadow: 0 8px 24px rgba(21, 128, 61, 0.25);
           cursor: pointer;
         }
-        .menu-section {
+        .profile-content {
+          padding: 0 16px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+        .credits-card {
+          background: white;
+          border-radius: 16px;
+          padding: 16px;
+          border: 1px solid #e7e5e4;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+        .credits-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
           margin-bottom: 12px;
         }
-        .kam-card {
+        .credits-info {
           display: flex;
           align-items: center;
           gap: 12px;
-          background: white;
-          margin: 16px;
-          padding: 16px;
-          border-radius: 12px;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
-        .kam-avatar {
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          overflow: hidden;
-          background: #E0E0E0;
-        }
-        .kam-avatar img {
-          width: 100%;
-          height: 100%;
-        }
-        .kam-info {
-          flex: 1;
-        }
-        .kam-info h4 {
-          font-size: 12px;
-          color: #888;
-          margin-bottom: 2px;
-        }
-        .kam-info p {
-          font-size: 14px;
-          font-weight: 600;
-        }
-        .kam-actions {
-          display: flex;
-          gap: 8px;
-        }
-        .kam-btn {
+        .credits-icon {
           width: 40px;
           height: 40px;
           border-radius: 50%;
-          border: 1px solid #E0E0E0;
-          background: white;
+          background: #fef9c3;
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #666;
+          color: #a16207;
+        }
+        .credits-label {
+          font-size: 12px;
+          color: #57534e;
+          font-weight: 500;
+        }
+        .credits-value {
+          font-size: 18px;
+          font-weight: 700;
+          color: #14532d;
+        }
+        .add-credits-btn {
+          padding: 8px 16px;
+          background: rgba(21, 128, 61, 0.1);
+          color: #15803d;
+          font-weight: 700;
+          font-size: 13px;
+          border: none;
+          border-radius: 20px;
           cursor: pointer;
         }
-        .kam-btn.whatsapp {
-          background: #25D366;
-          border-color: #25D366;
+        .credits-footer {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding-top: 12px;
+          border-top: 1px solid #f5f5f4;
+          font-size: 12px;
+          color: #57534e;
+        }
+        .credits-footer strong {
+          color: #14532d;
+        }
+        .details-card {
+          background: white;
+          border-radius: 16px;
+          border: 1px solid #e7e5e4;
+          overflow: hidden;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+        .details-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 12px 16px;
+          background: rgba(250, 250, 249, 0.5);
+          border-bottom: 1px solid #f5f5f4;
+        }
+        .details-header h3 {
+          font-size: 15px;
+          font-weight: 700;
+          color: #14532d;
+        }
+        .badge-icon {
+          font-size: 18px;
+        }
+        .details-list {
+          divide-y: 1px solid #f5f5f4;
+        }
+        .detail-row {
+          display: grid;
+          grid-template-columns: 1fr 1.5fr;
+          gap: 8px;
+          padding: 12px 16px;
+          border-bottom: 1px solid #f5f5f4;
+        }
+        .detail-row:last-child {
+          border-bottom: none;
+        }
+        .detail-label {
+          font-size: 12px;
+          font-weight: 600;
+          color: #57534e;
+        }
+        .detail-value {
+          font-size: 13px;
+          font-weight: 500;
+          color: #14532d;
+          text-align: right;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 6px;
+        }
+        .verified-check {
+          color: #15803d;
+        }
+        .dashboard-section h3 {
+          font-size: 18px;
+          font-weight: 700;
+          color: #14532d;
+        }
+        .dashboard-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 12px;
+          padding: 0 4px;
+        }
+        .stats-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+        }
+        .stat-box {
+          background: white;
+          padding: 16px;
+          border-radius: 12px;
+          border: 1px solid #e7e5e4;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          cursor: pointer;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+        .stat-icon {
+          width: 32px;
+          height: 32px;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .stat-icon.green {
+          background: #dcfce7;
+          color: #15803d;
+        }
+        .stat-icon.yellow {
+          background: #fef9c3;
+          color: #a16207;
+        }
+        .stat-number {
+          font-size: 28px;
+          font-weight: 700;
+          color: #14532d;
+        }
+        .stat-label {
+          font-size: 12px;
+          color: #57534e;
+        }
+        .premium-card {
+          position: relative;
+          overflow: hidden;
+          border-radius: 16px;
+          background: linear-gradient(135deg, #14532d 0%, #064e3b 100%);
+          padding: 20px;
+          cursor: pointer;
+        }
+        .premium-glow-1 {
+          position: absolute;
+          top: -40px;
+          right: -40px;
+          width: 160px;
+          height: 160px;
+          background: #22c55e;
+          border-radius: 50%;
+          filter: blur(60px);
+          opacity: 0.2;
+        }
+        .premium-glow-2 {
+          position: absolute;
+          bottom: -40px;
+          left: -40px;
+          width: 160px;
+          height: 160px;
+          background: #fbbf24;
+          border-radius: 50%;
+          filter: blur(60px);
+          opacity: 0.2;
+        }
+        .premium-content {
+          position: relative;
+          z-index: 1;
+        }
+        .premium-header {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          margin-bottom: 16px;
+        }
+        .premium-header h3 {
+          font-size: 18px;
+          font-weight: 700;
           color: white;
         }
-        .logout-btn {
+        .premium-header p {
+          font-size: 12px;
+          color: #bbf7d0;
+          margin-top: 4px;
+        }
+        .premium-icon {
+          width: 40px;
+          height: 40px;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fde047;
+          backdrop-filter: blur(8px);
+        }
+        .premium-features {
+          list-style: none;
+          margin-bottom: 20px;
+        }
+        .premium-features li {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 13px;
+          color: #dcfce7;
+          margin-bottom: 8px;
+        }
+        .premium-features li svg {
+          color: #86efac;
+        }
+        .premium-btn {
+          width: 100%;
+          padding: 12px;
+          background: #fbbf24;
+          color: #14532d;
+          font-weight: 700;
+          font-size: 14px;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .support-section h3 {
+          font-size: 18px;
+          font-weight: 700;
+          color: #14532d;
+          margin-bottom: 12px;
+          padding: 0 4px;
+        }
+        .support-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 12px;
+        }
+        .support-tile {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          padding: 16px 12px;
+          background: white;
+          border: 1px solid #e7e5e4;
+          border-radius: 12px;
+          height: 96px;
+          cursor: pointer;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+        .support-tile svg {
+          color: #15803d;
+        }
+        .support-tile span {
+          font-size: 11px;
+          font-weight: 600;
+          color: #57534e;
+          text-align: center;
+          line-height: 1.3;
+        }
+        .rate-card {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 16px;
+          background: white;
+          border: 1px solid #e7e5e4;
+          border-radius: 12px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+        .rate-content {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        .star-icon {
+          color: #fbbf24;
+          fill: #fbbf24;
+        }
+        .rate-content span {
+          font-size: 14px;
+          font-weight: 700;
+          color: #14532d;
+        }
+        .rate-btn {
+          background: none;
+          border: none;
+          color: #15803d;
+          font-weight: 700;
+          font-size: 14px;
+          cursor: pointer;
+        }
+        .logout-btn-new {
+          width: 100%;
+          padding: 14px;
+          background: #f5f5f4;
+          border: 1px solid #e7e5e4;
+          border-radius: 12px;
+          color: #57534e;
+          font-weight: 700;
+          font-size: 14px;
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 8px;
-          width: calc(100% - 32px);
-          margin: 24px 16px 16px;
-          padding: 14px;
-          background: white;
-          border: 1px solid #FF5252;
-          border-radius: 12px;
-          color: #FF5252;
-          font-size: 15px;
-          font-weight: 500;
           cursor: pointer;
         }
-        .app-version {
+        .version-text {
           text-align: center;
-          padding: 16px;
-        }
-        .app-version p {
-          font-size: 12px;
-          color: #888;
-          margin-bottom: 4px;
+          font-size: 10px;
+          color: #a8a29e;
+          margin-top: 8px;
         }
       `}</style>
     </div>

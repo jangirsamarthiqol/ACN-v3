@@ -6,14 +6,14 @@ function HomeScreen({ onNavigate }) {
     <div className="screen home-screen">
       {/* Header */}
       <header className="app-bar">
-        <div className="avatar">
+        <div className="avatar" onClick={() => onNavigate('profile')} style={{cursor: 'pointer'}}>
           <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=agent" alt="Profile" />
           <span className="online-dot"></span>
         </div>
         <div className="header-tabs">
           <button className="tab active">ACN</button>
-          <button className="tab">My Business</button>
-          <button className="tab">Services</button>
+          <button className="tab" onClick={() => onNavigate('dashboard')}>My Business</button>
+          <button className="tab" onClick={() => onNavigate('services')}>Services</button>
           <button className="tab">Edge</button>
         </div>
         <button className="icon-btn notification">
@@ -67,22 +67,22 @@ function HomeScreen({ onNavigate }) {
           <button className="link-btn">View All</button>
         </div>
         <div className="quick-actions-grid">
-          <div className="action-card red-accent">
+          <div className="action-card red-accent" onClick={() => onNavigate('properties')}>
             <span className="action-icon">🗑️</span>
             <span className="action-count">12</span>
             <span className="action-label">To Delist</span>
           </div>
-          <div className="action-card blue-accent">
+          <div className="action-card blue-accent" onClick={() => onNavigate('enquiries')}>
             <span className="action-icon">📧</span>
             <span className="action-count">8<span className="notif-dot"></span></span>
             <span className="action-label">New Enquiries</span>
           </div>
-          <div className="action-card green-accent">
+          <div className="action-card green-accent" onClick={() => onNavigate('search-results')}>
             <span className="action-icon">🔗</span>
             <span className="action-count">15</span>
             <span className="action-label">New Matches</span>
           </div>
-          <div className="action-card orange-accent">
+          <div className="action-card orange-accent" onClick={() => onNavigate('dashboard')}>
             <span className="action-icon">📊</span>
             <span className="action-count">5</span>
             <span className="action-label">Active Deals</span>

@@ -52,7 +52,7 @@ function MyPropertiesList({ onNavigate }) {
           <ArrowLeft size={24} />
         </button>
         <h1>My Properties</h1>
-        <button className="header-action">
+        <button className="header-action" onClick={() => onNavigate('add-property')}>
           <Plus size={20} /> Add
         </button>
       </header>
@@ -121,7 +121,7 @@ function MyPropertiesList({ onNavigate }) {
       </div>
 
       {/* FAB */}
-      <button className="fab">
+      <button className="fab" onClick={() => onNavigate('add-property')}>
         <Plus size={24} />
       </button>
 
