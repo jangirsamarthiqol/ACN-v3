@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACN v3 Design System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-icon">◆</span>
+                <span class="logo-text">ACN v3</span>
+            </div>
+            <div class="nav-links">
+                <a href="#screens" class="nav-link">Screens</a>
+                <a href="#colors" class="nav-link">Colors</a>
+                <a href="#components" class="nav-link">Components</a>
+            </div>
+        </nav>
+        <div class="hero-content">
+            <div class="hero-badge">Design System</div>
+            <h1 class="hero-title">ACN v3 Mobile App</h1>
+            <p class="hero-subtitle">A comprehensive design system for the next generation real estate agent platform</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">25+</span>
+                    <span class="stat-label">Screens</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Modules</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">M3</span>
+                    <span class="stat-label">Design System</span>
+                </div>
+            </div>
+            <a href="#screens" class="hero-cta">Explore Designs →</a>
+        </div>
+    </header>
+
+    <!-- Color Palette Section -->
+    <section id="colors" class="section colors-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Brand</span>
+                <h2 class="section-title">Color Palette</h2>
+                <p class="section-subtitle">A professional color system designed for trust and clarity</p>
+            </div>
+            <div class="colors-grid">
+                <div class="color-card primary">
+                    <div class="color-preview" style="background: #0066CC;"></div>
+                    <div class="color-info">
+                        <span class="color-name">Primary Blue</span>
+                        <span class="color-hex">#0066CC</span>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview" style="background: #00C853;"></div>
+                    <div class="color-info">
+                        <span class="color-name">Success Green</span>
+                        <span class="color-hex">#00C853</span>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview" style="background: #8B5CF6;"></div>
+                    <div class="color-info">
+                        <span class="color-name">Purple Accent</span>
+                        <span class="color-hex">#8B5CF6</span>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview" style="background: #FF9800;"></div>
+                    <div class="color-info">
+                        <span class="color-name">Orange</span>
+                        <span class="color-hex">#FF9800</span>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview" style="background: #F5F7FA;"></div>
+                    <div class="color-info">
+                        <span class="color-name">Background</span>
+                        <span class="color-hex">#F5F7FA</span>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview" style="background: #1A1A1A;"></div>
+                    <div class="color-info">
+                        <span class="color-name">Text Primary</span>
+                        <span class="color-hex">#1A1A1A</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screens Gallery Section -->
+    <section id="screens" class="section screens-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Gallery</span>
+                <h2 class="section-title">App Screens</h2>
+                <p class="section-subtitle">Explore all screens across the application</p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All Screens</button>
+                <button class="filter-tab" data-filter="home">Home</button>
+                <button class="filter-tab" data-filter="search">Search</button>
+                <button class="filter-tab" data-filter="business">My Business</button>
+                <button class="filter-tab" data-filter="services">Services</button>
+                <button class="filter-tab" data-filter="profile">Profile</button>
+            </div>
+
+            <!-- Screens Grid -->
+            <div class="screens-grid">
+                <!-- ACN Home Complete -->
+                <div class="screen-card" data-category="home">
+                    <div class="screen-image">
+                        <img src="mockups/acn_home_complete.png" alt="ACN Home Screen" loading="lazy">
+                        <div class="screen-overlay">
+                            <button class="view-btn" onclick="openModal('mockups/acn_home_complete.png', 'ACN Home - Complete')">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="M21 21l-4.35-4.35"></path>
+                                    <path d="M11 8v6"></path>
+                                    <path d="M8 11h6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="screen-info">
+                        <span class="screen-category">Home</span>
+                        <h3 class="screen-name">ACN Home - Complete</h3>
+                        <p class="screen-desc">Main home screen with search, banners, quick actions, and insights</p>
+                    </div>
+                </div>
+
+                <!-- Search Screen -->
+                <div class="screen-card" data-category="search">
+                    <div class="screen-image">
+                        <img src="mockups/search_screen.png" alt="Search Screen" loading="lazy">
+                        <div class="screen-overlay">
+                            <button class="view-btn" onclick="openModal('mockups/search_screen.png', 'Search Interface')">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="M21 21l-4.35-4.35"></path>
+                                    <path d="M11 8v6"></path>
+                                    <path d="M8 11h6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="screen-info">
+                        <span class="screen-category">Search</span>
+                        <h3 class="screen-name">Search Interface</h3>
+                        <p class="screen-desc">Full-screen search with recent, trending, and quick filters</p>
+                    </div>
+                </div>
+
+                <!-- Search Results -->
+                <div class="screen-card" data-category="search">
+                    <div class="screen-image">
+                        <img src="mockups/search_results.png" alt="Search Results" loading="lazy">
+                        <div class="screen-overlay">
+                            <button class="view-btn" onclick="openModal('mockups/search_results.png', 'Search Results')">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="M21 21l-4.35-4.35"></path>
+                                    <path d="M11 8v6"></path>
+                                    <path d="M8 11h6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="screen-info">
+                        <span class="screen-category">Search</span>
+                        <h3 class="screen-name">Search Results</h3>
+                        <p class="screen-desc">Property listing with filters, sorting, and match indicators</p>
+                    </div>
+                </div>
+
+                <!-- My Business Dashboard -->
+                <div class="screen-card" data-category="business">
+                    <div class="screen-image">
+                        <img src="mockups/my_business_dashboard.png" alt="My Business Dashboard" loading="lazy">
+                        <div class="screen-overlay">
+                            <button class="view-btn" onclick="openModal('mockups/my_business_dashboard.png', 'My Business Dashboard')">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="M21 21l-4.35-4.35"></path>
+                                    <path d="M11 8v6"></path>
+                                    <path d="M8 11h6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="screen-info">
+                        <span class="screen-category">Business</span>
+                        <h3 class="screen-name">My Business Dashboard</h3>
+                        <p class="screen-desc">Analytics dashboard with stats, charts, and quick actions</p>
+                    </div>
+                </div>
+
+                <!-- Property Detail -->
+                <div class="screen-card" data-category="home">
+                    <div class="screen-image">
+                        <img src="mockups/property_detail_view.png" alt="Property Detail" loading="lazy">
+                        <div class="screen-overlay">
+                            <button class="view-btn" onclick="openModal('mockups/property_detail_view.png', 'Property Detail')">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="M21 21l-4.35-4.35"></path>
+                                    <path d="M11 8v6"></path>
+                                    <path d="M8 11h6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="screen-info">
+                        <span class="screen-category">Detail</span>
+                        <h3 class="screen-name">Property Detail</h3>
+                        <p class="screen-desc">Comprehensive property view with gallery, features, and CTAs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Components Section -->
+    <section id="components" class="section components-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">UI Kit</span>
+                <h2 class="section-title">Design Components</h2>
+                <p class="section-subtitle">Reusable components that power the design system</p>
+            </div>
+            <div class="components-grid">
+                <div class="component-card">
+                    <div class="component-icon">🔘</div>
+                    <h4>Buttons</h4>
+                    <p>Primary, outline, and text variants</p>
+                </div>
+                <div class="component-card">
+                    <div class="component-icon">📋</div>
+                    <h4>Cards</h4>
+                    <p>Property, requirement, and stat cards</p>
+                </div>
+                <div class="component-card">
+                    <div class="component-icon">🔍</div>
+                    <h4>Search</h4>
+                    <p>Search bars and filter chips</p>
+                </div>
+                <div class="component-card">
+                    <div class="component-icon">📊</div>
+                    <h4>Charts</h4>
+                    <p>Bar charts and progress indicators</p>
+                </div>
+                <div class="component-card">
+                    <div class="component-icon">🏷️</div>
+                    <h4>Badges</h4>
+                    <p>Status, category, and notification badges</p>
+                </div>
+                <div class="component-card">
+                    <div class="component-icon">📱</div>
+                    <h4>Navigation</h4>
+                    <p>Tab bars and bottom navigation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Prompts Section -->
+    <section class="section prompts-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Documentation</span>
+                <h2 class="section-title">Design Prompts</h2>
+                <p class="section-subtitle">Detailed specifications for each screen</p>
+            </div>
+            <div class="prompts-list">
+                <div class="prompt-category">
+                    <h4 class="prompt-category-title">🏠 Core Navigation & Home</h4>
+                    <div class="prompt-items">
+                        <a href="design-prompts/01-navigation-shell.md" class="prompt-item">01. Navigation Shell</a>
+                        <a href="design-prompts/02-acn-home-search.md" class="prompt-item">02. ACN Home - Search</a>
+                        <a href="design-prompts/03-banner-carousel.md" class="prompt-item">03. Banner Carousel</a>
+                        <a href="design-prompts/04-quick-actions.md" class="prompt-item">04. Quick Actions</a>
+                        <a href="design-prompts/05-recently-viewed-projects.md" class="prompt-item">05. Recently Viewed Projects</a>
+                        <a href="design-prompts/06-recently-viewed-requirements.md" class="prompt-item">06. Recently Viewed Requirements</a>
+                        <a href="design-prompts/07-market-insights.md" class="prompt-item">07. Market Insights</a>
+                    </div>
+                </div>
+                <div class="prompt-category">
+                    <h4 class="prompt-category-title">🔍 Search Flow</h4>
+                    <div class="prompt-items">
+                        <a href="design-prompts/08-search-screen.md" class="prompt-item">08. Search Screen</a>
+                        <a href="design-prompts/09-search-results.md" class="prompt-item">09. Search Results</a>
+                        <a href="design-prompts/10-filter-bottom-sheet.md" class="prompt-item">10. Filter Bottom Sheet</a>
+                    </div>
+                </div>
+                <div class="prompt-category">
+                    <h4 class="prompt-category-title">💼 My Business</h4>
+                    <div class="prompt-items">
+                        <a href="design-prompts/11-my-business-dashboard.md" class="prompt-item">11. Dashboard</a>
+                        <a href="design-prompts/12-my-properties-list.md" class="prompt-item">12. My Properties</a>
+                        <a href="design-prompts/13-property-detail-edit.md" class="prompt-item">13. Property Detail/Edit</a>
+                        <a href="design-prompts/14-my-requirements-list.md" class="prompt-item">14. My Requirements</a>
+                        <a href="design-prompts/15-add-edit-requirement.md" class="prompt-item">15. Add/Edit Requirement</a>
+                        <a href="design-prompts/16-my-enquiries.md" class="prompt-item">16. My Enquiries</a>
+                    </div>
+                </div>
+                <div class="prompt-category">
+                    <h4 class="prompt-category-title">⚙️ Services</h4>
+                    <div class="prompt-items">
+                        <a href="design-prompts/17-services-landing.md" class="prompt-item">17. Services Landing</a>
+                        <a href="design-prompts/18-legal-services-detail.md" class="prompt-item">18. Legal Services</a>
+                        <a href="design-prompts/19-service-request-form.md" class="prompt-item">19. Service Request</a>
+                        <a href="design-prompts/20-service-tracking.md" class="prompt-item">20. Service Tracking</a>
+                    </div>
+                </div>
+                <div class="prompt-category">
+                    <h4 class="prompt-category-title">👤 Profile & Settings</h4>
+                    <div class="prompt-items">
+                        <a href="design-prompts/21-profile-screen.md" class="prompt-item">21. Profile Screen</a>
+                        <a href="design-prompts/22-edit-profile.md" class="prompt-item">22. Edit Profile</a>
+                        <a href="design-prompts/23-subscription-management.md" class="prompt-item">23. Subscription</a>
+                        <a href="design-prompts/24-property-detail-view.md" class="prompt-item">24. Property Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-icon">◆</span>
+                    <span class="logo-text">ACN v3 Design System</span>
+                </div>
+                <p class="footer-text">A comprehensive design system for real estate professionals</p>
+                <div class="footer-meta">
+                    <span>Version 3.0</span>
+                    <span>•</span>
+                    <span>25 Screens</span>
+                    <span>•</span>
+                    <span>Material Design 3</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for viewing images -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <img id="modalImage" src="" alt="">
+            <h3 id="modalTitle"></h3>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
