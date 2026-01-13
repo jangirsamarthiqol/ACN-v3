@@ -7,7 +7,7 @@ function GlobalBottomNav({ onNavigate, activeTab = 'home', context = 'home' }) {
   const navItems = {
     home: [
       { id: 'home', icon: Home, label: 'Home' },
-      { id: 'properties', icon: Building2, label: 'Properties' },
+      { id: 'search', icon: Building2, label: 'Properties' },
       { id: 'requirements', icon: FileText, label: 'Requirements' },
       { id: 'shortlist', icon: Heart, label: 'Shortlist' }
     ],

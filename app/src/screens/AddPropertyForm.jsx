@@ -4,7 +4,7 @@ import './screens.css'
 function AddPropertyForm({ onNavigate }) {
   return (
     <div className="screen">
-      {/* Header */}
+      {/* Header - Focused View */}
       <header className="screen-header">
         <button className="back-btn" onClick={() => onNavigate('properties')}>
           <ArrowLeft size={24} />

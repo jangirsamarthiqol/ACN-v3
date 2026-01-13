@@ -59,15 +59,44 @@ function HomeScreen({ onNavigate }) {
       <div className="screen-content-scroll" style={{paddingBottom: 80}}>
         {/* Banner Carousel */}
         <section className="section banner-section">
-          <div className="banner-card gradient-blue-purple">
-            <div className="banner-content">
-              <span className="banner-badge">Featured</span>
-              <h3>Premium Properties</h3>
-              <p>Exclusive deals this week</p>
-              <button className="banner-btn">Explore Now →</button>
+          <div className="banner-carousel-container" style={{overflowX: 'auto', display: 'flex', scrollSnapType: 'x mandatory', gap: 16, paddingBottom: 16}}>
+            {/* Banner 1 */}
+            <div className="banner-card gradient-blue-purple" style={{minWidth: '100%', scrollSnapAlign: 'center'}}>
+              <div className="banner-content">
+                <span className="banner-badge">Featured</span>
+                <h3>Premium Properties</h3>
+                <p>Exclusive deals this week</p>
+                <button className="banner-btn">Explore Now →</button>
+              </div>
+              <div className="banner-illustration">
+                <Building2 size={64} strokeWidth={1} />
+              </div>
             </div>
-            <div className="banner-illustration">
-              <Building2 size={64} strokeWidth={1} />
+            
+            {/* Banner 2 */}
+            <div className="banner-card gradient-green-teal" style={{minWidth: '100%', background: 'linear-gradient(135deg, #11998e, #38ef7d)', scrollSnapAlign: 'center'}}>
+              <div className="banner-content">
+                <span className="banner-badge" style={{background: 'rgba(255,255,255,0.2)', color: 'white'}}>New Year Offer</span>
+                <h3 style={{color: 'white'}}>Zero Brokerage</h3>
+                <p style={{color: 'rgba(255,255,255,0.9)'}}>On select new launch projects</p>
+                <button className="banner-btn" style={{background: 'white', color:'#11998e'}}>View Projects →</button>
+              </div>
+              <div className="banner-illustration">
+                <Sparkles size={64} strokeWidth={1} color="white" />
+              </div>
+            </div>
+
+            {/* Banner 3 */}
+            <div className="banner-card gradient-orange-red" style={{minWidth: '100%', background: 'linear-gradient(135deg, #FF512F, #DD2476)', scrollSnapAlign: 'center'}}>
+              <div className="banner-content">
+                <span className="banner-badge" style={{background: 'rgba(255,255,255,0.2)', color: 'white'}}>ACN Edge</span>
+                <h3 style={{color: 'white'}}>Get Verified Leads</h3>
+                <p style={{color: 'rgba(255,255,255,0.9)'}}>Boost your business 2x faster</p>
+                <button className="banner-btn" style={{background: 'white', color:'#DD2476'}}>Try Free →</button>
+              </div>
+              <div className="banner-illustration">
+                <Users size={64} strokeWidth={1} color="white" />
+              </div>
             </div>
           </div>
           <div className="carousel-dots">

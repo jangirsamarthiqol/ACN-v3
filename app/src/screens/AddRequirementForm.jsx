@@ -4,7 +4,7 @@ import './screens.css'
 function AddRequirementForm({ onNavigate }) {
   return (
     <div className="screen">
-      {/* Header */}
+      {/* Header - Focused View */}
       <header className="screen-header">
         <button className="back-btn" onClick={() => onNavigate('requirements')}>
           <ArrowLeft size={24} />

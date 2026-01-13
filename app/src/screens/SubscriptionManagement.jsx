@@ -1,4 +1,6 @@
 import { ArrowLeft, Check, Crown, Zap, Star, ChevronRight, CreditCard } from 'lucide-react'
+import GlobalHeader from '../components/GlobalHeader'
+import GlobalBottomNav from '../components/GlobalBottomNav'
 import './screens.css'
 
 function SubscriptionManagement({ onNavigate }) {
@@ -33,13 +35,16 @@ function SubscriptionManagement({ onNavigate }) {
   return (
     <div className="screen">
       {/* Header */}
-      <header className="screen-header">
+      {/* Global Header */}
+      <GlobalHeader onNavigate={onNavigate} activeTab="Profile" />
+      
+      <div className="section-header" style={{padding: '16px 16px 0'}}>
         <button className="back-btn" onClick={() => onNavigate('profile')}>
           <ArrowLeft size={24} />
         </button>
         <h1>Subscription</h1>
-        <button className="link-btn">History</button>
-      </header>
+        <div style={{width: 24}}></div>
+      </div>
 
       {/* Current Plan */}
       <div className="current-plan-card">
@@ -136,6 +141,8 @@ function SubscriptionManagement({ onNavigate }) {
           <button className="change-link">Change</button>
         </div>
       </div>
+      
+      <GlobalBottomNav onNavigate={onNavigate} activeTab="profile" context="home" />
 
       <style>{`
         .current-plan-card {

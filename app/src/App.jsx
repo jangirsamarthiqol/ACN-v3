@@ -11,6 +11,7 @@ import FilterSheet from './screens/FilterSheet'
 import BusinessDashboard from './screens/BusinessDashboard'
 import MyPropertiesList from './screens/MyPropertiesList'
 import MyRequirementsList from './screens/MyRequirementsList'
+import ShortlistScreen from './screens/ShortlistScreen'
 import MyEnquiries from './screens/MyEnquiries'
 import PropertyDetail from './screens/PropertyDetail'
 import ServicesLanding from './screens/ServicesLanding'
@@ -23,6 +24,7 @@ import SubscriptionManagement from './screens/SubscriptionManagement'
 import AddPropertyForm from './screens/AddPropertyForm'
 import AddRequirementForm from './screens/AddRequirementForm'
 import HelpSupport from './screens/HelpSupport'
+import NotificationScreen from './screens/NotificationScreen'
 
 const screens = [
   // Home & Search
@@ -31,6 +33,7 @@ const screens = [
   { id: 'search-results', name: 'Search Results', category: 'Home', component: SearchResultsScreen },
   { id: 'filter', name: 'Filter Sheet', category: 'Home', component: FilterSheet },
   { id: 'property-detail', name: 'Property Detail', category: 'Home', component: PropertyDetail },
+  { id: 'shortlist', name: 'Shortlist', category: 'Home', component: ShortlistScreen },
   
   // My Business
   { id: 'dashboard', name: 'Dashboard', category: 'My Business', component: BusinessDashboard },
@@ -51,6 +54,7 @@ const screens = [
   { id: 'edit-profile', name: 'Edit Profile', category: 'Profile', component: EditProfile },
   { id: 'subscription', name: 'Subscription', category: 'Profile', component: SubscriptionManagement },
   { id: 'help-support', name: 'Help & Support', category: 'Profile', component: HelpSupport },
+  { id: 'notifications', name: 'Notifications', category: 'Home', component: NotificationScreen },
 ]
 
 function App() {

@@ -64,10 +64,6 @@ function MyPropertiesList({ onNavigate }) {
         <div className="search-bar" style={{marginBottom: 12}}>
           <Search size={18} className="search-icon" />
           <span className="search-placeholder">Search your properties...</span>
-          <button className="filter-side-btn">
-            <SlidersHorizontal size={16} />
-            <span>Filter</span>
-          </button>
         </div>
       </div>
 

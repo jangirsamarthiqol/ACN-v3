@@ -1,4 +1,6 @@
 import { ArrowLeft, Search, ChevronRight, MessageCircle, Phone, Mail, FileText, HelpCircle, BookOpen, Shield, CreditCard, Building2 } from 'lucide-react'
+import GlobalHeader from '../components/GlobalHeader'
+import GlobalBottomNav from '../components/GlobalBottomNav'
 import './screens.css'
 
 function HelpSupport({ onNavigate }) {
@@ -19,13 +21,16 @@ function HelpSupport({ onNavigate }) {
   return (
     <div className="screen help-screen">
       {/* Header */}
-      <header className="help-header">
-        <button className="back-btn-round" onClick={() => onNavigate('profile')}>
-          <ArrowLeft size={20} />
+      {/* Global Header */}
+      <GlobalHeader onNavigate={onNavigate} activeTab="Profile" />
+
+      <div className="section-header" style={{padding: '16px 16px 0'}}>
+        <button className="back-btn" onClick={() => onNavigate('profile')}>
+          <ArrowLeft size={24} />
         </button>
         <h1>Help & Support</h1>
-        <div style={{width: 40}}></div>
-      </header>
+        <div style={{width: 24}}></div>
+      </div>
 
       {/* Search */}
       <div className="help-search-section">
@@ -121,6 +126,8 @@ function HelpSupport({ onNavigate }) {
         </div>
         <button className="contact-kam-btn">Contact KAM</button>
       </div>
+
+      <GlobalBottomNav onNavigate={onNavigate} activeTab="profile" context="home" />
 
       <style>{`
         .help-screen {

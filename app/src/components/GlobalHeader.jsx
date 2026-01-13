@@ -55,7 +55,7 @@ function GlobalHeader({ onNavigate, activeTab = 'ACN' }) {
           Edge
         </button>
       </div>
-      <button className="icon-btn notification">
+      <button className="icon-btn notification" onClick={() => onNavigate('notifications')}>
         <Bell size={22} />
         <span className="badge">3</span>
       </button>
