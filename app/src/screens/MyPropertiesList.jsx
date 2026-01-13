@@ -1,4 +1,6 @@
-import { ArrowLeft, Plus, Search, MapPin, Eye, Mail, Link, MoreVertical, SlidersHorizontal } from 'lucide-react'
+import { ArrowLeft, Plus, Search, MapPin, Eye, Mail, Link, MoreVertical, SlidersHorizontal, Building2 } from 'lucide-react'
+import GlobalHeader from '../components/GlobalHeader'
+import GlobalBottomNav from '../components/GlobalBottomNav'
 import './screens.css'
 
 function MyPropertiesList({ onNavigate }) {
@@ -47,15 +49,8 @@ function MyPropertiesList({ onNavigate }) {
   return (
     <div className="screen">
       {/* Header */}
-      <header className="screen-header">
-        <button className="back-btn" onClick={() => onNavigate('dashboard')}>
-          <ArrowLeft size={24} />
-        </button>
-        <h1>My Properties</h1>
-        <button className="header-action" onClick={() => onNavigate('add-property')}>
-          <Plus size={20} /> Add
-        </button>
-      </header>
+      {/* Global Header */}
+      <GlobalHeader onNavigate={onNavigate} activeTab="My Business" />
 
       {/* Toggle Tabs */}
       <div className="toggle-tabs">
@@ -117,6 +112,8 @@ function MyPropertiesList({ onNavigate }) {
       <button className="fab" onClick={() => onNavigate('add-property')}>
         <Plus size={24} />
       </button>
+
+      <GlobalBottomNav onNavigate={onNavigate} activeTab="properties" context="business" />
 
       <style>{`
         .mini-stats {

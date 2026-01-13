@@ -1,4 +1,6 @@
 import { ArrowLeft, Filter, Scale, Phone, MessageCircle, ChevronDown, AlertCircle, CheckCircle } from 'lucide-react'
+import GlobalHeader from '../components/GlobalHeader'
+import GlobalBottomNav from '../components/GlobalBottomNav'
 import './screens.css'
 
 function ServiceTracking({ onNavigate }) {
@@ -50,16 +52,8 @@ function ServiceTracking({ onNavigate }) {
 
   return (
     <div className="screen">
-      {/* Header */}
-      <header className="screen-header">
-        <button className="back-btn" onClick={() => onNavigate('services')}>
-          <ArrowLeft size={24} />
-        </button>
-        <h1>My Services</h1>
-        <button className="icon-btn">
-          <Filter size={20} />
-        </button>
-      </header>
+      {/* Global Header */}
+      <GlobalHeader onNavigate={onNavigate} activeTab="Services" />
 
       {/* Tabs */}
       <div className="toggle-tabs">
@@ -171,6 +165,8 @@ function ServiceTracking({ onNavigate }) {
           </div>
         ))}
       </div>
+      
+      <GlobalBottomNav onNavigate={onNavigate} activeTab="service-tracking" context="services" />
 
       <style>{`
         .tracking-card {

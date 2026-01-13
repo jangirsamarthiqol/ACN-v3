@@ -1,4 +1,6 @@
 import { Scale, FileText, CheckCircle, ArrowRight, Star, Users, Clock, ChevronRight, Bell } from 'lucide-react'
+import GlobalHeader from '../components/GlobalHeader'
+import GlobalBottomNav from '../components/GlobalBottomNav'
 import './screens.css'
 
 function ServicesLanding({ onNavigate }) {
@@ -13,11 +15,15 @@ function ServicesLanding({ onNavigate }) {
 
   return (
     <div className="screen services-screen">
-      {/* Header */}
-      <div className="services-header gradient-blue-purple">
-        <h1>Services</h1>
-        <p>Value-added services for your real estate business</p>
-      </div>
+      {/* Global Header */}
+      <GlobalHeader onNavigate={onNavigate} activeTab="Services" />
+
+      <div className="screen-content-scroll" style={{paddingBottom: 80}}>
+        {/* Helper Header for context */}
+        <div className="services-header gradient-blue-purple" style={{marginTop: 0}}>
+          <h1>Services Hub</h1>
+          <p>Value-added services for your real estate business</p>
+        </div>
 
       {/* Featured Legal Services */}
       <div className="featured-service-card">
@@ -253,6 +259,8 @@ function ServicesLanding({ onNavigate }) {
           border-bottom: none;
         }
       `}</style>
+      </div>
+      <GlobalBottomNav onNavigate={onNavigate} activeTab="services" context="services" />
     </div>
   )
 }

@@ -1,4 +1,6 @@
 import { ArrowLeft, Plus, Search, MapPin, Link, Mail } from 'lucide-react'
+import GlobalHeader from '../components/GlobalHeader'
+import GlobalBottomNav from '../components/GlobalBottomNav'
 import './screens.css'
 
 function MyRequirementsList({ onNavigate }) {
@@ -50,15 +52,8 @@ function MyRequirementsList({ onNavigate }) {
   return (
     <div className="screen">
       {/* Header */}
-      <header className="screen-header">
-        <button className="back-btn" onClick={() => onNavigate('dashboard')}>
-          <ArrowLeft size={24} />
-        </button>
-        <h1>My Requirements</h1>
-        <button className="header-action" style={{color: '#8B5CF6'}} onClick={() => onNavigate('add-requirement')}>
-          <Plus size={20} /> Add
-        </button>
-      </header>
+      {/* Global Header */}
+      <GlobalHeader onNavigate={onNavigate} activeTab="My Business" />
 
       {/* Toggle Tabs */}
       <div className="toggle-tabs">
@@ -151,6 +146,8 @@ function MyRequirementsList({ onNavigate }) {
       <button className="fab purple" onClick={() => onNavigate('add-requirement')}>
         <Plus size={24} />
       </button>
+
+      <GlobalBottomNav onNavigate={onNavigate} activeTab="requirements" context="business" />
 
       <style>{`
         .requirement-card {

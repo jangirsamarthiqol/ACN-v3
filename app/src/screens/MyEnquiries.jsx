@@ -1,4 +1,6 @@
 import { ArrowLeft, Filter, Phone, MessageCircle } from 'lucide-react'
+import GlobalHeader from '../components/GlobalHeader'
+import GlobalBottomNav from '../components/GlobalBottomNav'
 import './screens.css'
 
 function MyEnquiries({ onNavigate }) {
@@ -59,15 +61,8 @@ function MyEnquiries({ onNavigate }) {
   return (
     <div className="screen">
       {/* Header */}
-      <header className="screen-header">
-        <button className="back-btn" onClick={() => onNavigate('dashboard')}>
-          <ArrowLeft size={24} />
-        </button>
-        <h1>My Enquiries</h1>
-        <button className="icon-btn">
-          <Filter size={20} />
-        </button>
-      </header>
+      {/* Global Header */}
+      <GlobalHeader onNavigate={onNavigate} activeTab="My Business" />
 
       {/* Stats Banner */}
       <div className="enquiry-stats-banner">
@@ -135,6 +130,8 @@ function MyEnquiries({ onNavigate }) {
           </div>
         ))}
       </div>
+      
+      <GlobalBottomNav onNavigate={onNavigate} activeTab="enquiries" context="business" />
 
       <style>{`
         .enquiry-stats-banner {

@@ -1,4 +1,6 @@
 import { ArrowLeft, Scale, FileText, CheckCircle, Clock, Star, ChevronRight, Phone, MessageCircle } from 'lucide-react'
+import GlobalHeader from '../components/GlobalHeader'
+import GlobalBottomNav from '../components/GlobalBottomNav'
 import './screens.css'
 
 function LegalServicesDetail({ onNavigate }) {
@@ -47,14 +49,8 @@ function LegalServicesDetail({ onNavigate }) {
 
   return (
     <div className="screen">
-      {/* Header */}
-      <header className="screen-header">
-        <button className="back-btn" onClick={() => onNavigate('services')}>
-          <ArrowLeft size={24} />
-        </button>
-        <h1>Legal Services</h1>
-        <button className="icon-btn">🔗</button>
-      </header>
+      {/* Global Header */}
+      <GlobalHeader onNavigate={onNavigate} activeTab="Services" />
 
       {/* Hero */}
       <div className="legal-hero gradient-blue-purple">
@@ -136,6 +132,8 @@ function LegalServicesDetail({ onNavigate }) {
           ))}
         </div>
       </section>
+
+      <GlobalBottomNav onNavigate={onNavigate} activeTab="legal-services" context="services" />
 
       <style>{`
         .legal-hero {

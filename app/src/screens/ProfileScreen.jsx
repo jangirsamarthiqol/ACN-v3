@@ -1,4 +1,6 @@
-import { ArrowLeft, Star, Zap, CreditCard, Calendar, Check, Phone, HelpCircle, FileText, LogOut, Crown, Mail, Building2 } from 'lucide-react'
+import { ArrowLeft, Star, Zap, CreditCard, Calendar, Check, Phone, HelpCircle, FileText, LogOut, Crown, Mail, Building2, Edit2 } from 'lucide-react'
+import GlobalHeader from '../components/GlobalHeader'
+import GlobalBottomNav from '../components/GlobalBottomNav'
 import './screens.css'
 
 function ProfileScreen({ onNavigate }) {
@@ -13,15 +15,10 @@ function ProfileScreen({ onNavigate }) {
 
   return (
     <div className="screen profile-screen-new">
-      {/* Header */}
-      <header className="profile-header-new">
-        <button className="back-btn-round" onClick={() => onNavigate('home')}>
-          <ArrowLeft size={20} />
-        </button>
-        <button className="edit-profile-btn" onClick={() => onNavigate('edit-profile')}>
-          Edit Profile
-        </button>
-      </header>
+      {/* Global Header */}
+      <GlobalHeader onNavigate={onNavigate} activeTab="" />
+
+      <div className="screen-content-scroll" style={{paddingBottom: 80}}>
 
       {/* Profile Section */}
       <section className="profile-hero">
@@ -43,7 +40,12 @@ function ProfileScreen({ onNavigate }) {
 
         {/* Name & Phone */}
         <div className="profile-info">
-          <h1 className="profile-name-new">John Doe</h1>
+          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10}}>
+            <h1 className="profile-name-new">John Doe</h1>
+            <button className="icon-btn-small" onClick={() => onNavigate('edit-profile')} aria-label="Edit Profile">
+              <Edit2 size={16} />
+            </button>
+          </div>
           <p className="profile-phone">+91 98765 43210</p>
         </div>
 
@@ -180,8 +182,11 @@ function ProfileScreen({ onNavigate }) {
         <button className="logout-btn-new">
           <LogOut size={18} />
           <span>Log Out</span>
-        </button>~
+        </button>
       </div>
+      </div>
+      
+      <GlobalBottomNav onNavigate={onNavigate} activeTab="" />
 
       <style>{`
         .profile-screen-new {
@@ -661,6 +666,18 @@ function ProfileScreen({ onNavigate }) {
           font-size: 10px;
           color: #a8a29e;
           margin-top: 8px;
+        }
+        .icon-btn-small {
+          background: rgba(21, 128, 61, 0.1);
+          color: #15803d;
+          border: none;
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
         }
       `}</style>
     </div>
