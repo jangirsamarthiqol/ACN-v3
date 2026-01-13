@@ -180,10 +180,7 @@ function ProfileScreen({ onNavigate }) {
         <button className="logout-btn-new">
           <LogOut size={18} />
           <span>Log Out</span>
-        </button>
-
-        {/* Version */}
-        <p className="version-text">Version 2.4.1 (Build 204)</p>
+        </button>~
       </div>
 
       <style>{`

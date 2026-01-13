@@ -1,7 +1,20 @@
-import { Search, SlidersHorizontal, Bell, Heart, ChevronRight, Home, Building2, FileText, Sparkles } from 'lucide-react'
+import React, { useState } from 'react';
+import { 
+  Search, SlidersHorizontal, Bell, Heart, ChevronRight, Home, Building2, 
+  FileText, Sparkles, MapPin, Tag, Key, Briefcase, Users, ChevronDown 
+} from 'lucide-react'
 import './screens.css'
 
 function HomeScreen({ onNavigate }) {
+  const [activeTab, setActiveTab] = useState('Buy');
+
+  const searchTabs = [
+    { id: 'Buy', icon: Tag, label: 'Buy' },
+    { id: 'Rent', icon: Key, label: 'Rent' },
+    { id: 'Commercial', icon: Briefcase, label: 'Commercial' },
+    { id: 'Project', icon: Building2, label: 'Project', badge: 'NEW' },
+  ];
+
   return (
     <div className="screen home-screen">
       {/* Header */}
@@ -22,23 +35,39 @@ function HomeScreen({ onNavigate }) {
         </button>
       </header>
 
-      {/* Search Section */}
-      <section className="section search-section" onClick={() => onNavigate('search')}>
-        <div className="search-bar">
-          <Search size={20} className="search-icon" />
-          <span className="search-placeholder">Search properties or requirements...</span>
-          <button className="filter-btn">
-            <SlidersHorizontal size={18} />
-          </button>
+      {/* Modern Search Section */}
+      <div className="search-container-modern">
+        <div className="search-tabs-scroll">
+          {searchTabs.map(tab => (
+            <div 
+              key={tab.id}
+              className={`search-tab-item ${activeTab === tab.id ? 'active' : ''}`}
+              onClick={() => setActiveTab(tab.id)}
+            >
+              {tab.badge && <span className="new-badge">{tab.badge}</span>}
+              <tab.icon size={24} className="search-tab-icon" strokeWidth={1.5} />
+              <span className="search-tab-label">{tab.label}</span>
+            </div>
+          ))}
         </div>
-        <div className="property-pills">
-          <button className="pill active">Buy</button>
-          <button className="pill">Rent</button>
-          <button className="pill">Commercial</button>
-          <button className="pill">Primary</button>
-          <button className="pill">Land</button>
+        
+        <div className="search-panel-modern" style={{
+          borderTopLeftRadius: activeTab === 'Buy' ? '0' : '24px' // Dynamic corner adjustment
+        }}>
+          
+          <div className="modern-search-input-box" onClick={() => onNavigate('search')}>
+            <input 
+              type="text" 
+              className="modern-input" 
+              placeholder="Search city, locality, landmark..." 
+              readOnly 
+            />
+            <button className="search-btn-large">
+              <Search size={22} />
+            </button>
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* Banner Carousel */}
       <section className="section banner-section">
@@ -60,10 +89,10 @@ function HomeScreen({ onNavigate }) {
         </div>
       </section>
 
-      {/* Quick Actions */}
+      {/* Overview (Renamed from Quick Actions) */}
       <section className="section">
         <div className="section-header">
-          <h2>Quick Actions</h2>
+          <h2>Overview</h2>
           <button className="link-btn">View All</button>
         </div>
         <div className="quick-actions-grid">
@@ -90,10 +119,84 @@ function HomeScreen({ onNavigate }) {
         </div>
       </section>
 
-      {/* Recently Viewed Projects */}
+      {/* New Launch Projects */}
       <section className="section">
         <div className="section-header">
-          <h2>Recently Viewed Projects</h2>
+          <h2>New Launch Projects</h2>
+          <button className="link-btn">View All <ChevronRight size={16} /></button>
+        </div>
+        <div className="horizontal-scroll">
+          {[1, 2, 3].map(i => (
+            <div key={i} className="project-card" onClick={() => onNavigate('property-detail')}>
+              <div className="project-image">
+                <img src={`https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=300&fit=crop`} alt="New Launch" />
+                <span className="premium-badge" style={{background: 'linear-gradient(135deg, #1b4d3e, #064e3b)', color: 'white'}}>New Launch</span>
+                <button className="heart-btn"><Heart size={18} /></button>
+              </div>
+              <div className="project-info">
+                <h4>Sobha Royal Crest</h4>
+                <p className="location">📍 Banashankari, Bangalore</p>
+                <p className="price">₹1.8 Cr - ₹2.5 Cr</p>
+                <div className="project-tags">
+                  <span className="tag">Luxury</span>
+                  <span className="tag">3,4 BHK</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Recently Viewed Properties */}
+      <section className="section">
+        <div className="section-header">
+          <h2>Recently Viewed Properties</h2>
+          <button className="link-btn">View All <ChevronRight size={16} /></button>
+        </div>
+        <div className="horizontal-scroll">
+          {[1, 2, 3].map(i => (
+            <div key={i} className="project-card" onClick={() => onNavigate('property-detail')}>
+              <div className="project-image">
+                <img src={`https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=300&fit=crop`} alt="Property" />
+                <button className="heart-btn"><Heart size={18} /></button>
+              </div>
+              <div className="project-info">
+                <h4>3 BHK Apartment</h4>
+                <p className="location">📍 Whitefield, Bangalore</p>
+                <p className="price">₹1.25 Cr</p>
+                <div className="project-tags">
+                  <span className="tag">Resale</span>
+                  <span className="tag">Furnished</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Recently Viewed Requirements */}
+      <section className="section">
+        <div className="section-header">
+          <h2>Recently Viewed Requirements</h2>
+          <button className="link-btn">View All <ChevronRight size={16} /></button>
+        </div>
+        <div className="horizontal-scroll">
+          {[1, 2, 3].map(i => (
+            <div key={i} className="requirement-card" onClick={() => onNavigate('requirements')}>
+              <span className="req-tag">Buy</span>
+              <h4>3 BHK in Indiranagar</h4>
+              <p><MapPin size={12} style={{display: 'inline', marginRight: 4}} /> Indiranagar, Bangalore</p>
+              <p style={{fontWeight: 600, color: 'var(--primary-color)'}}>Budget: ₹2.5 Cr</p>
+              <p style={{fontSize: 11, color: '#999'}}>Viewed 2 hours ago</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Recently Viewed Projects (Original) */}
+      <section className="section">
+        <div className="section-header">
+          <h2>Previously Viewed Projects</h2>
           <button className="link-btn">View All <ChevronRight size={16} /></button>
         </div>
         <div className="horizontal-scroll">

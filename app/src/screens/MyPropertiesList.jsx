@@ -1,4 +1,4 @@
-import { ArrowLeft, Plus, Search, MapPin, Eye, Mail, Link, MoreVertical } from 'lucide-react'
+import { ArrowLeft, Plus, Search, MapPin, Eye, Mail, Link, MoreVertical, SlidersHorizontal } from 'lucide-react'
 import './screens.css'
 
 function MyPropertiesList({ onNavigate }) {
@@ -69,11 +69,10 @@ function MyPropertiesList({ onNavigate }) {
         <div className="search-bar" style={{marginBottom: 12}}>
           <Search size={18} className="search-icon" />
           <span className="search-placeholder">Search your properties...</span>
-        </div>
-        <div className="filter-chips">
-          <button className="filter-chip">Status: All ▾</button>
-          <button className="filter-chip">BHK: All ▾</button>
-          <button className="filter-chip">Location ▾</button>
+          <button className="filter-side-btn">
+            <SlidersHorizontal size={16} />
+            <span>Filter</span>
+          </button>
         </div>
       </div>
 
@@ -105,12 +104,6 @@ function MyPropertiesList({ onNavigate }) {
                 <p className="card-meta">{property.area} | {property.title.split(' ')[0]} BHK</p>
                 <p className="card-price">{property.price}</p>
               </div>
-            </div>
-            <div className="card-stats">
-              <span><Eye size={12} /> {property.views}</span>
-              <span><Mail size={12} /> {property.enquiries}</span>
-              <span><Link size={12} /> {property.matches}</span>
-              <span>❤️ {property.shortlists}</span>
             </div>
             <div className="card-actions">
               <button className="btn btn-outline">View Matches</button>
@@ -168,6 +161,20 @@ function MyPropertiesList({ onNavigate }) {
         .card-meta {
           font-size: 11px;
           color: #888;
+        }
+        .filter-side-btn {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          background: none;
+          border: none;
+          border-left: 1px solid #E0E0E0;
+          padding-left: 12px;
+          margin-left: auto;
+          color: var(--primary-color);
+          font-size: 13px;
+          font-weight: 500;
+          cursor: pointer;
         }
       `}</style>
     </div>

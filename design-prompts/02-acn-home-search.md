@@ -6,7 +6,7 @@ Design the top search section for ACN real estate app home screen:
 - Prominent placement at top (16px margin from all sides)
 - White background with border radius 16px
 - Left: Search icon (gray, 20px)
-- Placeholder: "Search properties or requirements..." (gray text, 15px)
+- Placeholder: "Search " (gray text, 15px)
 - Right: Filter icon button (gray, with subtle tap state)
 - Shadow: 0 4px 12px rgba(0,0,0,0.08)
 - Height: 56px

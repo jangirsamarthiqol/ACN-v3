@@ -1,165 +1,237 @@
-import { ArrowLeft, Share2, Heart, Phone, MessageCircle, Mail, Calendar, MapPin, Check, Home, Square, Bath, Car, ChevronRight } from 'lucide-react'
-import './screens.css'
+import React, { useState } from 'react';
+import { 
+  ArrowLeft, Share2, Heart, Phone, MessageCircle, Mail, Calendar, 
+  MapPin, Check, Home, Square, Bath, Car, ChevronRight, Star, Clock, 
+  ShieldCheck, Info
+} from 'lucide-react';
+import './screens.css';
 
 function PropertyDetail({ onNavigate }) {
-  const features = [
-    { icon: Home, label: '3 BHK', value: '' },
-    { icon: Square, label: '1,450', value: 'sq.ft' },
-    { icon: Bath, label: '2', value: 'Baths' },
-    { icon: Home, label: '2', value: 'Balcony' },
-    { icon: Home, label: '5th', value: 'Floor' },
-    { icon: Car, label: '2', value: 'Parking' }
-  ]
+  const [activeTab, setActiveTab] = useState('overview');
+  const [isLiked, setIsLiked] = useState(false);
 
-  const amenities = ['Gym', 'Pool', 'Club House', 'Power Backup', 'Lift', 'Security', 'Garden', 'Play Area']
+  const features = [
+    { icon: Home, label: '3 BHK', value: 'Apartment' },
+    { icon: Square, label: '1,450', value: 'Sq. Ft.' },
+    { icon: Bath, label: '2', value: 'Bathrooms' },
+    { icon: Share2, label: '2', value: 'Balconies' }, // Using Share2 as placeholder for Balcony if needed or switch icon
+    { icon: Car, label: 'Covered', value: 'Parking' },
+    { icon: Calendar, label: 'Ready', value: 'Possession' }
+  ];
+
+  const amenities = [
+    'Club House', 'Swimming Pool', 'Gymnasium', 'Power Backup', 
+    '24x7 Security', 'Children\'s Play Area', 'Landscaped Gardens', 'Jogging Track'
+  ];
 
   return (
-    <div className="screen property-detail-screen">
-      {/* Image Gallery */}
-      <div className="gallery">
-        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=400&fit=crop" alt="Property" />
-        <div className="gallery-overlay">
-          <button className="gallery-btn back" onClick={() => onNavigate('home')}>
-            <ArrowLeft size={20} />
+    <div className="screen property-detail-new">
+      {/* Immersive Image Gallery */}
+      <div className="hero-gallery">
+        <img 
+          src="https://images.unsplash.com/photo-1600596542815-e36cb06c37f6?auto=format&fit=crop&q=80&w=600&h=400" 
+          alt="Property Hero" 
+          className="hero-image"
+        />
+        <div className="hero-overlay-top">
+          <button className="icon-btn-glass" onClick={() => onNavigate('home')}>
+            <ArrowLeft size={20} color="white" />
           </button>
-          <div className="gallery-actions">
-            <button className="gallery-btn"><Share2 size={18} /></button>
-            <button className="gallery-btn heart"><Heart size={18} /></button>
+          <div className="hero-actions">
+            <button className="icon-btn-glass">
+              <Share2 size={20} color="white" />
+            </button>
+            <button 
+              className={`icon-btn-glass ${isLiked ? 'active' : ''}`}
+              onClick={() => setIsLiked(!isLiked)}
+            >
+              <Heart size={20} color={isLiked ? '#ef4444' : 'white'} fill={isLiked ? '#ef4444' : 'none'} />
+            </button>
           </div>
         </div>
-        <span className="image-counter">3 / 12</span>
-        <button className="view-all-photos">View All Photos</button>
-        <span className="verified-property-badge"><Check size={12} /> Verified Property</span>
-      </div>
-
-      {/* Quick Actions */}
-      <div className="quick-contact-bar">
-        <button className="contact-chip primary"><Phone size={16} /> Call</button>
-        <button className="contact-chip whatsapp"><MessageCircle size={16} /> WhatsApp</button>
-        <button className="contact-chip"><Mail size={16} /> Email</button>
-        <button className="contact-chip"><Calendar size={16} /> Visit</button>
-      </div>
-
-      {/* Price & Title */}
-      <div className="property-header-section">
-        <div className="price-row">
-          <span className="price">₹1.2 Crore</span>
-          <span className="price-per-sqft">₹8,275 per sq.ft</span>
-          <span className="negotiable-badge">Negotiable</span>
-        </div>
-        <h1 className="property-title">Spacious 3 BHK Apartment</h1>
-        <p className="property-id">#ACN12345 <span className="copy-icon">📋</span></p>
-        <p className="project-name">Prestige Lakeside Habitat</p>
-        <p className="location"><MapPin size={14} /> Varthur, Bangalore • 5.2 km away</p>
-        <button className="directions-link">Get Directions →</button>
-      </div>
-
-      {/* Agent Info */}
-      <div className="agent-row">
-        <div className="agent-avatar">
-          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=rahul" alt="" />
-        </div>
-        <div className="agent-info">
-          <span className="agent-name">Rahul Sharma • Verified Agent</span>
-          <span className="agent-rating">⭐ 4.8</span>
-        </div>
-        <span className="posted-date">5 days ago • 234 views</span>
-      </div>
-
-      {/* Key Features */}
-      <div className="features-grid">
-        {features.map((feature, i) => (
-          <div key={i} className="feature-card">
-            <feature.icon size={20} className="feature-icon" />
-            <span className="feature-value">{feature.label}</span>
-            <span className="feature-label">{feature.value}</span>
-          </div>
-        ))}
-      </div>
-
-      {/* Tabs */}
-      <div className="detail-tabs">
-        <button className="detail-tab active">Overview</button>
-        <button className="detail-tab">Amenities</button>
-        <button className="detail-tab">Location</button>
-        <button className="detail-tab">Similar</button>
-      </div>
-
-      {/* Overview Content */}
-      <div className="detail-section">
-        <h3>Property Details</h3>
-        <div className="details-grid">
-          <div className="detail-item">
-            <span className="detail-label">Transaction</span>
-            <span className="detail-value">Resale</span>
-          </div>
-          <div className="detail-item">
-            <span className="detail-label">Furnishing</span>
-            <span className="detail-value">Semi-Furnished</span>
-          </div>
-          <div className="detail-item">
-            <span className="detail-label">Facing</span>
-            <span className="detail-value">North-East</span>
-          </div>
-          <div className="detail-item">
-            <span className="detail-label">Property Age</span>
-            <span className="detail-value">3 years</span>
-          </div>
-          <div className="detail-item">
-            <span className="detail-label">Possession</span>
-            <span className="detail-value">Ready to Move</span>
-          </div>
-          <div className="detail-item">
-            <span className="detail-label">Maintenance</span>
-            <span className="detail-value">₹3,500/month</span>
+        
+        <div className="hero-overlay-bottom">
+          <div className="photo-count-badge">
+            <span className="dot"></span> 1 of 12 Photos
           </div>
         </div>
       </div>
 
-      {/* Amenities */}
-      <div className="detail-section">
-        <h3>Amenities</h3>
-        <div className="amenities-grid">
-          {amenities.map((amenity, i) => (
-            <div key={i} className="amenity-item">
-              <Check size={14} className="amenity-check" />
-              <span>{amenity}</span>
+      <div className="screen-content no-scrollbar content-overlap">
+        {/* Main Info Card */}
+        <div className="property-main-card">
+          <div className="property-badges">
+            <span className="badge-verified"><ShieldCheck size={12} /> Verified</span>
+            <span className="badge-status">Ready to Move</span>
+          </div>
+          
+          <h1 className="property-title-large">3 BHK Premium Apartment</h1>
+          <p className="project-subtitle">Prestige Lakeside Habitat</p>
+          
+          <div className="location-row">
+            <MapPin size={16} className="text-secondary" />
+            <span>Varthur, Bangalore</span>
+            <span className="dot-divider">•</span>
+            <span>2.5 km from Whitefield</span>
+          </div>
+
+          <div className="divider-soft"></div>
+
+          <div className="price-section">
+            <div className="price-block">
+              <span className="price-value">₹1.25 Cr</span>
+              <span className="price-rate">₹8,620 / sq.ft</span>
             </div>
-          ))}
+            <button className="action-pill outline">
+            <Share2 size={16} /> Share
+          </button>
+          </div>
+        </div>
+
+        
+
+        {/* Key Features */}
+        <section className="detail-section">
+          <h3>Key Features</h3>
+          <div className="features-grid-new">
+            {features.map((item, i) => (
+              <div key={i} className="feature-item-new">
+                <div className="feature-icon-wrapper">
+                  <item.icon size={20} />
+                </div>
+                <span className="feature-val">{item.label}</span>
+                <span className="feature-lbl">{item.value}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Tabs */}
+        <div className="sticky-tabs-wrapper">
+          <div className="detail-tabs-new">
+            {['overview', 'amenities', 'location', 'similar'].map(tab => (
+              <button 
+                key={tab} 
+                className={`tab-btn ${activeTab === tab ? 'active' : ''}`}
+                onClick={() => setActiveTab(tab)}
+              >
+                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Dynamic Tab Content */}
+        <div className="tab-content-area">
+          {activeTab === 'overview' && (
+            <>
+              <div className="info-block">
+                <h4>Description</h4>
+                <p className="desc-text">
+                  A meticulously designed 3 BHK apartment offering a blend of luxury and comfort. 
+                  Featuring spacious interiors, modern fittings, and excellent natural light. 
+                  The property is located in a prime area with easy access to IT parks and international schools.
+                  <span className="read-more-link"> Read More</span>
+                </p>
+              </div>
+
+              <div className="info-block">
+                <h4>Property Details</h4>
+                <div className="specs-grid">
+                  <div className="spec-row">
+                    <span className="label">Configuration</span>
+                    <span className="value">3 Bedrooms, 3 Bathrooms, 2 Balconies</span>
+                  </div>
+                  <div className="spec-row">
+                    <span className="label">Furnishing Status</span>
+                    <span className="value">Semi-Furnished</span>
+                  </div>
+                  <div className="spec-row">
+                    <span className="label">Floor Number</span>
+                    <span className="value">12th of 24 Floors</span>
+                  </div>
+                  <div className="spec-row">
+                    <span className="label">Water Supply</span>
+                    <span className="value">24 Hours Available</span>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+          
+          {activeTab === 'amenities' && (
+            <div className="amenities-list-new">
+              {amenities.map(amenity => (
+                <div key={amenity} className="amenity-tag">
+                  <Check size={14} /> {amenity}
+                </div>
+              ))}
+              <div className="amenity-tag more">+ 12 More</div>
+            </div>
+          )}
+        </div>
+
+        {/* Agent Card */}
+        <section className="agent-card-new">
+          <div className="agent-header">
+            <div className="agent-img">
+              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Agent" />
+              <div className="verified-badge-icon"><ShieldCheck size={10} /></div>
+            </div>
+            <div className="agent-details">
+              <h4>Sarah Williams</h4>
+              <p>Premium Partner • 4.9 <Star size={10} fill="#fbbf24" stroke="none" /></p>
+            </div>
+            <button className="view-profile-btn">View</button>
+          </div>
+          <div className="agent-stats">
+            <div className="stat">
+              <span className="val">12</span>
+              <span className="lbl">Listings</span>
+            </div>
+            <div className="stat">
+              <span className="val">54</span>
+              <span className="lbl">Deals</span>
+            </div>
+            <div className="stat">
+              <span className="val">98%</span>
+              <span className="lbl">Response</span>
+            </div>
+          </div>
+        </section>
+              {/* Sticky Action Footer */}
+      <div className="sticky-footer-new">
+        <div className="footer-price">
+          <span className="label">Total Price</span>
+          <span className="value">₹1.25 Cr</span>
+        </div>
+        <div className="footer-actions">
+          <button className="btn-secondary">Schedule Visit</button>
+          <button className="btn-primary">Contact Now</button>
         </div>
       </div>
-
-      {/* Description */}
-      <div className="detail-section">
-        <h3>About This Property</h3>
-        <p className="description">
-          Beautifully designed 3 BHK apartment in a premium gated community. Features modern interiors, 
-          spacious rooms, and excellent ventilation. Located close to IT hubs, schools, and shopping centers.
-          <button className="read-more">Read More</button>
-        </p>
       </div>
 
-      {/* Sticky Footer */}
-      <div className="sticky-footer">
-        <button className="btn btn-outline"><Calendar size={18} /> Schedule Visit</button>
-        <button className="btn btn-primary"><MessageCircle size={18} /> Enquire Now</button>
-      </div>
+
 
       <style>{`
-        .property-detail-screen {
-          padding-bottom: 80px;
-        }
-        .gallery {
+        .property-detail-new {
+          background: var(--bg-color);
           position: relative;
-          height: 280px;
-          background: #333;
         }
-        .gallery img {
+        
+        .hero-gallery {
+          height: 320px;
+          position: relative;
+          background: #000;
+        }
+        .hero-image {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          opacity: 0.9;
         }
-        .gallery-overlay {
+        .hero-overlay-top {
           position: absolute;
           top: 0;
           left: 0;
@@ -167,301 +239,450 @@ function PropertyDetail({ onNavigate }) {
           padding: 12px 16px;
           display: flex;
           justify-content: space-between;
+          background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
         }
-        .gallery-btn {
+        .hero-overlay-bottom {
+          position: absolute;
+          bottom: 32px; /* overlap compensation */
+          left: 16px;
+          right: 16px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          padding-bottom: 24px;
+        }
+        .icon-btn-glass {
           width: 40px;
           height: 40px;
-          background: white;
-          border: none;
           border-radius: 50%;
+          background: rgba(255,255,255,0.2);
+          backdrop-filter: blur(8px);
+          border: 1px solid rgba(255,255,255,0.3);
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
-        .gallery-btn.heart {
-          color: #FF5252;
-        }
-        .gallery-actions {
-          display: flex;
-          gap: 8px;
-        }
-        .image-counter {
-          position: absolute;
-          top: 16px;
-          right: 68px;
+        .icon-btn-glass.active { background: rgba(255,255,255,0.9); }
+        .hero-actions { display: flex; gap: 8px; }
+        
+        .photo-count-badge {
           background: rgba(0,0,0,0.6);
           color: white;
-          padding: 4px 10px;
-          border-radius: 12px;
-          font-size: 12px;
-        }
-        .view-all-photos {
-          position: absolute;
-          bottom: 16px;
-          left: 50%;
-          transform: translateX(-50%);
-          background: rgba(0,0,0,0.7);
-          color: white;
-          border: none;
-          padding: 8px 16px;
-          border-radius: 20px;
-          font-size: 13px;
-          cursor: pointer;
-        }
-        .verified-property-badge {
-          position: absolute;
-          bottom: 16px;
-          left: 16px;
-          background: #00C853;
-          color: white;
           padding: 6px 12px;
-          border-radius: 16px;
+          border-radius: 20px;
           font-size: 12px;
-          font-weight: 500;
-          display: flex;
-          align-items: center;
-          gap: 4px;
-        }
-        .quick-contact-bar {
-          display: flex;
-          gap: 8px;
-          padding: 12px 16px;
-          background: white;
-          overflow-x: auto;
-          border-bottom: 1px solid #F0F0F0;
-        }
-        .contact-chip {
           display: flex;
           align-items: center;
           gap: 6px;
+          backdrop-filter: blur(4px);
+        }
+        .photo-count-badge .dot {
+          width: 6px;
+          height: 6px;
+          background: var(--success-color);
+          border-radius: 50%;
+        }
+        .view-gallery-btn {
           background: white;
-          border: 1px solid #E0E0E0;
-          border-radius: 20px;
-          padding: 8px 14px;
-          font-size: 13px;
-          color: #666;
-          white-space: nowrap;
+          color: var(--text-main);
+          border: none;
+          padding: 8px 16px;
+          border-radius: 8px;
+          font-size: 12px;
+          font-weight: 600;
           cursor: pointer;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        .contact-chip.primary {
-          background: #0066CC;
-          border-color: #0066CC;
-          color: white;
+
+        .content-overlap {
+          margin-top: -32px;
+          position: relative;
+          z-index: 10;
+          border-radius: 32px 32px 0 0;
+          background: var(--bg-color);
+          padding-top: 12px;
         }
-        .contact-chip.whatsapp {
-          background: #25D366;
-          border-color: #25D366;
-          color: white;
+
+        .property-main-card {
+          padding: 20px 16px;
         }
-        .property-header-section {
-          padding: 16px;
-          background: white;
-        }
-        .price-row {
+        
+        .property-badges {
           display: flex;
-          align-items: center;
           gap: 8px;
-          flex-wrap: wrap;
-          margin-bottom: 8px;
+          margin-bottom: 12px;
         }
-        .price {
-          font-size: 26px;
-          font-weight: 700;
-          color: #0066CC;
-        }
-        .price-per-sqft {
-          font-size: 13px;
-          color: #888;
-        }
-        .negotiable-badge {
-          background: #E8F5E9;
-          color: #2E7D32;
+        .badge-verified {
+          background: #dcfce7;
+          color: var(--success-color);
           font-size: 11px;
           padding: 4px 8px;
-          border-radius: 12px;
-        }
-        .property-title {
-          font-size: 20px;
+          border-radius: 6px;
           font-weight: 600;
-          margin-bottom: 4px;
-        }
-        .property-id {
-          font-size: 12px;
-          color: #888;
-          margin-bottom: 4px;
-        }
-        .copy-icon { cursor: pointer; }
-        .project-name {
-          font-size: 14px;
-          color: #0066CC;
-          margin-bottom: 4px;
-        }
-        .location {
-          font-size: 14px;
-          color: #666;
           display: flex;
           align-items: center;
           gap: 4px;
         }
-        .directions-link {
-          background: none;
-          border: none;
-          color: #0066CC;
-          font-size: 13px;
-          padding: 0;
-          margin-top: 4px;
-          cursor: pointer;
-        }
-        .agent-row {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          padding: 12px 16px;
-          background: #F8F9FA;
-          border-bottom: 1px solid #F0F0F0;
-        }
-        .agent-avatar {
-          width: 36px;
-          height: 36px;
-          border-radius: 50%;
-          overflow: hidden;
-          background: #E0E0E0;
-        }
-        .agent-avatar img {
-          width: 100%;
-          height: 100%;
-        }
-        .agent-info {
-          flex: 1;
-        }
-        .agent-name {
-          font-size: 13px;
+        .badge-status {
+          background: var(--bg-secondary);
+          color: var(--text-body);
+          font-size: 11px;
+          padding: 4px 8px;
+          border-radius: 6px;
           font-weight: 500;
         }
-        .agent-rating {
-          font-size: 12px;
-          color: #FFB300;
-          margin-left: 8px;
-        }
-        .posted-date {
-          font-size: 11px;
-          color: #888;
-        }
-        .features-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 10px;
-          padding: 16px;
-          background: white;
-        }
-        .feature-card {
-          background: #F5F7FA;
-          border-radius: 10px;
-          padding: 12px;
-          text-align: center;
-        }
-        .feature-icon {
-          color: #0066CC;
+        
+        .property-title-large {
+          font-size: 22px;
+          font-weight: 700;
+          color: var(--text-main);
           margin-bottom: 4px;
+          line-height: 1.2;
         }
-        .feature-value {
-          display: block;
-          font-size: 16px;
-          font-weight: 600;
-          color: #1A1A1A;
-        }
-        .feature-label {
-          font-size: 11px;
-          color: #888;
-        }
-        .detail-tabs {
-          display: flex;
-          background: white;
-          border-bottom: 1px solid #F0F0F0;
-          padding: 0 16px;
-        }
-        .detail-tab {
-          background: none;
-          border: none;
-          padding: 14px 16px;
+        .project-subtitle {
           font-size: 14px;
-          color: #666;
-          cursor: pointer;
-          border-bottom: 2px solid transparent;
-        }
-        .detail-tab.active {
-          color: #0066CC;
-          font-weight: 600;
-          border-bottom-color: #0066CC;
-        }
-        .detail-section {
-          padding: 16px;
-          background: white;
-          margin-top: 8px;
-        }
-        .detail-section h3 {
-          font-size: 16px;
-          font-weight: 600;
+          color: var(--primary-color);
+          font-weight: 500;
           margin-bottom: 12px;
         }
-        .details-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 12px;
+        
+        .location-row {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 13px;
+          color: var(--text-body);
+          margin-bottom: 16px;
         }
-        .detail-item {
+        .text-secondary { color: #9ca3af; }
+        .dot-divider { color: #d1d5db; }
+        
+        .divider-soft {
+          height: 1px;
+          background: var(--border-color);
+          margin-bottom: 16px;
+          opacity: 0.6;
+        }
+
+        .price-section {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .price-block {
           display: flex;
           flex-direction: column;
         }
-        .detail-label {
+        .price-value {
+          font-size: 24px;
+          font-weight: 700;
+          color: var(--text-main);
+        }
+        .price-rate {
           font-size: 12px;
-          color: #888;
+          color: var(--text-body);
         }
-        .detail-value {
-          font-size: 14px;
-          color: #1A1A1A;
-          font-weight: 500;
+        .emi-calculator {
+          font-size: 12px;
+          color: var(--primary-color);
+          background: var(--primary-light);
+          padding: 6px 10px;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          cursor: pointer;
         }
-        .amenities-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 10px;
+
+        .quick-action-bar-scroll {
+          display: flex;
+          gap: 12px;
+          overflow-x: auto;
+          padding: 0 16px 16px;
         }
-        .amenity-item {
+        .quick-action-bar-scroll::-webkit-scrollbar { display: none; }
+        
+        .action-pill {
+          flex-shrink: 0;
           display: flex;
           align-items: center;
           gap: 8px;
-          font-size: 13px;
-          color: #1A1A1A;
-        }
-        .amenity-check {
-          color: #00C853;
-        }
-        .description {
+          padding: 0 20px;
+          height: 44px;
+          border-radius: 12px;
           font-size: 14px;
-          color: #666;
-          line-height: 1.6;
+          font-weight: 600;
+          border: none;
+          cursor: pointer;
         }
-        .read-more {
+        .action-pill.primary {
+          background: var(--primary-color);
+          color: white;
+          box-shadow: 0 4px 12px rgba(27,77,62,0.2);
+        }
+        .action-pill.whatsapp {
+          background: #25D366;
+          color: white;
+          box-shadow: 0 4px 12px rgba(37,211,102,0.2);
+        }
+        .action-pill.outline {
+          background: white;
+          border: 1px solid var(--border-color);
+          color: var(--text-body);
+        }
+
+        .features-grid-new {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 12px;
+          margin-top: 12px;
+        }
+        .feature-item-new {
+          background: white;
+          border: 1px solid var(--border-color);
+          border-radius: 12px;
+          padding: 12px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 6px;
+        }
+        .feature-icon-wrapper {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background: var(--bg-secondary);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--primary-color);
+          margin-bottom: 4px;
+        }
+        .feature-val {
+          font-size: 14px;
+          font-weight: 700;
+          color: var(--text-main);
+        }
+        .feature-lbl {
+          font-size: 11px;
+          color: var(--text-body);
+        }
+
+        .sticky-tabs-wrapper {
+          position: sticky;
+          top: 70px; /* app bar offset slightly */
+          z-index: 50;
+          background: var(--bg-color);
+          padding: 12px 0 0;
+          margin-top: 8px;
+        }
+        .detail-tabs-new {
+          display: flex;
+          border-bottom: 1px solid var(--border-color);
+          padding: 0 16px;
+          gap: 24px;
+        }
+        .tab-btn {
           background: none;
           border: none;
-          color: #0066CC;
+          padding: 12px 0;
           font-size: 14px;
+          color: var(--text-body);
+          font-weight: 500;
           cursor: pointer;
-          margin-left: 4px;
+          position: relative;
         }
-        .sticky-footer {
+        .tab-btn.active {
+          color: var(--primary-color);
+          font-weight: 700;
+        }
+        .tab-btn.active::after {
+          content: '';
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: var(--accent-color);
+        }
+
+        .tab-content-area {
+          padding: 20px 16px;
+          min-height: 200px;
+        }
+        .info-block {
+          margin-bottom: 24px;
+        }
+        .info-block h4 {
+          font-size: 16px;
+          font-weight: 700;
+          color: var(--text-main);
+          margin-bottom: 12px;
+        }
+        .desc-text {
+          font-size: 14px;
+          color: var(--text-body);
+          line-height: 1.6;
+        }
+        .read-more-link {
+          color: var(--primary-color);
+          font-weight: 600;
+          cursor: pointer;
+        }
+        
+        .specs-grid {
+          display: grid;
+          gap: 12px;
+        }
+        .spec-row {
+          display: flex;
+          justify-content: space-between;
+          padding: 12px;
+          background: white;
+          border-radius: 8px;
+          border: 1px solid var(--border-color);
+        }
+        .spec-row .label { font-size: 13px; color: var(--text-body); }
+        .spec-row .value { font-size: 13px; font-weight: 600; color: var(--text-main); }
+        
+        .amenities-list-new {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        .amenity-tag {
+          padding: 8px 14px;
+          background: white;
+          border: 1px solid var(--border-color);
+          border-radius: 20px;
+          font-size: 13px;
+          color: var(--text-main);
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+        .amenity-tag.more {
+          background: var(--bg-secondary);
+          border-color: transparent;
+          color: var(--primary-color);
+          font-weight: 600;
+        }
+
+        .agent-card-new {
+          margin: 0 16px 24px;
+          background: white;
+          border-radius: 16px;
+          padding: 16px;
+          box-shadow: var(--shadow-sm);
+          border: 1px solid var(--border-color);
+        }
+        .agent-header {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 16px;
+        }
+        .agent-img {
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          position: relative;
+        }
+        .agent-img img { width: 100%; height: 100%; border-radius: 50%; }
+        .verified-badge-icon {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 16px;
+          height: 16px;
+          background: var(--success-color);
+          border: 2px solid white;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+        }
+        .agent-details { flex: 1; }
+        .agent-details h4 { font-size: 15px; font-weight: 700; color: var(--text-main); }
+        .agent-details p { font-size: 12px; color: var(--text-body); display: flex; align-items: center; gap: 4px; }
+        .view-profile-btn {
+          background: var(--bg-secondary);
+          color: var(--primary-color);
+          border: none;
+          padding: 6px 12px;
+          border-radius: 8px;
+          font-size: 12px;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        .agent-stats {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 8px;
+          border-top: 1px solid var(--border-color);
+          padding-top: 12px;
+        }
+        .agent-stats .stat { text-align: center; }
+        .agent-stats .val { display: block; font-size: 14px; font-weight: 700; color: var(--text-main); }
+        .agent-stats .lbl { font-size: 11px; color: var(--text-body); }
+
+        .disclaimer-box {
+          margin: 0 16px 24px;
+          padding: 12px;
+          background: var(--bg-secondary);
+          border-radius: 8px;
+          display: flex;
+          gap: 8px;
+          color: var(--text-body);
+          font-size: 11px;
+          line-height: 1.4;
+        }
+        
+        .spacer-bottom { height: 80px; }
+
+        .sticky-footer-new {
           position: fixed;
           bottom: 0;
           left: 0;
           right: 0;
           background: white;
+          padding: 12px 16px 24px; /* extra bottom padding for mobile home bar */
+          box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
           display: flex;
-          gap: 12px;
-          padding: 12px 16px;
-          box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+          justify-content: space-between;
+          align-items: center;
+          z-index: 100;
+        }
+        .footer-price { display: flex; flex-direction: column; }
+        .footer-price .label { font-size: 11px; color: var(--text-body); }
+        .footer-price .value { font-size: 20px; font-weight: 700; color: var(--text-main); }
+        
+        .footer-actions { display: flex; gap: 12px; }
+        .btn-secondary {
+          background: var(--bg-secondary);
+          color: var(--primary-color);
+          border: none;
+          padding: 0 16px;
+          height: 44px;
+          border-radius: 12px;
+          font-weight: 600;
+          font-size: 14px;
+          cursor: pointer;
+        }
+        .btn-primary {
+          background: var(--primary-color);
+          color: white;
+          border: none;
+          padding: 0 24px;
+          height: 44px;
+          border-radius: 12px;
+          font-weight: 600;
+          font-size: 14px;
+          cursor: pointer;
+          box-shadow: 0 4px 12px rgba(27,77,62,0.3);
         }
       `}</style>
     </div>

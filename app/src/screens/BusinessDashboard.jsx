@@ -13,7 +13,7 @@ function BusinessDashboard({ onNavigate }) {
       </header>
 
       {/* Tabs */}
-      <div className="header-tabs" style={{background: 'white', padding: '0 16px'}}>
+      <div className="header-tabs" style={{background: 'var(--bg-color)', padding: '0 16px', borderBottom: '1px solid var(--border-color)'}}>
         <button className="tab active">Dashboard</button>
         <button className="tab" onClick={() => onNavigate('properties')}>Properties</button>
         <button className="tab" onClick={() => onNavigate('requirements')}>Requirements</button>
@@ -52,7 +52,7 @@ function BusinessDashboard({ onNavigate }) {
       <section className="section">
         <div className="section-header">
           <h2>This Month&apos;s Performance</h2>
-          <TrendingUp size={18} color="#00C853" />
+          <TrendingUp size={18} color="var(--success-color)" />
         </div>
         <div className="chart-card">
           <div className="chart-bars">
@@ -89,22 +89,6 @@ function BusinessDashboard({ onNavigate }) {
             <div className="action-icon purple"><FileText size={20} /></div>
             <span>Add Requirement</span>
           </button>
-          <button className="quick-action-item" onClick={() => onNavigate('enquiries')}>
-            <div className="action-icon green"><Mail size={20} /></div>
-            <span>Enquiries</span>
-          </button>
-          <button className="quick-action-item">
-            <div className="action-icon red"><Target size={20} /></div>
-            <span>Matches</span>
-          </button>
-          <button className="quick-action-item">
-            <div className="action-icon orange"><Calendar size={20} /></div>
-            <span>Schedule</span>
-          </button>
-          <button className="quick-action-item">
-            <div className="action-icon teal"><BarChart3 size={20} /></div>
-            <span>Reports</span>
-          </button>
         </div>
       </section>
 
@@ -133,12 +117,12 @@ function BusinessDashboard({ onNavigate }) {
 
       <style>{`
         .period-btn {
-          background: #F5F7FA;
+          background: var(--bg-secondary);
           border: none;
           padding: 8px 14px;
           border-radius: 20px;
           font-size: 13px;
-          color: #0066CC;
+          color: var(--primary-color);
           display: flex;
           align-items: center;
           gap: 6px;
@@ -148,7 +132,7 @@ function BusinessDashboard({ onNavigate }) {
           background: white;
           border-radius: 16px;
           padding: 20px;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+          box-shadow: var(--shadow-sm);
         }
         .chart-bars {
           display: flex;
@@ -173,9 +157,9 @@ function BusinessDashboard({ onNavigate }) {
           border-radius: 4px 4px 0 0;
           transition: height 0.3s;
         }
-        .bar.blue { background: #0066CC; }
-        .bar.green { background: #00C853; }
-        .bar.orange { background: #FF9800; }
+        .bar.blue { background: var(--primary-color); }
+        .bar.green { background: var(--success-color); }
+        .bar.orange { background: var(--accent-color); }
         .week-label {
           font-size: 12px;
           color: #888;
@@ -194,9 +178,9 @@ function BusinessDashboard({ onNavigate }) {
           border-radius: 50%;
           margin-right: 6px;
         }
-        .chart-legend .dot.blue { background: #0066CC; }
-        .chart-legend .dot.green { background: #00C853; }
-        .chart-legend .dot.orange { background: #FF9800; }
+        .chart-legend .dot.blue { background: var(--primary-color); }
+        .chart-legend .dot.green { background: var(--success-color); }
+        .chart-legend .dot.orange { background: var(--accent-color); }
         .quick-actions-mini {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -223,11 +207,11 @@ function BusinessDashboard({ onNavigate }) {
           justify-content: center;
           color: white;
         }
-        .action-icon.blue { background: #0066CC; }
+        .action-icon.blue { background: var(--primary-color); }
         .action-icon.purple { background: #8B5CF6; }
-        .action-icon.green { background: #00C853; }
-        .action-icon.red { background: #FF5252; }
-        .action-icon.orange { background: #FF9800; }
+        .action-icon.green { background: var(--success-color); }
+        .action-icon.red { background: var(--danger-color); }
+        .action-icon.orange { background: var(--accent-color); }
         .action-icon.teal { background: #00BCD4; }
         .quick-action-item span {
           font-size: 12px;

@@ -59,8 +59,6 @@
        right: 2px;
        width: 10px;
        height: 10px;
-       width: 10px;
-       height: 10px;
        background: var(--success-color);
        border: 2px solid white;
        border-radius: 50%;
@@ -302,6 +300,7 @@
        height: 6px;
        border-radius: 3px;
        background: #CCC;
+       background: var(--text-light);
 }
 
 .carousel-dots .dot.active {
@@ -317,7 +316,7 @@
 }
 
 .action-card {
-       background: white;
+       background: var(--bg-card);
        border-radius: 12px;
        padding: 16px;
        display: flex;
@@ -333,7 +332,7 @@
 }
 
 .action-card.red-accent {
-       border-left: 4px solid #ef4444;
+       border-left: 4px solid var(--danger-color);
 }
 
 .action-card.blue-accent {
@@ -869,7 +868,7 @@
 
 .property-list-card .card-subtitle {
        font-size: 13px;
-       color: #0066CC;
+       color: var(--primary-color);
 }
 
 .property-list-card .card-location {
@@ -883,7 +882,7 @@
 .property-list-card .card-price {
        font-size: 16px;
        font-weight: 700;
-       color: #0066CC;
+       color: var(--primary-color);
        margin-top: 4px;
 }
 
@@ -920,7 +919,7 @@
 }
 
 .btn-primary {
-       background: #0066CC;
+       background: var(--primary-color);
        border: none;
        color: white;
 }
@@ -956,7 +955,7 @@
        border-radius: 12px;
        padding: 16px;
        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-       border-left: 4px solid #00C853;
+       border-left: 4px solid var(--success-color);
        display: flex;
        flex-direction: column;
        gap: 8px;
@@ -986,7 +985,7 @@
 .service-card .price-current {
        font-size: 18px;
        font-weight: 700;
-       color: #0066CC;
+       color: var(--primary-color);
 }
 
 .service-card .service-desc {
@@ -1015,7 +1014,7 @@
        top: 16px;
        bottom: 16px;
        width: 4px;
-       background: #0066CC;
+       background: var(--primary-color);
        border-radius: 0 2px 2px 0;
 }
 
@@ -1067,8 +1066,8 @@
 }
 
 .enquiry-message {
-       background: #F5F7FA;
-       border-left: 3px solid #0066CC;
+       background: var(--bg-secondary);
+       border-left: 3px solid var(--primary-color);
        padding: 10px 12px;
        font-size: 13px;
        color: #666;
@@ -1240,4 +1239,214 @@
        padding: 3px 8px;
        border-radius: 10px;
        margin-top: 8px;
+}
+
+/* Requirement Card */
+.requirement-card {
+       width: 220px;
+       flex-shrink: 0;
+       background: white;
+       border-radius: 12px;
+       padding: 16px;
+       box-shadow: var(--shadow-sm);
+       border: 1px solid var(--border-color);
+       cursor: pointer;
+       display: flex;
+       flex-direction: column;
+       gap: 8px;
+       transition: transform 0.2s;
+}
+
+.requirement-card:hover {
+       transform: translateY(-4px);
+}
+
+.requirement-card h4 {
+       font-size: 14px;
+       font-weight: 600;
+       color: var(--text-main);
+       margin: 0;
+}
+
+.requirement-card p {
+       font-size: 12px;
+       color: var(--text-body);
+       margin: 0;
+}
+
+.req-tag {
+       background: var(--bg-secondary);
+       color: var(--primary-color);
+       font-size: 11px;
+       padding: 4px 8px;
+       border-radius: 4px;
+       align-self: flex-start;
+       font-weight: 500;
+}
+
+/* Modern Tabbed Search */
+.search-container-modern {
+       margin: 16px;
+}
+
+.search-tabs-scroll {
+       display: flex;
+       gap: 12px;
+       overflow-x: auto;
+       padding: 4px;
+       padding-bottom: 12px;
+       /* Space for shadow */
+       margin: 0 -4px;
+}
+
+.search-tabs-scroll::-webkit-scrollbar {
+       display: none;
+}
+
+.search-tab-item {
+       flex-shrink: 0;
+       width: 80px;
+       height: 74px;
+       background: white;
+       border-radius: 20px;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       gap: 8px;
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+       border: 1px solid transparent;
+       cursor: pointer;
+       position: relative;
+       transition: all 0.2s;
+}
+
+.search-tab-item.active {
+       border: 1px solid var(--primary-color);
+       border-bottom: none;
+       background: white;
+       z-index: 2;
+       box-shadow: 0 -4px 12px rgba(27, 77, 62, 0.08);
+       /* slight green tint shadow */
+       border-bottom-left-radius: 0;
+       border-bottom-right-radius: 0;
+       height: 84px;
+       /* Extend down */
+       margin-bottom: -18px;
+       /* Pull panel up */
+}
+
+/* Connect tab to panel */
+.search-tab-item.active::after {
+       content: '';
+       position: absolute;
+       bottom: -10px;
+       left: 0;
+       right: 0;
+       height: 20px;
+       background: white;
+       z-index: 10;
+}
+
+.search-tab-icon {
+       color: var(--text-body);
+}
+
+.search-tab-item.active .search-tab-icon {
+       color: var(--primary-color);
+}
+
+.search-tab-label {
+       font-size: 12px;
+       font-weight: 500;
+       color: var(--text-body);
+}
+
+.search-tab-item.active .search-tab-label {
+       color: var(--primary-color);
+       font-weight: 700;
+}
+
+.new-badge {
+       position: absolute;
+       top: -8px;
+       right: -6px;
+       right: -6px;
+       background: var(--danger-color);
+       /* Use theme danger color instead of pink */
+       color: white;
+       font-size: 9px;
+       font-weight: 700;
+       padding: 2px 6px;
+       border-radius: 8px;
+       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-panel-modern {
+       background: white;
+       border-radius: 24px;
+       /* conditionally squared corner handled via inline style or separate class if strictly needed, 
+          but usually standard rounded looks okay overlapping */
+       padding: 20px;
+       box-shadow: 0 8px 24px rgba(27, 77, 62, 0.08);
+       /* More cohesive shadow */
+       position: relative;
+       z-index: 1;
+}
+
+.location-dropdown {
+       display: flex;
+       align-items: center;
+       gap: 6px;
+       font-size: 14px;
+       color: var(--text-body);
+       margin-bottom: 16px;
+       cursor: pointer;
+}
+
+.location-val {
+       font-weight: 700;
+       color: var(--text-main);
+       font-size: 16px;
+}
+
+.modern-search-input-box {
+       background: #F9FAFB;
+       /* Slightly lighter than bg-color for contrast on white */
+       /* slightly off white */
+       border: 1px solid var(--border-color);
+       border-radius: 16px;
+       padding: 4px;
+       display: flex;
+       align-items: center;
+}
+
+.modern-input {
+       flex: 1;
+       border: none;
+       padding: 12px 12px;
+       font-size: 14px;
+       color: var(--text-main);
+       outline: none;
+       background: transparent;
+       min-width: 0;
+}
+
+.modern-input::placeholder {
+       color: #9ca3af;
+}
+
+.search-btn-large {
+       width: 48px;
+       height: 48px;
+       background: var(--primary-color);
+       border-radius: 14px;
+       border: none;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       color: white;
+       cursor: pointer;
+       transition: background 0.2s;
+       flex-shrink: 0;
 }
