@@ -25,6 +25,7 @@ import AddPropertyForm from './screens/AddPropertyForm'
 import AddRequirementForm from './screens/AddRequirementForm'
 import HelpSupport from './screens/HelpSupport'
 import NotificationScreen from './screens/NotificationScreen'
+import PopupsPreview from './screens/PopupsPreview'
 
 const screens = [
   // Home & Search
@@ -55,6 +56,7 @@ const screens = [
   { id: 'subscription', name: 'Subscription', category: 'Profile', component: SubscriptionManagement },
   { id: 'help-support', name: 'Help & Support', category: 'Profile', component: HelpSupport },
   { id: 'notifications', name: 'Notifications', category: 'Home', component: NotificationScreen },
+  { id: 'popups', name: 'Popup Gallery', category: 'Design System', component: PopupsPreview },
 ]
 
 function App() {
