@@ -10,10 +10,15 @@ import {
 } from 'lucide-react';
 import './screens.css';
 
-const SearchScreen = ({ onNavigate }) => {
+const SearchScreen = ({ onNavigate, params = {} }) => {
+  const isCommercial = params.context === 'Commercial';
   const [searchText, setSearchText] = useState('2BHK in Whi');
-  const [propertyType, setPropertyType] = useState('Buy');
+  // If Commercial, default to Resale, else use context or default to Buy
+  const [propertyType, setPropertyType] = useState(isCommercial ? 'Resale' : (params.context || 'Buy'));
   const [searchIn, setSearchIn] = useState('Properties');
+  
+  const hideTypeSelector = ['Buy', 'Rent'].includes(params.context);
+  const typeOptions = isCommercial ? ['Resale', 'Rental'] : ['Buy', 'Rent', 'Commercial', 'Primary'];
 
   const recentSearches = [
     { text: 'Whitefield, 3BHK, > ₹1Cr', type: 'Residential' },
@@ -52,22 +57,24 @@ const SearchScreen = ({ onNavigate }) => {
       </header>
 
       <main className="screen-content no-scrollbar">
-        {/* Layer 1: Property Type */}
-        <section className="segment-section">
-          <h3>PROPERTY TYPE</h3>
-          <div className="horizontal-scroll no-pad">
-            {['Buy', 'Rent', 'Commercial', 'Primary'].map(type => (
-              <button 
-                key={type}
-                className={`type-btn ${propertyType === type ? 'active' : ''}`}
-                onClick={() => setPropertyType(type)}
-              >
-                {type}
-              </button>
-            ))}
-            <button className="type-btn disabled">Land Parcel</button>
-          </div>
-        </section>
+        {/* Layer 1: Property Type (Conditional) */}
+        {!hideTypeSelector && (
+          <section className="segment-section">
+            <h3>{isCommercial ? 'CATEGORY' : 'PROPERTY TYPE'}</h3>
+            <div className="horizontal-scroll no-pad">
+              {typeOptions.map(type => (
+                <button 
+                  key={type}
+                  className={`type-btn ${propertyType === type ? 'active' : ''}`}
+                  onClick={() => setPropertyType(type)}
+                >
+                  {type}
+                </button>
+              ))}
+              <button className="type-btn disabled">Land Parcel</button>
+            </div>
+          </section>
+        )}
 
         {/* Layer 2: Search In */}
         <section className="segment-section pb-4">
@@ -90,24 +97,59 @@ const SearchScreen = ({ onNavigate }) => {
 
         <div className="divider"></div>
 
-        {/* Refine Search */}
+        {/* Exposed Advanced Filters */}
         <section className="segment-section pt-4">
           <div className="section-header-mini">
-            <h3>Refine Search</h3>
-            <button className="clear-all-btn">Clear all filters</button>
+            <h3>FILTERS</h3>
+            <button className="clear-all-btn">Reset</button>
           </div>
           
-          <div className="chips-scroll">
-            <button className="chip budget-chip">
-              Budget: ₹50L - 80L
-              <X size={14} />
-            </button>
-            {['BHK', 'Location', 'Status', 'Furnishing'].map(filter => (
-              <button key={filter} className="chip">
-                {filter}
-                <ChevronDown size={16} className="text-secondary" />
-              </button>
-            ))}
+          <div className="filters-grid">
+            {/* Field: Budget */}
+            <div className="filter-group">
+              <label className="filter-label">Budget</label>
+              <div className="budget-inputs">
+                <div className="select-wrapper">
+                  <select className="filter-select">
+                     <option>Min</option>
+                     <option>₹20 L</option>
+                     <option>₹50 L</option>
+                     <option>₹1 Cr</option>
+                  </select>
+                  <ChevronDown size={14} className="select-arrow" />
+                </div>
+                <span className="separator">-</span>
+                <div className="select-wrapper">
+                  <select className="filter-select">
+                     <option>Max</option>
+                     <option>₹80 L</option>
+                     <option>₹2 Cr</option>
+                     <option>₹5 Cr+</option>
+                  </select>
+                  <ChevronDown size={14} className="select-arrow" />
+                </div>
+              </div>
+            </div>
+
+            {/* Field: Configuration */}
+            <div className="filter-group full-width">
+              <label className="filter-label">Configuration</label>
+              <div className="pills-row">
+                {['1 BHK', '2 BHK', '3 BHK', '4 BHK', 'Villa'].map(bhk => (
+                  <button key={bhk} className="filter-pill">{bhk}</button>
+                ))}
+              </div>
+            </div>
+
+            {/* Field: Status */}
+            <div className="filter-group full-width">
+              <label className="filter-label">Status</label>
+              <div className="pills-row">
+                <button className="filter-pill active">All</button>
+                <button className="filter-pill">Ready to Move</button>
+                <button className="filter-pill">Under Construction</button>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -130,13 +172,56 @@ const SearchScreen = ({ onNavigate }) => {
             ))}
           </div>
         </section>
+
+        <div className="divider my-2"></div>
+
+        {/* Trusted Agents */}
+        <section className="segment-section">
+          <div className="section-header-mini">
+            <h3>Trusted Agents</h3>
+            {/* ... */}
+          </div>
+          {/* ... (Kept Trusted Agents Logic same, just closing tags properly if needed in surrounding context, but here I am replacing the upper block) */} 
+          {/* Note: I need to duplicate the Trusted Agents map logic if I replace the whole block, or target carefully. 
+              The original code block spans from line 94 to 176 which includes Recent Searches and Trusted Agents. 
+              I should replace carefully. 
+              Actually, the previous block I am targeting starts at 94 (Refine Search) and ends at 176 (Sticky Bottom).
+              Wait, the target content for replacement should include Trusted Agents if I am rewriting it or I should narrow the range.
+              Let's rewrite the Trusted Agents section to ensure it's preserved.
+           */}
+           <div className="horizontal-scroll no-pad" style={{paddingBottom: 16}}>
+            {[
+              { name: 'Rajesh K', rating: '4.9', area: 'Indiranagar', img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Rajesh' },
+              { name: 'Priya D', rating: '4.8', area: 'Whitefield', img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Priya' },
+              { name: 'Amit S', rating: '4.7', area: 'HSR Layout', img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Amit' },
+              { name: 'Suresh M', rating: '4.9', area: 'Koramangala', img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Suresh' }
+            ].map((agent, i) => (
+              <div key={i} className="agent-card-mini" style={{
+                background: 'white', border: '1px solid #e2e0d6', borderRadius: 12, padding: 12,
+                minWidth: 120, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8,
+                marginRight: 8, flexShrink: 0
+              }}>
+                <div style={{width: 48, height: 48, borderRadius: '50%', overflow: 'hidden', background: '#f4f1ea'}}>
+                   <img src={agent.img} alt="" style={{width: '100%', height: '100%'}} />
+                </div>
+                <div style={{textAlign: 'center'}}>
+                   <h4 style={{fontSize: 13, fontWeight: 600, margin: 0}}>{agent.name}</h4>
+                   <span style={{fontSize: 11, color: '#666'}}>{agent.area}</span>
+                </div>
+                <div style={{display: 'flex', alignItems: 'center', gap: 4, background: '#FEF3C7', padding: '2px 8px', borderRadius: 8}}>
+                   <span style={{fontSize: 10, fontWeight: 700, color: '#B45309'}}>★ {agent.rating}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
 
-      {/* Sticky Bottom Advanced Filter */}
+      {/* Sticky Bottom Advanced Filter - CHANGED TO SEARCH CTA */}
       <div className="sticky-bottom-action">
-        <button className="advanced-filter-btn" onClick={() => onNavigate('filter')}>
-          <SlidersHorizontal size={20} />
-          Show Advanced Filters
+        <button className="advanced-filter-btn primary-cta" onClick={() => onNavigate('search-results')}>
+          <Search size={20} />
+          Search Properties
         </button>
       </div>
 
@@ -400,6 +485,74 @@ const SearchScreen = ({ onNavigate }) => {
         }
         .advanced-filter-btn:hover {
           background: #14532d;
+        }
+
+        /* Inline Filter Styles */
+        .filters-grid {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+        .filter-group {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+        .filter-label {
+          font-size: 12px;
+          font-weight: 600;
+          color: #1A1A1A;
+        }
+        .budget-inputs {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .select-wrapper {
+          position: relative;
+          flex: 1;
+        }
+        .filter-select {
+          width: 100%;
+          padding: 10px 12px;
+          font-size: 13px;
+          border: 1px solid #e2e0d6;
+          border-radius: 8px;
+          appearance: none;
+          background: white;
+          color: #1b4d3e;
+          font-weight: 500;
+        }
+        .select-arrow {
+          position: absolute;
+          right: 12px;
+          top: 50%;
+          transform: translateY(-50%);
+          pointer-events: none;
+          color: #9ca3af;
+        }
+        .separator {
+          color: #9ca3af;
+        }
+        .pills-row {
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+        }
+        .filter-pill {
+          padding: 8px 16px;
+          border-radius: 6px;
+          border: 1px solid #e2e0d6;
+          background: white;
+          font-size: 13px;
+          color: #666;
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+        .filter-pill.active {
+          background: #1b4d3e;
+          color: white;
+          border-color: #1b4d3e;
         }
       `}</style>
     </div>

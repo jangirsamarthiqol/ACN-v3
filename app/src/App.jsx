@@ -26,8 +26,16 @@ import AddRequirementForm from './screens/AddRequirementForm'
 import HelpSupport from './screens/HelpSupport'
 import NotificationScreen from './screens/NotificationScreen'
 import PopupsPreview from './screens/PopupsPreview'
+import LoginScreen from './screens/LoginScreen'
+import OnboardingScreen from './screens/OnboardingScreen'
+import MarketingScreen from './screens/MarketingScreen'
+import EdgeScreen from './screens/EdgeScreen'
 
 const screens = [
+  // Onboarding
+  { id: 'login', name: 'Login', category: 'Onboarding', component: LoginScreen },
+  { id: 'onboarding', name: 'Onboarding', category: 'Onboarding', component: OnboardingScreen },
+  
   // Home & Search
   { id: 'home', name: 'ACN Home', category: 'Home', component: HomeScreen },
   { id: 'search', name: 'Search', category: 'Home', component: SearchScreen },
@@ -46,6 +54,8 @@ const screens = [
   
   // Services
   { id: 'services', name: 'Services Hub', category: 'Services', component: ServicesLanding },
+  { id: 'marketing', name: 'Marketing Hub', category: 'Services', component: MarketingScreen },
+  { id: 'edge', name: 'ACN Edge', category: 'Services', component: EdgeScreen },
   { id: 'legal-services', name: 'Legal Services', category: 'Services', component: LegalServicesDetail },
   { id: 'service-request', name: 'Request Service', category: 'Services', component: ServiceRequestForm },
   { id: 'service-tracking', name: 'Service Tracking', category: 'Services', component: ServiceTracking },
@@ -60,7 +70,13 @@ const screens = [
 ]
 
 function App() {
-  const [currentScreen, setCurrentScreen] = useState('home')
+  const [currentScreen, setCurrentScreen] = useState('login')
+  const [screenParams, setScreenParams] = useState({})
+  
+  const handleNavigate = (screenId, params = {}) => {
+    setCurrentScreen(screenId)
+    setScreenParams(params)
+  }
   
   const CurrentScreenComponent = screens.find(s => s.id === currentScreen)?.component || HomeScreen
 
@@ -78,11 +94,11 @@ function App() {
         <ScreenSelector 
           screens={screens} 
           currentScreen={currentScreen} 
-          onSelectScreen={setCurrentScreen}
+          onSelectScreen={(id) => handleNavigate(id)}
         />
         
         <MobileFrame>
-          <CurrentScreenComponent onNavigate={setCurrentScreen} />
+          <CurrentScreenComponent onNavigate={handleNavigate} params={screenParams} />
         </MobileFrame>
       </main>
 

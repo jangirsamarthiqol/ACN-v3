@@ -158,7 +158,7 @@ const PopupsPreview = () => {
 
              <div className="modal-actions" style={{ padding: 0 }}>
                <button className="modal-btn modal-btn-primary" onClick={closePopup}>Relist Property</button>
-               <button className="modal-btn modal-btn-text" onClick={closePopup}>Permanently Delete</button>
+               {/* <button className="modal-btn modal-btn-text" onClick={closePopup}>Permanently Delete</button> */}
              </div>
           </Modal>
         );

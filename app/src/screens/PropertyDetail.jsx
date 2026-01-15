@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { 
   ArrowLeft, Share2, Heart, Phone, MessageCircle, Mail, Calendar, 
   MapPin, Check, Home, Square, Bath, Car, ChevronRight, Star, Clock, 
-  ShieldCheck, Info
+  ShieldCheck, Info, FileText as FileTypePdf, Link as LinkIcon, MoreHorizontal
 } from 'lucide-react';
 import './screens.css';
 
 function PropertyDetail({ onNavigate }) {
   const [activeTab, setActiveTab] = useState('overview');
   const [isLiked, setIsLiked] = useState(false);
+  const [showShareModal, setShowShareModal] = useState(false);
+  const [includeBranding, setIncludeBranding] = useState(true);
 
   const features = [
     { icon: Home, label: '3 BHK', value: 'Apartment' },
@@ -38,7 +40,7 @@ function PropertyDetail({ onNavigate }) {
             <ArrowLeft size={20} color="white" />
           </button>
           <div className="hero-actions">
-            <button className="icon-btn-glass">
+            <button className="icon-btn-glass" onClick={() => setShowShareModal(true)}>
               <Share2 size={20} color="white" />
             </button>
             <button 
@@ -82,7 +84,7 @@ function PropertyDetail({ onNavigate }) {
               <span className="price-value">₹1.25 Cr</span>
               <span className="price-rate">₹8,620 / sq.ft</span>
             </div>
-            <button className="action-pill outline">
+            <button className="action-pill outline" onClick={() => setShowShareModal(true)}>
             <Share2 size={16} /> Share
           </button>
           </div>
@@ -213,6 +215,72 @@ function PropertyDetail({ onNavigate }) {
       </div>
 
 
+      {/* Share Modal */}
+      {showShareModal && (
+        <div className="modal-overlay" style={{
+          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', zIndex: 1000,
+          display: 'flex', alignItems: 'end', justifyContent: 'center'
+        }} onClick={() => setShowShareModal(false)}>
+          <div className="share-sheet" style={{
+            background: 'white', width: '100%', maxWidth: 420, borderRadius: '24px 24px 0 0', padding: 24,
+            animation: 'slideUp 0.3s ease-out'
+          }} onClick={e => e.stopPropagation()}>
+             <div style={{width: 40, height: 4, background: '#E0E0E0', borderRadius: 2, margin: '0 auto 20px'}}></div>
+             <h3 style={{fontSize: 18, marginBottom: 20}}>Share Property</h3>
+             
+             {/* Branding Toggle */}
+             <div style={{background: '#F9FAFB', padding: 16, borderRadius: 12, display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24}}>
+                <div>
+                  <h4 style={{fontSize: 14, fontWeight: 600, marginBottom: 2}}>Include My Branding</h4>
+                  <p style={{fontSize: 12, color: '#666'}}>Add your name & logo to PDF/Images</p>
+                </div>
+                <div 
+                  onClick={() => setIncludeBranding(!includeBranding)}
+                  style={{
+                    width: 44, height: 24, background: includeBranding ? '#1A1A1A' : '#E0E0E0', borderRadius: 12,
+                    position: 'relative', cursor: 'pointer', transition: 'all 0.2s'
+                  }}
+                >
+                  <div style={{
+                    width: 20, height: 20, background: 'white', borderRadius: '50%',
+                    position: 'absolute', top: 2, left: includeBranding ? 22 : 2, transition: 'all 0.2s'
+                  }}></div>
+                </div>
+             </div>
+
+             <div className="share-grid" style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16}}>
+                <div className="share-item" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8}}>
+                   <div style={{width: 56, height: 56, borderRadius: 16, background: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                     <MessageCircle size={28} color="white" />
+                   </div>
+                   <span style={{fontSize: 12, color: '#444'}}>WhatsApp</span>
+                </div>
+                <div className="share-item" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8}}>
+                   <div style={{width: 56, height: 56, borderRadius: 16, background: '#E11D48', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                     <FileTypePdf size={28} color="white" />
+                   </div>
+                   <span style={{fontSize: 12, color: '#444'}}>PDF</span>
+                </div>
+                <div className="share-item" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8}}>
+                   <div style={{width: 56, height: 56, borderRadius: 16, background: '#3B82F6', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                     <LinkIcon size={28} color="white" />
+                   </div>
+                   <span style={{fontSize: 12, color: '#444'}}>Copy Link</span>
+                </div>
+                <div className="share-item" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8}}>
+                   <div style={{width: 56, height: 56, borderRadius: 16, background: '#F3F4F6', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                     <MoreHorizontal size={28} color="#666" />
+                   </div>
+                   <span style={{fontSize: 12, color: '#444'}}>More</span>
+                </div>
+             </div>
+          </div>
+        </div>
+      )}
+
+      <style>{`
+        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+      `}</style>
 
       <style>{`
         .property-detail-new {
