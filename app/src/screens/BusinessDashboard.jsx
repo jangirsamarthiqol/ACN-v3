@@ -41,7 +41,7 @@ function BusinessDashboard({ onNavigate }) {
         </div>
 
         {/* Performance Chart */}
-        <section className="section">
+        <section className="section dashboard-chart-section">
           <div className="section-header">
             <h2>This Month&apos;s Performance</h2>
             <TrendingUp size={18} color="var(--success-color)" />
@@ -68,7 +68,7 @@ function BusinessDashboard({ onNavigate }) {
         </section>
 
         {/* Quick Actions */}
-        <section className="section">
+        <section className="section dashboard-actions-section">
           <div className="section-header">
             <h2>Quick Actions</h2>
           </div>
@@ -81,11 +81,19 @@ function BusinessDashboard({ onNavigate }) {
               <div className="action-icon purple"><FileText size={20} /></div>
               <span>Add Requirement</span>
             </button>
+            <button className="quick-action-item">
+              <div className="action-icon orange"><Target size={20} /></div>
+              <span>Run Match</span>
+            </button>
+            <button className="quick-action-item">
+               <div className="action-icon teal"><Calendar size={20} /></div>
+               <span>Schedule</span>
+            </button>
           </div>
         </section>
 
         {/* Recent Activity */}
-        <section className="section">
+        <section className="section dashboard-activity-section">
           <div className="section-header">
             <h2>Recent Activity</h2>
             <button className="link-btn">View All</button>

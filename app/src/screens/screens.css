@@ -1450,3 +1450,325 @@
        transition: background 0.2s;
        flex-shrink: 0;
 }
+
+/* DESKTOP ADAPTATIONS (min-width: 1024px) */
+@media (min-width: 1024px) {
+
+       /* Home Grid Layout */
+       .home-screen .screen-content-scroll {
+              display: grid !important;
+              grid-template-columns: 2fr 1fr;
+              grid-template-rows: auto auto auto;
+              gap: 24px;
+              padding: 32px !important;
+              max-width: 1280px;
+              margin: 0 auto;
+       }
+
+       /* Grid Areas */
+       .banner-section {
+              grid-column: 1 / -1;
+              /* Full width banner */
+       }
+
+       /* Snapshot Section (Left Column) */
+       .snapshot-section {
+              grid-column: 1 / 2;
+              padding: 0 !important;
+       }
+
+       .snapshot-container {
+              padding: 0 !important;
+              /* Remove mobile padding */
+       }
+
+       .growth-grid {
+              grid-template-columns: 1fr 1fr;
+              gap: 16px;
+       }
+
+       /* Right Column: Insights */
+       .insights-section {
+              grid-column: 2 / 3;
+              grid-row: 2 / 4;
+              /* Span 2 rows to fill height */
+              padding: 0 !important;
+       }
+
+       /* Projects & Recent Properties (Left Column, stacked) */
+       .projects-section {
+              grid-column: 1 / 2;
+              padding: 0 !important;
+              margin-top: 16px;
+       }
+
+       .recent-props-section,
+       .recent-reqs-section {
+              grid-column: 1 / 2;
+              padding: 0 !important;
+              margin-top: 16px;
+       }
+
+       /* Horizontal Scroll Adjustment for Desktop */
+       .horizontal-scroll {
+              overflow-x: auto;
+              padding-bottom: 12px;
+              display: flex;
+              /* Keep flex but maybe adjust sizes */
+              gap: 16px;
+              margin: 0;
+              padding: 0;
+       }
+
+       /* On desktop, maybe show more cards visible at once by reducing width slightly relative to container or letting them breathe */
+       .project-card,
+       .requirement-card {
+              min-width: 240px;
+              margin: 0;
+       }
+
+       /* Banner adjustments */
+       .banner-carousel-container {
+              gap: 24px;
+              overflow-x: hidden;
+              /* Maybe hide overflow and show grid of banners? For now keeping carousel but letting 2 show */
+       }
+
+       .banner-card {
+              min-width: calc(50% - 12px) !important;
+              height: 200px;
+              /* Taller banners on desktop */
+       }
+
+       /* Hide Hero Search on Desktop if redundant */
+       .search-container-modern {
+              display: none;
+       }
+}
+
+/* SEARCH SCREEN DESKTOP */
+@media (min-width: 1024px) {
+       .search-screen-new .screen-content {
+              display: grid;
+              grid-template-columns: 320px 1fr;
+              gap: 32px;
+              padding: 32px;
+              max-width: 1000px;
+              margin: 0 auto;
+              align-items: start;
+              overflow: visible;
+       }
+
+       /* Left Column: Filters */
+       .type-section,
+       .main-filters-section {
+              grid-column: 1 / 2;
+              background: white;
+              border: 1px solid var(--border-color);
+              border-radius: 16px;
+              padding: 24px;
+              margin-bottom: 24px;
+       }
+
+       .main-filters-section {
+              position: sticky;
+              top: 24px;
+       }
+
+       /* Right Column: Recents & Agents */
+       .recents-section,
+       .agents-section {
+              grid-column: 2 / 3;
+              background: white;
+              border: 1px solid var(--border-color);
+              border-radius: 16px;
+              padding: 24px;
+              margin-bottom: 24px;
+       }
+
+       /* Adjust sticky button */
+       .sticky-bottom-action {
+              display: none;
+              /* Hide sticky mobile button */
+       }
+
+       /* Add visible search button in the filter column instead */
+       .main-filters-section::after {
+              content: 'Search Properties';
+              display: block;
+              width: 100%;
+              padding: 12px;
+              background: var(--primary-color);
+              color: white;
+              text-align: center;
+              border-radius: 8px;
+              font-weight: 600;
+              margin-top: 24px;
+              cursor: pointer;
+       }
+
+       /* Hide dividers */
+       .divider {
+              display: none;
+       }
+}
+
+/* PROPERTY DETAIL DESKTOP */
+@media (min-width: 1024px) {
+       .property-detail-new {
+              display: grid;
+              grid-template-columns: 1.5fr 1fr;
+              height: calc(100vh - 80px);
+              /* Subtract header height */
+              overflow: hidden;
+       }
+
+       /* Left Column: Gallery */
+       .hero-gallery {
+              height: 100%;
+              width: 100%;
+              position: relative;
+       }
+
+       .hero-image {
+              height: 100%;
+       }
+
+       /* Right Column: Details */
+       .property-detail-new .screen-content {
+              height: 100%;
+              overflow-y: auto;
+              margin-top: 0;
+              border-radius: 0;
+              padding: 32px 48px;
+              background: white;
+       }
+
+       /* Adjust Overlays */
+       .content-overlap {
+              margin-top: 0;
+              border-radius: 0;
+              padding-top: 0;
+       }
+
+       .hero-overlay-top {
+              display: none;
+       }
+
+       /* Hide overlay header on desktop, rely on main header */
+       .hero-overlay-bottom {
+              bottom: 24px;
+              left: 24px;
+       }
+
+       /* In-Content Title Adjustment */
+       .property-main-card {
+              padding: 0 0 24px;
+              border-bottom: 2px solid var(--border-color);
+              margin-bottom: 24px;
+       }
+
+       .property-title-large {
+              font-size: 32px;
+       }
+
+       /* Sticky Footer -> Static Block */
+       .sticky-footer-new {
+              position: static;
+              box-shadow: none;
+              padding: 24px 0;
+              border-top: 2px solid var(--border-color);
+              margin-top: 32px;
+              background: transparent;
+       }
+
+       .btn-primary,
+       .btn-secondary {
+              height: 56px;
+              font-size: 16px;
+              padding: 0 32px;
+       }
+
+       /* Tabs Adjustment */
+       .sticky-tabs-wrapper {
+              position: sticky;
+              top: 0;
+              background: white;
+              z-index: 10;
+              padding-top: 0;
+              border-bottom: 2px solid var(--border-color);
+       }
+
+       .detail-tabs-new {
+              padding: 0;
+              border: none;
+       }
+
+       .tab-btn {
+              padding: 16px 0;
+              font-size: 15px;
+       }
+
+       /* Features Grid */
+       .features-grid-new {
+              grid-template-columns: repeat(3, 1fr);
+       }
+}
+
+/* BUSINESS DASHBOARD DESKTOP */
+@media (min-width: 1024px) {
+       .dashboard-screen .screen-content-scroll {
+              display: grid !important;
+              grid-template-columns: 2fr 1fr;
+              grid-template-rows: auto auto;
+              gap: 32px;
+              padding: 32px !important;
+              max-width: 1200px;
+              margin: 0 auto;
+       }
+
+       /* Stats Grid (Top - Full Width) */
+       .stats-grid {
+              grid-column: 1 / -1;
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 24px;
+              margin: 0 !important;
+       }
+
+       .stat-card {
+              height: auto;
+              min-height: 140px;
+              margin: 0;
+       }
+
+       /* Left Col: Chart & Actions */
+       .dashboard-chart-section {
+              grid-column: 1 / 2;
+              padding: 0 !important;
+       }
+
+       .dashboard-actions-section {
+              grid-column: 1 / 2;
+              padding: 0 !important;
+              margin-top: 24px;
+       }
+
+       .quick-actions-mini {
+              grid-template-columns: repeat(4, 1fr);
+              /* More per row on desktop */
+       }
+
+       /* Right Col: Recent Activity */
+       .dashboard-activity-section {
+              grid-column: 2 / 3;
+              grid-row: 2 / 4;
+              /* Span rows */
+              padding: 0 !important;
+       }
+
+       .activity-list {
+              height: 100%;
+              min-height: 400px;
+       }
+}

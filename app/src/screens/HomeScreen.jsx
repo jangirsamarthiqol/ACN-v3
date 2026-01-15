@@ -108,7 +108,7 @@ function HomeScreen({ onNavigate }) {
         </section>
 
         {/* Business Snapshot */}
-        <section className="section">
+        <section className="section snapshot-section">
           <div className="section-header">
             <h2>Business Snapshot</h2>
           </div>
@@ -268,7 +268,7 @@ function HomeScreen({ onNavigate }) {
         `}</style>
 
         {/* New Launch Projects */}
-        <section className="section">
+        <section className="section projects-section">
           <div className="section-header">
             <h2>New Launch Projects</h2>
             <button className="link-btn">View All <ChevronRight size={16} /></button>
@@ -296,7 +296,7 @@ function HomeScreen({ onNavigate }) {
         </section>
 
         {/* Recently Viewed Properties */}
-        <section className="section">
+        <section className="section recent-props-section">
           <div className="section-header">
             <h2>Recently Viewed Properties</h2>
             <button className="link-btn">View All <ChevronRight size={16} /></button>
@@ -323,7 +323,7 @@ function HomeScreen({ onNavigate }) {
         </section>
 
         {/* Recently Viewed Requirements */}
-        <section className="section">
+        <section className="section recent-reqs-section">
           <div className="section-header">
             <h2>Recently Viewed Requirements</h2>
             <button className="link-btn">View All <ChevronRight size={16} /></button>
@@ -342,7 +342,7 @@ function HomeScreen({ onNavigate }) {
         </section>
 
         {/* Market Insights */}
-        <section className="section">
+        <section className="section insights-section">
           <div className="section-header">
             <h2>Market Insights</h2>
             <span className="powered-by"><Sparkles size={12} /> ACN Edge</span>

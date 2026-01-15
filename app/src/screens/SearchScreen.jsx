@@ -98,7 +98,7 @@ const SearchScreen = ({ onNavigate, params = {} }) => {
         <div className="divider"></div>
 
         {/* Exposed Advanced Filters */}
-        <section className="segment-section pt-4">
+        <section className="segment-section pt-4 main-filters-section">
           <div className="section-header-mini">
             <h3>FILTERS</h3>
             <button className="clear-all-btn">Reset</button>
@@ -156,7 +156,7 @@ const SearchScreen = ({ onNavigate, params = {} }) => {
         <div className="divider my-2"></div>
 
         {/* Recent Searches */}
-        <section className="search-list-section">
+        <section className="search-list-section recents-section">
           <h3>Recent Searches</h3>
           <div className="recent-list">
             {recentSearches.map((item, index) => (
@@ -176,7 +176,7 @@ const SearchScreen = ({ onNavigate, params = {} }) => {
         <div className="divider my-2"></div>
 
         {/* Trusted Agents */}
-        <section className="segment-section">
+        <section className="segment-section agents-section">
           <div className="section-header-mini">
             <h3>Trusted Agents</h3>
             {/* ... */}
