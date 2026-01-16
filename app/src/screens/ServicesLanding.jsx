@@ -16,14 +16,12 @@ function ServicesLanding({ onNavigate }) {
   return (
     <div className="screen services-screen">
       {/* Global Header */}
-      <GlobalHeader onNavigate={onNavigate} activeTab="Services" />
+      <GlobalHeader onNavigate={onNavigate} activeTab="Services" title="Services Hub" />
 
       <div className="screen-content-scroll" style={{paddingBottom: 80}}>
         {/* Helper Header for context */}
-        <div className="services-header gradient-blue-purple" style={{marginTop: 0}}>
-          <h1>Services Hub</h1>
-          <p>Value-added services for your real estate business</p>
-        </div>
+        {/* Helper Header for context */}
+        {/* services-header removed */}
 
       {/* Featured Legal Services */}
       <div className="featured-service-card">

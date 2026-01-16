@@ -56,11 +56,9 @@ function EdgeScreen({ onNavigate }) {
 
   return (
     <div className="screen edge-screen">
-      <GlobalHeader onNavigate={onNavigate} activeTab="Edge" />
+      <GlobalHeader onNavigate={onNavigate} activeTab="Edge" title="ACN Edge" />
       
-      <div className="section-header" style={{padding: '16px 16px 0'}}>
-        <h1>ACN Edge</h1>
-      </div>
+      {/* Header title moved to GlobalHeader */}
 
        {/* Tabs */}
        <div className="toggle-tabs" style={{margin: '16px 16px 16px'}}>

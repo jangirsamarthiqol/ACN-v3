@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Search, ChevronDown, SlidersHorizontal, MoreVertical, Ruler, Mail, UserSearch } from 'lucide-react';
 import BusinessBottomNav from '../components/BusinessBottomNav';
-import TopHeader from '../components/TopHeader';
+import GlobalHeader from '../components/GlobalHeader';
 
 const MyPropertiesList = ({ onNavigate }) => {
   const [activeTab, setActiveTab] = useState('Resale');
@@ -52,10 +52,10 @@ const MyPropertiesList = ({ onNavigate }) => {
     <div className="bg-background-light text-slate-900 flex justify-center min-h-screen font-display">
       <div className="w-full max-w-md min-h-screen pb-32 flex flex-col">
         {/* Status Bar is handled by MobileFrame */}
-        <TopHeader activeSection="Business" onNavigate={onNavigate} />
+        <GlobalHeader activeTab="My Business" onNavigate={onNavigate} title="My Properties" />
         
         {/* Search & Header Section */}
-        <div className="sticky top-0 z-40 bg-background-light/95 backdrop-blur-sm px-4 pt-2 pb-4 space-y-4">
+        <div className="sticky top-[114px] z-40 bg-background-light/95 backdrop-blur-sm px-4 pt-2 pb-4 space-y-4">
           <div className="relative group">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary" size={20} />
             <input 

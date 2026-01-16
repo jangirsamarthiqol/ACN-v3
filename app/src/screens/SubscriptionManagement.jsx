@@ -97,15 +97,9 @@ function SubscriptionManagement({ onNavigate }) {
 
   return (
     <div className="screen" style={{ background: '#F8F9FB' }}>
-      <GlobalHeader onNavigate={onNavigate} activeTab="Profile" />
+      <GlobalHeader onNavigate={onNavigate} activeTab="Profile" title="Subscription" />
       
-      <div className="section-header" style={{padding: '16px 16px 0'}}>
-        <button className="back-btn" onClick={() => onNavigate('profile')}>
-          <ArrowLeft size={24} />
-        </button>
-        <h1>Subscription</h1>
-        <div style={{width: 24}}></div>
-      </div>
+      {/* Header title moved to GlobalHeader */}
 
       <div style={{ padding: '0 16px 100px' }}>
         

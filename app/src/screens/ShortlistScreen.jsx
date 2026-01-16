@@ -38,14 +38,9 @@ function ShortlistScreen({ onNavigate }) {
   return (
     <div className="screen">
       {/* Global Header */}
-      <GlobalHeader onNavigate={onNavigate} activeTab="ACN" />
+      <GlobalHeader onNavigate={onNavigate} activeTab="ACN" title="My Shortlist" />
 
-      <div className="section-header" style={{padding: '16px 16px 0', alignItems: 'flex-start'}}>
-        <div>
-           <h1 style={{fontSize: 24}}>My Shortlist</h1>
-           <p style={{fontSize: 13, color: '#666', marginTop: 2}}>Manage and organize your favorites</p>
-        </div>
-      </div>
+      {/* Header title moved to GlobalHeader */}
 
       {/* Toggles */}
       <div className="toggle-tabs" style={{margin: '16px 16px 8px'}}>

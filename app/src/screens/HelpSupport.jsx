@@ -22,15 +22,9 @@ function HelpSupport({ onNavigate }) {
     <div className="screen help-screen">
       {/* Header */}
       {/* Global Header */}
-      <GlobalHeader onNavigate={onNavigate} activeTab="Profile" />
+      <GlobalHeader onNavigate={onNavigate} activeTab="Profile" title="Help & Support" />
 
-      <div className="section-header" style={{padding: '16px 16px 0'}}>
-        <button className="back-btn" onClick={() => onNavigate('profile')}>
-          <ArrowLeft size={24} />
-        </button>
-        <h1>Help & Support</h1>
-        <div style={{width: 24}}></div>
-      </div>
+      {/* Header title moved to GlobalHeader */}
 
       {/* Search */}
       <div className="help-search-section">

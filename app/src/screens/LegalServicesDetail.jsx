@@ -50,7 +50,7 @@ function LegalServicesDetail({ onNavigate }) {
   return (
     <div className="screen">
       {/* Global Header */}
-      <GlobalHeader onNavigate={onNavigate} activeTab="Services" />
+      <GlobalHeader onNavigate={onNavigate} activeTab="Services" title="Legal Services" />
 
       {/* Hero */}
       <div className="legal-hero gradient-blue-purple">

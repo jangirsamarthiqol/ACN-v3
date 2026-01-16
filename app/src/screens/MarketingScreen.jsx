@@ -38,12 +38,10 @@ function MarketingScreen({ onNavigate }) {
 
   return (
     <div className="screen marketing-screen">
-      <GlobalHeader onNavigate={onNavigate} activeTab="ACN" />
+      <GlobalHeader onNavigate={onNavigate} activeTab="ACN" title="Marketing Hub" />
       
       {/* Sub Header */}
-      <div className="section-header" style={{padding: '16px 16px 0'}}>
-        <h1>Marketing Hub</h1>
-      </div>
+      {/* Header title moved to GlobalHeader */}
 
        {/* Tabs */}
        <div className="toggle-tabs" style={{margin: '16px 16px 8px'}}>

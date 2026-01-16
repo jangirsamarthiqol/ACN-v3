@@ -76,20 +76,8 @@ function NotificationScreen({ onNavigate }) {
   return (
     <div className="screen notification-screen">
       {/* Header */}
-      <header className="screen-header clean-header">
-        <button className="back-btn" onClick={() => onNavigate('home')}>
-          <ArrowLeft size={24} color="#1A1A1A" />
-        </button>
-        <h1>Notifications</h1>
-        <div className="header-actions">
-          <button className="icon-btn" title="Mark all read">
-            <Check size={20} color="#666" />
-          </button>
-          <button className="icon-btn" title="Settings">
-            <Settings size={20} color="#666" />
-          </button>
-        </div>
-      </header>
+      {/* Global Header */}
+      <GlobalHeader onNavigate={onNavigate} activeTab="ACN" title="Notifications" />
 
       {/* Filter Tabs */}
       <div className="notification-tabs-container">

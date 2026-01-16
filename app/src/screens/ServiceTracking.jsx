@@ -53,7 +53,7 @@ function ServiceTracking({ onNavigate }) {
   return (
     <div className="screen">
       {/* Global Header */}
-      <GlobalHeader onNavigate={onNavigate} activeTab="Services" />
+      <GlobalHeader onNavigate={onNavigate} activeTab="Services" title="Service Tracking" />
 
       {/* Tabs */}
       <div className="toggle-tabs">

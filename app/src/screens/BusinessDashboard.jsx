@@ -22,7 +22,7 @@ const BusinessDashboard = ({ onNavigate }) => {
     <div className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 flex justify-center min-h-screen font-display">
       <div className="w-full max-w-md min-h-screen relative pb-32 bg-background-light dark:bg-background-dark">
         
-        <GlobalHeader activeTab="My Business" onNavigate={onNavigate} />
+        <GlobalHeader activeTab="My Business" onNavigate={onNavigate} title="Business Dashboard" />
 
 
         <div className="px-4 py-6 space-y-8">

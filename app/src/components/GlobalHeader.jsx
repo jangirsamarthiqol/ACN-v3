@@ -2,7 +2,7 @@ import React from 'react';
 import { Bell } from 'lucide-react';
 import '../screens/screens.css';
 
-function GlobalHeader({ onNavigate, activeTab = 'ACN' }) {
+function GlobalHeader({ onNavigate, activeTab = 'ACN', title }) {
   // Navigation mapping for top tabs
   const handleTabClick = (tabName) => {
     switch(tabName) {
@@ -33,8 +33,14 @@ function GlobalHeader({ onNavigate, activeTab = 'ACN' }) {
             <span className="online-dot-large"></span>
           </div>
           <div className="greeting-text">
-            <span className="sub-greet">Good Morning,</span>
-            <span className="main-name">Samarth</span>
+            {title ? (
+               <span className="main-name" style={{ fontSize: '18px' }}>{title}</span>
+            ) : (
+              <>
+                <span className="sub-greet">Good Morning,</span>
+                <span className="main-name">Samarth</span>
+              </>
+            )}
           </div>
         </div>
 

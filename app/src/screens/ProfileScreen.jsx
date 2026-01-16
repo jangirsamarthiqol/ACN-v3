@@ -16,7 +16,7 @@ function ProfileScreen({ onNavigate }) {
   return (
     <div className="screen profile-screen-new">
       {/* Global Header */}
-      <GlobalHeader onNavigate={onNavigate} activeTab="" />
+      <GlobalHeader onNavigate={onNavigate} activeTab="" title="My Profile" />
 
       <div className="screen-content-scroll" style={{paddingBottom: 80}}>
 

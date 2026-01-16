@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Search, ChevronDown, Filter } from 'lucide-react';
 import BusinessBottomNav from '../components/BusinessBottomNav';
-import TopHeader from '../components/TopHeader';
+import GlobalHeader from '../components/GlobalHeader';
 
 const MyRequirementsList = ({ onNavigate }) => {
   const [activeTab, setActiveTab] = useState('Buy');
@@ -61,10 +61,10 @@ const MyRequirementsList = ({ onNavigate }) => {
     <div className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 flex justify-center min-h-screen font-display">
       <div className="w-full max-w-md min-h-screen relative flex flex-col pb-32">
         {/* Status Bar is handled by MobileFrame */}
-        <TopHeader activeSection="Business" onNavigate={onNavigate} />
+        <GlobalHeader activeTab="My Business" onNavigate={onNavigate} title="My Requirements" />
         
         {/* Sticky Header Section */}
-        <div className="px-4 pt-2 pb-4 space-y-4 sticky top-0 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md z-40 border-b border-gray-100 dark:border-gray-800">
+        <div className="px-4 pt-2 pb-4 space-y-4 sticky top-[114px] bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md z-40 border-b border-gray-100 dark:border-gray-800">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
             <input 

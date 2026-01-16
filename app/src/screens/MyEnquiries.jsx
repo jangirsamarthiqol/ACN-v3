@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Search, Phone, ChevronRight, Building2, Mountain, CheckCircle2 } from 'lucide-react';
 import BusinessBottomNav from '../components/BusinessBottomNav';
-import TopHeader from '../components/TopHeader';
+import GlobalHeader from '../components/GlobalHeader';
 
 const MyEnquiries = ({ onNavigate }) => {
   const [activeTab, setActiveTab] = useState('Resale');
@@ -42,11 +42,10 @@ const MyEnquiries = ({ onNavigate }) => {
     <div className="bg-[#fcfaf2] text-[#1e293b] flex justify-center min-h-screen font-sans">
       <div className="w-full max-w-md min-h-screen relative flex flex-col shadow-2xl pb-32">
         {/* Status Bar is handled by MobileFrame */}
-        <TopHeader activeSection="Business" onNavigate={onNavigate} />
+        <GlobalHeader activeTab="My Business" onNavigate={onNavigate} title="My Enquiries" />
         
         {/* Sticky Header Section */}
-        <div className="sticky top-0 bg-[#fcfaf2]/90 backdrop-blur-md z-40 px-5 pt-2 pb-3 space-y-4">
-          <h1 className="text-xl font-bold text-[#1e293b]">My Enquiries</h1>
+        <div className="sticky top-[114px] bg-[#fcfaf2]/90 backdrop-blur-md z-40 px-5 pt-2 pb-3 space-y-4">
           
           <div className="flex p-1 bg-[#f8f5ee] rounded-xl border border-slate-200">
             <button 
