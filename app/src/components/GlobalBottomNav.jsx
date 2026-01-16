@@ -27,104 +27,22 @@ function GlobalBottomNav({ onNavigate, activeTab = 'home', context = 'home' }) {
   const currentItems = navItems[context] || navItems.home;
 
   return (
-    <nav className="bottom-nav-floating">
-      {currentItems.map(item => (
-        <button 
-          key={item.id}
-          className={`nav-item-float ${activeTab === item.id ? 'active' : ''}`}
-          onClick={() => onNavigate(item.id)}
-        >
-          <div className="icon-wrapper">
-             <item.icon size={22} strokeWidth={activeTab === item.id ? 2.5 : 1.5} />
-             {activeTab === item.id && <span className="active-dot"></span>}
-          </div>
-          <span className="label">{item.label}</span>
-        </button>
-      ))}
-
-      <style>{`
-        .bottom-nav-floating {
-          position: absolute;
-          bottom: 24px;
-          left: 50%;
-          transform: translateX(-50%);
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(16px);
-          border: 1px solid rgba(255, 255, 255, 0.5);
-          box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.05);
-          border-radius: 24px;
-          padding: 8px 12px;
-          display: flex;
-          gap: 8px;
-          z-index: 1000;
-          max-width: 90%;
-          width: auto;
-        }
-
-        .nav-item-float {
-          background: none;
-          border: none;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          padding: 8px 12px;
-          min-width: 64px;
-          border-radius: 16px;
-          cursor: pointer;
-          color: #94A3B8;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          position: relative;
-        }
-
-        .nav-item-float:active {
-          transform: scale(0.92);
-        }
-
-        .nav-item-float.active {
-          color: #1b4d3e;
-          background: rgba(27, 77, 62, 0.05);
-        }
-
-        .icon-wrapper {
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 4px;
-        }
-
-        .nav-item-float.active .icon-wrapper {
-          transform: translateY(-2px);
-        }
-
-        .active-dot {
-          position: absolute;
-          bottom: -8px;
-          width: 4px; height: 4px;
-          background: #1b4d3e;
-          border-radius: 50%;
-          opacity: 0;
-          animation: fadeUp 0.3s forwards;
-        }
-
-        @keyframes fadeUp {
-          to { opacity: 1; transform: translateY(-2px); }
-        }
-
-        .label {
-          font-size: 10px;
-          font-weight: 500;
-          opacity: 0.8;
-          transition: all 0.2s;
-        }
-
-        .nav-item-float.active .label {
-          font-weight: 700;
-          color: #1b4d3e;
-        }
-      `}</style>
-    </nav>
+    <div className="sticky bottom-0 left-0 right-0 w-full z-50">
+      <nav className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 flex items-center justify-around px-2 py-2 pb-6">
+        {currentItems.map(item => (
+          <a
+            key={item.id}
+            onClick={() => onNavigate(item.id)}
+            className={`flex flex-col items-center py-1 px-1 cursor-pointer flex-1 ${activeTab === item.id ? 'text-primary' : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors'}`}
+          >
+            <item.icon size={20} strokeWidth={activeTab === item.id ? 2.5 : 2} />
+            <span className={`text-[9px] mt-1 leading-none text-center ${activeTab === item.id ? 'font-bold' : 'font-medium'}`}>
+              {item.label}
+            </span>
+          </a>
+        ))}
+      </nav>
+    </div>
   );
 }
 

@@ -1,257 +1,129 @@
-import { Building2, FileText, Mail, Link, BarChart3, Plus, ChevronDown, TrendingUp, Users, Target, Calendar } from 'lucide-react'
-import GlobalHeader from '../components/GlobalHeader'
-import GlobalBottomNav from '../components/GlobalBottomNav'
-import './screens.css'
+import GlobalHeader from '../components/GlobalHeader';
 
-function BusinessDashboard({ onNavigate }) {
+import React from 'react';
+import BusinessBottomNav from '../components/BusinessBottomNav';
+import {
+  Building2,
+  FileText,
+  Mail,
+  Eye,
+  Store,
+  FilePlus2,
+  AlertTriangle,
+  MessageCircle,
+  ChevronRight,
+  LayoutDashboard,
+  Building,
+  Heart,
+} from 'lucide-react';
+
+const BusinessDashboard = ({ onNavigate }) => {
   return (
-    <div className="screen dashboard-screen">
-      {/* Global Header */}
-      <GlobalHeader onNavigate={onNavigate} activeTab="My Business" />
+    <div className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 flex justify-center min-h-screen font-display">
+      <div className="w-full max-w-md min-h-screen relative pb-32 bg-background-light dark:bg-background-dark">
+        
+        <GlobalHeader activeTab="My Business" onNavigate={onNavigate} />
 
-      <div className="screen-content-scroll" style={{paddingBottom: 80}}>
-        {/* Helper text if needed, or just start content */}
-      <div style={{height: 16}}></div>
-        {/* Stats Grid */}
-        <div className="stats-grid">
-          <div className="stat-card gradient-blue-purple" onClick={() => onNavigate('properties')}>
-            <Building2 size={24} style={{opacity: 0.5, marginBottom: 8}} />
-            <div className="number">48</div>
-            <div className="label">Active Properties</div>
-            <div className="trend">↑ +5 this week</div>
-          </div>
-          <div className="stat-card gradient-purple" onClick={() => onNavigate('requirements')}>
-            <FileText size={24} style={{opacity: 0.5, marginBottom: 8}} />
-            <div className="number">23</div>
-            <div className="label">Active Requirements</div>
-            <div className="trend">↑ +3 new</div>
-          </div>
-          <div className="stat-card gradient-green" onClick={() => onNavigate('enquiries')}>
-            <Mail size={24} style={{opacity: 0.5, marginBottom: 8}} />
-            <div className="number">156</div>
-            <div className="label">Total Enquiries</div>
-            <div className="trend">↓89 Rec | ↑67 Sent</div>
-          </div>
-          <div className="stat-card gradient-orange">
-            <Link size={24} style={{opacity: 0.5, marginBottom: 8}} />
-            <div className="number">34</div>
-            <div className="label">New Matches</div>
-            <div className="trend">View All →</div>
-          </div>
+
+        <div className="px-4 py-6 space-y-8">
+          {/* Dashboard Summary */}
+          <section>
+            <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-4 ml-1">Dashboard Summary</h2>
+            <div className="grid grid-cols-2 gap-4">
+              {/* Card 1 */}
+              <div
+                onClick={() => onNavigate('properties')}
+                className="bg-primary p-5 rounded-3xl text-white shadow-lg shadow-emerald-900/10 cursor-pointer transition-transform active:scale-95">
+                <Building2 className="opacity-70 mb-4" size={24} />
+                <div className="text-3xl font-bold tracking-tight">48</div>
+                <p className="text-[10px] font-bold opacity-90 mt-1 uppercase tracking-tight">Live Inventories</p>
+                <p className="text-[10px] opacity-70 mt-2">↑ +5 this week</p>
+              </div>
+              {/* Card 2 */}
+              <div
+                onClick={() => onNavigate('requirements')}
+                className="bg-indigo-600 p-5 rounded-3xl text-white shadow-lg shadow-indigo-900/10 cursor-pointer transition-transform active:scale-95">
+                <FileText className="opacity-70 mb-4" size={24} />
+                <div className="text-3xl font-bold tracking-tight">23</div>
+                <p className="text-[10px] font-bold opacity-90 mt-1 uppercase tracking-tight">Open Requirements</p>
+                <p className="text-[10px] opacity-70 mt-2">↑ +3 new</p>
+              </div>
+              {/* Card 3 */}
+              <div
+                onClick={() => onNavigate('enquiries')}
+                className="bg-emerald-500 p-5 rounded-3xl text-white shadow-lg shadow-emerald-900/10 cursor-pointer transition-transform active:scale-95">
+                <Mail className="opacity-70 mb-4" size={24} />
+                <div className="text-3xl font-bold tracking-tight">156</div>
+                <p className="text-[10px] font-bold opacity-90 mt-1 uppercase tracking-tight">Enquiries</p>
+                <p className="text-[10px] opacity-70 mt-2">↓ 89 Rec | ↑ 67 Sent</p>
+              </div>
+              {/* Card 4 */}
+              <div className="bg-orange-500 p-5 rounded-3xl text-white shadow-lg shadow-orange-900/10">
+                <Eye className="opacity-70 mb-4" size={24} />
+                <div className="text-3xl font-bold tracking-tight">12</div>
+                <p className="text-[10px] font-bold opacity-90 mt-1 uppercase tracking-tight">Properties Under Review</p>
+                <p className="text-[10px] font-semibold mt-2 underline cursor-pointer">View All →</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Quick Actions */}
+          <section>
+            <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-4 ml-1">Quick Actions</h2>
+            <div className="grid grid-cols-2 gap-4">
+              <button
+                onClick={() => onNavigate('add-inventory')}
+                className="flex flex-col items-center justify-center py-6 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-3xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors">
+                <Store className="text-primary mb-2" size={30} />
+                <span className="text-sm font-bold">Add Inventory</span>
+              </button>
+              <button
+                onClick={() => onNavigate('add-requirement')}
+                className="flex flex-col items-center justify-center py-6 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-3xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors">
+                <FilePlus2 className="text-primary mb-2" size={30} />
+                <span className="text-sm font-bold">Add Requirement</span>
+              </button>
+            </div>
+          </section>
+
+          {/* Actions Required */}
+          <section>
+            <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-4 ml-1">Actions Required</h2>
+            <div className="space-y-3">
+              <div className="bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800/30 p-4 rounded-2xl flex items-start gap-4">
+                <div className="bg-red-500 text-white p-2.5 rounded-xl flex items-center justify-center shadow-sm">
+                  <AlertTriangle className="leading-none" size={20} />
+                </div>
+                <div className="flex-1">
+                  <p className="text-slate-900 dark:text-slate-100 font-bold text-sm">8 inventories getting delisted</p>
+                  <p className="text-red-600 dark:text-red-400 text-xs mt-1">Renew before they expire tonight at 11:59 PM</p>
+                </div>
+                <ChevronRight className="text-slate-400 self-center" size={18} />
+              </div>
+
+              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/30 p-4 rounded-2xl flex items-start gap-4">
+                <div className="bg-blue-500 text-white p-2.5 rounded-xl flex items-center justify-center shadow-sm">
+                  <MessageCircle className="leading-none" size={20} />
+                </div>
+                <div className="flex-1">
+                  <p className="text-slate-900 dark:text-slate-100 font-bold text-sm">New enquiry received</p>
+                  <p className="text-blue-600 dark:text-blue-400 text-xs mt-1">High intent buyer for locality: Mumbai South</p>
+                </div>
+                <ChevronRight className="text-slate-400 self-center" size={18} />
+              </div>
+            </div>
+          </section>
         </div>
 
-        {/* Performance Chart */}
-        <section className="section">
-          <div className="section-header">
-            <h2>This Month&apos;s Performance</h2>
-            <TrendingUp size={18} color="var(--success-color)" />
-          </div>
-          <div className="chart-card">
-            <div className="chart-bars">
-              {[65, 45, 80, 55].map((height, i) => (
-                <div key={i} className="chart-week">
-                  <div className="bars">
-                    <div className="bar blue" style={{height: `${height}%`}}></div>
-                    <div className="bar green" style={{height: `${height * 0.6}%`}}></div>
-                    <div className="bar orange" style={{height: `${height * 0.4}%`}}></div>
-                  </div>
-                  <span className="week-label">W{i + 1}</span>
-                </div>
-              ))}
-            </div>
-            <div className="chart-legend">
-              <span><span className="dot blue"></span> Listings</span>
-              <span><span className="dot green"></span> Enquiries</span>
-              <span><span className="dot orange"></span> Matches</span>
-            </div>
-          </div>
-        </section>
+        {/* Bottom Nav */}
+        {/* Bottom Nav */}
+        <BusinessBottomNav activeTab="dashboard" onNavigate={onNavigate} />
 
-        {/* Quick Actions */}
-        <section className="section">
-          <div className="section-header">
-            <h2>Quick Actions</h2>
-          </div>
-          <div className="quick-actions-mini">
-            <button className="quick-action-item">
-              <div className="action-icon blue"><Plus size={20} /></div>
-              <span>Add Property</span>
-            </button>
-            <button className="quick-action-item">
-              <div className="action-icon purple"><FileText size={20} /></div>
-              <span>Add Requirement</span>
-            </button>
-          </div>
-        </section>
-
-        {/* Recent Activity */}
-        <section className="section">
-          <div className="section-header">
-            <h2>Recent Activity</h2>
-            <button className="link-btn">View All</button>
-          </div>
-          <div className="activity-list">
-            {[
-              { icon: '📧', text: 'New enquiry received for 3 BHK in Koramangala', time: '2 min ago' },
-              { icon: '🔗', text: '5 new properties match your requirement', time: '1 hour ago' },
-              { icon: '👁️', text: 'Your property was viewed 23 times today', time: '3 hours ago' }
-            ].map((activity, i) => (
-              <div key={i} className="activity-item">
-                <span className="activity-icon">{activity.icon}</span>
-                <div className="activity-content">
-                  <p>{activity.text}</p>
-                  <span className="activity-time">{activity.time}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+        {/* Home Indicator */}
+        <div className="fixed bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-slate-200 dark:bg-slate-800 rounded-full"></div>
       </div>
-
-      <GlobalBottomNav onNavigate={onNavigate} activeTab="dashboard" context="business" />
-
-      <style>{`
-        .dashboard-sub-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 12px 16px;
-          background: var(--bg-color);
-        }
-        .period-btn {
-          background: var(--bg-secondary);
-          border: none;
-          padding: 8px 14px;
-          border-radius: 20px;
-          font-size: 13px;
-          color: var(--primary-color);
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          cursor: pointer;
-        }
-        .chart-card {
-          background: white;
-          border-radius: 16px;
-          padding: 20px;
-          box-shadow: var(--shadow-sm);
-        }
-        .chart-bars {
-          display: flex;
-          justify-content: space-around;
-          height: 120px;
-          margin-bottom: 16px;
-        }
-        .chart-week {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 8px;
-        }
-        .bars {
-          display: flex;
-          gap: 4px;
-          align-items: flex-end;
-          height: 100%;
-        }
-        .bar {
-          width: 14px;
-          border-radius: 4px 4px 0 0;
-          transition: height 0.3s;
-        }
-        .bar.blue { background: var(--primary-color); }
-        .bar.green { background: var(--success-color); }
-        .bar.orange { background: var(--accent-color); }
-        .week-label {
-          font-size: 12px;
-          color: #888;
-        }
-        .chart-legend {
-          display: flex;
-          justify-content: center;
-          gap: 20px;
-          font-size: 12px;
-          color: #666;
-        }
-        .chart-legend .dot {
-          display: inline-block;
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          margin-right: 6px;
-        }
-        .chart-legend .dot.blue { background: var(--primary-color); }
-        .chart-legend .dot.green { background: var(--success-color); }
-        .chart-legend .dot.orange { background: var(--accent-color); }
-        .quick-actions-mini {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 12px;
-        }
-        .quick-action-item {
-          background: white;
-          border: none;
-          border-radius: 12px;
-          padding: 16px 12px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 8px;
-          cursor: pointer;
-          box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-        }
-        .action-icon {
-          width: 44px;
-          height: 44px;
-          border-radius: 12px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-        }
-        .action-icon.blue { background: var(--primary-color); }
-        .action-icon.purple { background: #8B5CF6; }
-        .action-icon.green { background: var(--success-color); }
-        .action-icon.red { background: var(--danger-color); }
-        .action-icon.orange { background: var(--accent-color); }
-        .action-icon.teal { background: #00BCD4; }
-        .quick-action-item span {
-          font-size: 12px;
-          color: #666;
-        }
-        .activity-list {
-          background: white;
-          border-radius: 12px;
-          overflow: hidden;
-          box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-        }
-        .activity-item {
-          display: flex;
-          gap: 12px;
-          padding: 14px 16px;
-          border-bottom: 1px solid #F0F0F0;
-        }
-        .activity-item:last-child {
-          border-bottom: none;
-        }
-        .activity-icon {
-          font-size: 18px;
-        }
-        .activity-content {
-          flex: 1;
-        }
-        .activity-content p {
-          font-size: 13px;
-          color: #1A1A1A;
-          margin-bottom: 2px;
-        }
-        .activity-time {
-          font-size: 11px;
-          color: #999;
-        }
-      `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default BusinessDashboard
+export default BusinessDashboard;

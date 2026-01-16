@@ -166,6 +166,38 @@ function HomeScreen({ onNavigate }) {
                  </div>
               </div>
 
+              {/* Active Inventory - New Logic Card */}
+              <div className="growth-card purple-theme" onClick={() => onNavigate('dashboard')}>
+                 <div className="growth-header">
+                  <span className="growth-title">Active Inventory</span>
+                  <div className="growth-icon"><Building2 size={18} /></div>
+                </div>
+                <div className="growth-main">
+                  <span className="growth-value">24</span>
+                  <span className="growth-sub">Properties live on market</span>
+                </div>
+                 <div className="growth-footer">
+                   <span className="action-link">View Dashboard</span>
+                 </div>
+              </div>
+
+               {/* Profile Visits - New Logic Card */}
+               <div className="growth-card orange-theme" onClick={() => onNavigate('profile')}>
+                 <div className="growth-header">
+                  <span className="growth-title">Profile Visits</span>
+                  <div className="growth-icon"><Users size={18} /></div>
+                </div>
+                <div className="growth-main">
+                  <span className="growth-value">1.2k</span>
+                  <span className="growth-delta" style={{color: '#EA580C'}}>
+                    <TrendingUp size={12} /> +12% this week
+                  </span>
+                </div>
+                 <div className="growth-footer">
+                   <span className="action-link" style={{color: '#EA580C'}}>View Profile</span>
+                 </div>
+              </div>
+
             </div>
           </div>
         </section>
@@ -265,6 +297,17 @@ function HomeScreen({ onNavigate }) {
           .avatars-stack .more-count { width: 24px; height: 24px; border-radius: 50%; background: #F1F5F9; border: 2px solid white; font-size: 9px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #64748B; z-index: 2; margin-left: 8px; }
 
           .action-link { font-size: 11px; font-weight: 700; color: #16A34A; text-decoration: underline; }
+
+          /* Purple Theme (Inventory) */
+          .growth-card.purple-theme { background: linear-gradient(145deg, #ffffff, #F3E8FF); border-bottom: 3px solid #9333EA; }
+          .growth-card.purple-theme .growth-icon { background: #F3E8FF; color: #9333EA; }
+          .growth-card.purple-theme .growth-value { color: #581C87; }
+          .growth-card.purple-theme .action-link { color: #9333EA; }
+
+          /* Orange Theme (Visits) */
+          .growth-card.orange-theme { background: linear-gradient(145deg, #ffffff, #FFF7ED); border-bottom: 3px solid #EA580C; }
+          .growth-card.orange-theme .growth-icon { background: #FFEDD5; color: #EA580C; }
+          .growth-card.orange-theme .growth-value { color: #7C2D12; }
         `}</style>
 
         {/* New Launch Projects */}

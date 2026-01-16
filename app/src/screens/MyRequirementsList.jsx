@@ -1,267 +1,155 @@
-import { ArrowLeft, Plus, Search, MapPin, Link, Mail } from 'lucide-react'
-import GlobalHeader from '../components/GlobalHeader'
-import GlobalBottomNav from '../components/GlobalBottomNav'
-import './screens.css'
+import React, { useState } from 'react';
+import { Search, ChevronDown, Filter } from 'lucide-react';
+import BusinessBottomNav from '../components/BusinessBottomNav';
+import TopHeader from '../components/TopHeader';
 
-function MyRequirementsList({ onNavigate }) {
+const MyRequirementsList = ({ onNavigate }) => {
+  const [activeTab, setActiveTab] = useState('Buy');
+
   const requirements = [
     {
-      id: 'REQ5678',
-      title: 'Looking for 2 BHK in Koramangala',
-      budget: '₹50L - ₹80L',
-      location: 'Koramangala',
-      bhk: '2, 3 BHK',
-      area: '1000 - 1500 sq.ft',
-      type: 'Buy',
-      propertyType: 'Apartment',
-      client: 'Priya Desai',
-      status: 'active',
-      matches: 23,
-      enquiries: 5
+      id: 1,
+      name: 'Rahul Sharma',
+      type: '3 BHK Apartment',
+      budget: '₹2.5 Cr - 3.2 Cr',
+      matches: 14,
+      localities: ['Bandra West', 'Khar', '+2 more'],
+      status: 'Open',
+      statusColor: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400',
+      matchColor: 'text-indigo-600 dark:text-indigo-400',
+      opacity: 'opacity-100'
     },
     {
-      id: 'REQ5679',
-      title: 'Villa in HSR for family',
-      budget: '₹1.5Cr - ₹2Cr',
-      location: 'HSR Layout',
-      bhk: '4 BHK',
-      area: '2000 - 3000 sq.ft',
-      type: 'Buy',
-      propertyType: 'Villa',
-      client: 'Rajesh Kumar',
-      status: 'matched',
-      matches: 8,
-      enquiries: 3
+      id: 2,
+      name: 'Anjali Mehta',
+      type: 'Independent Villa',
+      budget: '₹5.0 Cr - 7.5 Cr',
+      matches: 5,
+      localities: ['Worli', 'Lower Parel'],
+      status: 'Pending',
+      statusColor: 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400',
+      matchColor: 'text-indigo-600 dark:text-indigo-400',
+      opacity: 'opacity-100'
     },
     {
-      id: 'REQ5680',
-      title: 'Commercial space for cafe',
-      budget: '₹80K - ₹1.2L /mo',
-      location: 'Indiranagar',
-      bhk: 'N/A',
-      area: '500 - 1000 sq.ft',
-      type: 'Rent',
-      propertyType: 'Commercial',
-      client: 'Amit Shah',
-      status: 'active',
-      matches: 12,
-      enquiries: 2
+      id: 3,
+      name: 'Vikram Singhania',
+      type: 'Commercial Showroom',
+      budget: '₹10 Cr - 12 Cr',
+      matches: 0,
+      localities: ['Andheri East'],
+      status: 'Closed',
+      statusColor: 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400',
+      matchColor: 'text-indigo-600 dark:text-indigo-400',
+      opacity: 'opacity-60'
+    },
+    {
+      id: 4,
+      name: 'Priya Kapoor',
+      type: '2 BHK Flat',
+      budget: '₹1.2 Cr - 1.5 Cr',
+      matches: 28,
+      localities: ['Powai', 'Chandivali'],
+      status: 'Open',
+      statusColor: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400',
+      matchColor: 'text-indigo-600 dark:text-indigo-400',
+      opacity: 'opacity-100'
     }
-  ]
+  ];
 
   return (
-    <div className="screen">
-      {/* Header */}
-      {/* Global Header */}
-      <GlobalHeader onNavigate={onNavigate} activeTab="My Business" />
-
-      {/* Toggle Tabs */}
-      <div className="toggle-tabs">
-        <button className="toggle-tab active purple">Buy (18)</button>
-        <button className="toggle-tab">Rent (12)</button>
-        <button className="toggle-tab">Commercial (3)</button>
-      </div>
-
-      {/* Search */}
-      <div className="section" style={{paddingTop: 0, paddingBottom: 12}}>
-        <div className="search-bar" style={{marginBottom: 12}}>
-          <Search size={18} className="search-icon" />
-          <span className="search-placeholder">Search requirements...</span>
-        </div>
-        <div className="filter-chips">
-          <button className="filter-chip">Status ▾</button>
-          <button className="filter-chip">Budget ▾</button>
-          <button className="filter-chip">Location ▾</button>
-          <button className="filter-chip">BHK ▾</button>
-        </div>
-      </div>
-
-      {/* Requirement Cards */}
-      <div className="screen-content">
-        {requirements.map((req, i) => (
-          <div key={i} className="requirement-card">
-            <div className="req-header">
-              <div className="req-header-left">
-                <span className="req-id">#{req.id}</span>
-                <span className={`status-badge ${req.status}`}>
-                  {req.status === 'active' ? 'Active' : 'Matched'}
-                </span>
+    <div className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 flex justify-center min-h-screen font-display">
+      <div className="w-full max-w-md min-h-screen relative flex flex-col pb-32">
+        {/* Status Bar is handled by MobileFrame */}
+        <TopHeader activeSection="Business" onNavigate={onNavigate} />
+        
+        {/* Sticky Header Section */}
+        <div className="px-4 pt-2 pb-4 space-y-4 sticky top-0 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md z-40 border-b border-gray-100 dark:border-gray-800">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
+            <input 
+              className="w-full pl-10 pr-4 py-3 bg-slate-100 dark:bg-slate-900 border-none rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 outline-none" 
+              placeholder="Search requirements..." 
+              type="text"
+            />
+          </div>
+          
+          <div className="bg-slate-100 dark:bg-slate-900 p-1 rounded-2xl flex">
+            <button 
+              onClick={() => setActiveTab('Buy')}
+              className={`flex-1 py-2 text-sm font-bold rounded-xl shadow-sm transition-all ${activeTab === 'Buy' ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white' : 'bg-transparent text-slate-500 dark:text-slate-400 shadow-none'}`}
+            >
+              Buy
+            </button>
+            <button 
+              onClick={() => setActiveTab('Rent')}
+              className={`flex-1 py-2 text-sm font-medium transition-all ${activeTab === 'Rent' ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-xl shadow-sm font-bold' : 'text-slate-500 dark:text-slate-400'}`}
+            >
+              Rent
+            </button>
+          </div>
+          
+          <div className="flex items-center justify-between">
+            <label className="flex items-center gap-2 cursor-pointer group">
+              <div className="w-5 h-5 border-2 border-slate-300 dark:border-slate-700 rounded-md flex items-center justify-center group-active:scale-95 transition-transform">
+                <div className="w-2.5 h-2.5 bg-primary rounded-sm opacity-0"></div>
               </div>
-              <div className="req-type-badge">{req.type}</div>
-            </div>
-            
-            <h4 className="req-title">{req.title}</h4>
-            
-            <div className="req-details">
-              <div className="req-detail">
-                <span className="detail-icon">₹</span>
-                <span>{req.budget}</span>
-              </div>
-              <div className="req-detail">
-                <MapPin size={12} />
-                <span>{req.location}</span>
-              </div>
-              <div className="req-detail">
-                <span className="detail-icon">🏠</span>
-                <span>{req.bhk}</span>
-              </div>
-              <div className="req-detail">
-                <span className="detail-icon">📐</span>
-                <span>{req.area}</span>
-              </div>
-            </div>
-
-            <div className="req-tags">
-              <span className="tag">{req.propertyType}</span>
-            </div>
-
-            <div className="req-client">
-              <div className="client-avatar">
-                <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${req.client}`} alt="" />
-              </div>
-              <span>{req.client}</span>
-            </div>
-
-            <div className="match-bar-container">
-              <div className="match-bar-bg">
-                <div className="match-bar-fill" style={{width: `${Math.min(req.matches * 4, 100)}%`}}></div>
-              </div>
-              <span className="match-count">{req.matches} Properties Match</span>
-            </div>
-
-            <div className="req-stats">
-              <span><Link size={12} /> {req.matches} Matches</span>
-              <span><Mail size={12} /> {req.enquiries} Enquiries</span>
-            </div>
-
-            <div className="card-actions">
-              <button className="btn btn-outline">View Matches</button>
-              <button className="btn btn-purple">Enquire</button>
+              <span className="text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-wider">Select Multiple</span>
+            </label>
+            <div className="flex gap-2">
+              <button className="flex items-center gap-1 px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full shadow-sm text-xs font-semibold">
+                Status <ChevronDown size={16} />
+              </button>
+              <button className="flex items-center gap-1 px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full shadow-sm text-xs font-semibold">
+                <Filter size={16} /> Filters
+              </button>
             </div>
           </div>
-        ))}
+        </div>
+
+        {/* Requirements List */}
+        <div className="flex-1 px-4 py-4 space-y-4">
+          {requirements.map((req) => (
+            <div key={req.id} className={`bg-white dark:bg-slate-900 p-4 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 space-y-3 ${req.opacity}`}>
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="font-bold text-lg text-slate-900 dark:text-white leading-tight">{req.name}</h3>
+                  <p className="text-xs font-semibold text-primary uppercase mt-0.5">{req.type}</p>
+                </div>
+                <span className={`px-2.5 py-1 text-[10px] font-bold rounded-full uppercase tracking-wider ${req.statusColor}`}>
+                  {req.status}
+                </span>
+              </div>
+              
+              <div className="flex flex-wrap gap-y-2">
+                <div className="w-1/2">
+                  <p className="text-[10px] text-slate-400 uppercase font-bold tracking-tight">Budget Range</p>
+                  <p className="text-sm font-bold text-slate-700 dark:text-slate-300">{req.budget}</p>
+                </div>
+                <div className="w-1/2">
+                  <p className="text-[10px] text-slate-400 uppercase font-bold tracking-tight">Matched Properties</p>
+                  <p className={`text-sm font-bold ${req.matchColor}`}>{req.matches} Matches</p>
+                </div>
+              </div>
+              
+              <div className="pt-2 border-t border-slate-50 dark:border-slate-800/50">
+                <p className="text-[10px] text-slate-400 uppercase font-bold tracking-tight mb-1">Preferred Localities</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {req.localities.map((loc, idx) => (
+                    <span key={idx} className="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-md text-[10px] font-medium text-slate-700 dark:text-slate-300">
+                      {loc}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <BusinessBottomNav activeTab="requirements" onNavigate={onNavigate} />
       </div>
-
-      {/* FAB */}
-      <button className="fab purple" onClick={() => onNavigate('add-requirement')}>
-        <Plus size={24} />
-      </button>
-
-      <GlobalBottomNav onNavigate={onNavigate} activeTab="requirements" context="business" />
-
-      <style>{`
-        .requirement-card {
-          background: white;
-          margin: 0 16px 16px;
-          border-radius: 12px;
-          padding: 16px;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-          border-left: 4px solid #8B5CF6;
-        }
-        .req-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 8px;
-        }
-        .req-header-left {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-        .req-id {
-          font-size: 11px;
-          color: #888;
-        }
-        .req-type-badge {
-          background: #8B5CF6;
-          color: white;
-          font-size: 10px;
-          font-weight: 600;
-          padding: 4px 10px;
-          border-radius: 12px;
-        }
-        .req-title {
-          font-size: 16px;
-          font-weight: 600;
-          margin-bottom: 12px;
-          color: #1A1A1A;
-        }
-        .req-details {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 8px;
-          margin-bottom: 12px;
-        }
-        .req-detail {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          font-size: 12px;
-          color: #666;
-        }
-        .detail-icon {
-          font-size: 12px;
-        }
-        .req-tags {
-          display: flex;
-          gap: 6px;
-          margin-bottom: 12px;
-        }
-        .req-client {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          margin-bottom: 12px;
-          font-size: 13px;
-          color: #666;
-        }
-        .client-avatar {
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          background: #E0E0E0;
-          overflow: hidden;
-        }
-        .client-avatar img {
-          width: 100%;
-          height: 100%;
-        }
-        .match-bar-container {
-          margin-bottom: 12px;
-        }
-        .match-bar-bg {
-          height: 6px;
-          background: #E8F5E9;
-          border-radius: 3px;
-          overflow: hidden;
-          margin-bottom: 4px;
-        }
-        .match-bar-fill {
-          height: 100%;
-          background: linear-gradient(90deg, #00C853, #69F0AE);
-          border-radius: 3px;
-        }
-        .match-count {
-          font-size: 12px;
-          color: #00C853;
-          font-weight: 500;
-        }
-        .req-stats {
-          display: flex;
-          gap: 16px;
-          font-size: 12px;
-          color: #888;
-          margin-bottom: 12px;
-        }
-        .req-stats span {
-          display: flex;
-          align-items: center;
-          gap: 4px;
-        }
-      `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default MyRequirementsList
+export default MyRequirementsList;

@@ -1,185 +1,147 @@
-import { ArrowLeft, Filter, Phone, MessageCircle } from 'lucide-react'
-import GlobalHeader from '../components/GlobalHeader'
-import GlobalBottomNav from '../components/GlobalBottomNav'
-import './screens.css'
+import React, { useState } from 'react';
+import { Search, Phone, ChevronRight, Building2, Mountain, CheckCircle2 } from 'lucide-react';
+import BusinessBottomNav from '../components/BusinessBottomNav';
+import TopHeader from '../components/TopHeader';
 
-function MyEnquiries({ onNavigate }) {
+const MyEnquiries = ({ onNavigate }) => {
+  const [activeTab, setActiveTab] = useState('Resale');
+  const [subTab, setSubTab] = useState('Received');
+
   const enquiries = [
     {
       id: 1,
-      name: 'Rajesh Kumar',
-      rating: 4.8,
-      verified: true,
-      time: '2 hours ago',
-      type: 'Property Enquiry',
-      property: {
-        id: 'ACN12345',
-        title: '3 BHK Apartment, Prestige Lakeside',
-        price: '₹1.2 Cr',
-        area: '1450 sq.ft'
-      },
-      message: "Hi, I'm interested in this property for my client. Can we schedule a visit this weekend?",
-      status: 'new',
-      unread: true
+      name: 'Suman Sharma',
+      initial: 'S',
+      date: '9th July 2025',
+      property: '2BHK apartment in Birla Trimaya phase 1',
+      typeIcon: Building2,
+      type: 'Property Interested In'
     },
     {
       id: 2,
-      name: 'Anita Sharma',
-      rating: 4.5,
-      verified: true,
-      time: '5 hours ago',
-      type: 'Requirement Match',
-      property: {
-        id: 'REQ5678',
-        title: '2 BHK in Koramangala',
-        price: '₹50L - ₹80L',
-        area: '1000-1200 sq.ft'
-      },
-      message: 'I have a client looking for exactly this type of property. Let me know if your listing is still available.',
-      status: 'responded',
-      unread: false
+      name: 'Rohan Malhotra',
+      initial: 'R',
+      date: '8th July 2025',
+      property: '1200Sqft plot in Birla Trimaya phase 2',
+      typeIcon: Mountain,
+      type: 'Property Interested In'
     },
     {
       id: 3,
-      name: 'Prakash Mehta',
-      rating: 4.2,
-      verified: false,
-      time: '1 day ago',
-      type: 'Property Enquiry',
-      property: {
-        id: 'ACN12346',
-        title: '2 BHK Villa, HSR Layout',
-        price: '₹95 L',
-        area: '1200 sq.ft'
-      },
-      message: 'Is this property negotiable? My client is very interested.',
-      status: 'new',
-      unread: true
+      name: 'Anita Desai',
+      initial: 'A',
+      date: '7th July 2025',
+      property: '3BHK Penthouse, Sobha Dream Acres',
+      phone: '+91 70243 96102',
+      typeIcon: Building2,
+      type: 'Property Interested In'
     }
-  ]
+  ];
 
   return (
-    <div className="screen">
-      {/* Header */}
-      {/* Global Header */}
-      <GlobalHeader onNavigate={onNavigate} activeTab="My Business" />
-
-      {/* Stats Banner */}
-      <div className="enquiry-stats-banner">
-        <span>This Week: <strong>Received 12</strong> (↑3) | <strong>Sent 8</strong> | Response Rate <strong>75%</strong></span>
-      </div>
-
-      {/* Toggle Tabs */}
-      <div className="toggle-tabs">
-        <button className="toggle-tab active">Received (45)</button>
-        <button className="toggle-tab">Sent (32)</button>
-      </div>
-
-      {/* Filter Chips */}
-      <div className="filter-chips">
-        <button className="filter-chip">Status ▾</button>
-        <button className="filter-chip">Type ▾</button>
-        <button className="filter-chip">Date ▾</button>
-        <button className="filter-chip">Sort ▾</button>
-      </div>
-
-      {/* Enquiry Cards */}
-      <div className="screen-content">
-        {enquiries.map((enquiry) => (
-          <div key={enquiry.id} className={`enquiry-card ${enquiry.unread ? 'unread' : ''}`}>
-            <div className="enquiry-header">
-              <div className="enquiry-avatar">
-                <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${enquiry.name}`} alt="" />
-              </div>
-              <div className="enquiry-info">
-                <div className="enquiry-name">
-                  {enquiry.name}
-                  <span className="rating">⭐ {enquiry.rating}</span>
-                  {enquiry.verified && <span className="verified-badge">✓ Verified</span>}
-                </div>
-                <div className="enquiry-meta">
-                  <span className="enquiry-type">{enquiry.type}</span>
-                  <span>•</span>
-                  <span>{enquiry.time}</span>
-                </div>
-              </div>
-              <span className={`status-badge ${enquiry.status}`}>
-                {enquiry.status === 'new' ? 'New' : 'Responded'}
-              </span>
-            </div>
-
-            <div className="enquiry-property">
-              <div className="property-mini">
-                <span className="property-id">{enquiry.property.id}</span>
-                <p className="property-title">{enquiry.property.title}</p>
-                <p className="property-details">{enquiry.property.price} | {enquiry.property.area}</p>
-              </div>
-            </div>
-
-            <div className="enquiry-message">
-              <p>{enquiry.message}</p>
-            </div>
-
-            <div className="enquiry-actions">
-              <button className="btn btn-primary">Respond</button>
-              <button className="btn btn-outline"><Phone size={16} /></button>
-              <button className="btn btn-outline" style={{background: '#E8F5E9', borderColor: '#E8F5E9', color: '#2E7D32'}}>
-                <MessageCircle size={16} />
-              </button>
-            </div>
+    <div className="bg-[#fcfaf2] text-[#1e293b] flex justify-center min-h-screen font-sans">
+      <div className="w-full max-w-md min-h-screen relative flex flex-col shadow-2xl pb-32">
+        {/* Status Bar is handled by MobileFrame */}
+        <TopHeader activeSection="Business" onNavigate={onNavigate} />
+        
+        {/* Sticky Header Section */}
+        <div className="sticky top-0 bg-[#fcfaf2]/90 backdrop-blur-md z-40 px-5 pt-2 pb-3 space-y-4">
+          <h1 className="text-xl font-bold text-[#1e293b]">My Enquiries</h1>
+          
+          <div className="flex p-1 bg-[#f8f5ee] rounded-xl border border-slate-200">
+            <button 
+              onClick={() => setActiveTab('Resale')}
+              className={`flex-1 py-2 text-sm font-semibold rounded-lg shadow-sm transition-all ${activeTab === 'Resale' ? 'bg-primary text-white' : 'text-slate-500 font-medium bg-transparent shadow-none'}`}
+            >
+              Resale
+            </button>
+            <button 
+              onClick={() => setActiveTab('Rental')}
+              className={`flex-1 py-2 text-sm font-semibold rounded-lg shadow-sm transition-all ${activeTab === 'Rental' ? 'bg-primary text-white' : 'text-slate-500 font-medium bg-transparent shadow-none'}`}
+            >
+              Rental
+            </button>
           </div>
-        ))}
+          
+          <div className="flex border-b border-slate-200">
+            <button 
+              onClick={() => setSubTab('Received')}
+              className={`flex-1 pb-3 text-sm font-semibold relative ${subTab === 'Received' ? 'text-primary border-b-2 border-primary' : 'text-slate-500'}`}
+            >
+              Received (140)
+              <span className="absolute top-0 right-4 bg-[#d93025] text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold">9+</span>
+            </button>
+            <button 
+              onClick={() => setSubTab('Sent')}
+              className={`flex-1 pb-3 text-sm font-medium ${subTab === 'Sent' ? 'text-primary border-b-2 border-primary' : 'text-slate-500'}`}
+            >
+              Sent (120)
+            </button>
+          </div>
+          
+          <div className="relative pb-2">
+            <Search className="absolute left-3 top-3 text-slate-500" size={20} />
+            <input 
+              className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-slate-400 shadow-sm" 
+              placeholder="Search by project, micro market" 
+              type="text"
+            />
+          </div>
+        </div>
+
+        {/* Enquiries List */}
+        <div className="flex-1 px-5 py-2 space-y-4">
+          {enquiries.map((enquiry) => (
+            <div key={enquiry.id} className="bg-white p-5 rounded-[16px] shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)] border border-slate-100 relati ve">
+              <div className="flex items-start gap-3">
+                <div className="w-12 h-12 rounded-full bg-[#f8f5ee] flex items-center justify-center border border-primary/10 shrink-0">
+                  <span className="text-primary font-bold text-lg">{enquiry.initial}</span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex justify-between items-start">
+                    <h3 className="font-bold text-[15px] text-[#1e293b] truncate">{enquiry.name}</h3>
+                    <span className="text-[11px] font-medium text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full whitespace-nowrap">{enquiry.date}</span>
+                  </div>
+                  
+                  {enquiry.phone ? (
+                    <div className="mt-2">
+                      <p className="text-sm font-bold text-primary tracking-tight">{enquiry.phone}</p>
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-2 mt-2">
+                      <button className="px-4 py-1.5 bg-primary text-white rounded-full flex items-center gap-2 hover:bg-opacity-90 transition-all active:scale-95">
+                        <Phone size={14} />
+                        <span className="text-xs font-semibold">Enquire Now</span>
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+              
+              <div className="mt-4 pt-4 border-t border-slate-100">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-10 h-10 rounded-xl bg-[#f8f5ee] flex items-center justify-center shrink-0">
+                      <enquiry.typeIcon className="text-primary" size={20} />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs text-slate-500 font-medium uppercase tracking-wider">{enquiry.type}</p>
+                      <p className="text-[13px] text-[#1e293b] font-semibold truncate">{enquiry.property}</p>
+                    </div>
+                  </div>
+                  <button className="w-8 h-8 rounded-full bg-[#f8f5ee] text-primary flex items-center justify-center shrink-0">
+                    <ChevronRight size={20} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <BusinessBottomNav activeTab="enquiries" onNavigate={onNavigate} />
       </div>
-      
-      <GlobalBottomNav onNavigate={onNavigate} activeTab="enquiries" context="business" />
-
-      <style>{`
-        .enquiry-stats-banner {
-          background: #E3F2FD;
-          padding: 10px 16px;
-          font-size: 12px;
-          color: #0066CC;
-          text-align: center;
-        }
-        .enquiry-stats-banner strong {
-          font-weight: 600;
-        }
-        .enquiry-property {
-          margin-bottom: 12px;
-        }
-        .property-mini {
-          background: #F5F7FA;
-          padding: 10px 12px;
-          border-radius: 8px;
-        }
-        .property-id {
-          font-size: 10px;
-          color: #888;
-        }
-        .property-title {
-          font-size: 13px;
-          font-weight: 500;
-          color: #1A1A1A;
-          margin: 2px 0;
-        }
-        .property-details {
-          font-size: 12px;
-          color: #666;
-        }
-        .verified-badge {
-          font-size: 10px;
-          background: #E8F5E9;
-          color: #2E7D32;
-          padding: 2px 6px;
-          border-radius: 8px;
-          margin-left: 4px;
-        }
-        .enquiry-type {
-          color: #0066CC;
-        }
-      `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default MyEnquiries
+export default MyEnquiries;

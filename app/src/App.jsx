@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import MobileFrame from './components/MobileFrame'
 import ScreenSelector from './components/ScreenSelector'
+// import DesktopLayout from './components/DesktopLayout' // Removed
 
 // Import all screens
 import HomeScreen from './screens/HomeScreen'
@@ -73,6 +74,15 @@ function App() {
   const [currentScreen, setCurrentScreen] = useState('login')
   const [screenParams, setScreenParams] = useState({})
   
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024)
+  const [forceMobile, setForceMobile] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth > 1024)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+  
   const handleNavigate = (screenId, params = {}) => {
     setCurrentScreen(screenId)
     setScreenParams(params)
@@ -80,17 +90,27 @@ function App() {
   
   const CurrentScreenComponent = screens.find(s => s.id === currentScreen)?.component || HomeScreen
 
+  // RENDER DESKTOP LAYOUT (Disabled as DesktopLayout files were removed)
+  /* 
+  if (isDesktop && !forceMobile) {
+    return (
+       <DesktopLayout ... />
+    )
+  }
+  */
+
+  // RENDER MOBILE LAYOUT (Existing)
   return (
-    <div className="app-container">
+    <div className="app-container" onClick={() => isDesktop && setForceMobile(false)}>
       <header className="app-header">
         <div className="logo">
           <span className="logo-icon">◆</span>
           <span className="logo-text">ACN v3</span>
         </div>
-        <p className="tagline">Design System Preview • {screens.length} Screens</p>
+        <p className="tagline">Mobile View Preview • {screens.length} Screens</p>
       </header>
 
-      <main className="main-content">
+      <main className="main-content" onClick={(e) => e.stopPropagation()}>
         <ScreenSelector 
           screens={screens} 
           currentScreen={currentScreen} 
@@ -103,7 +123,7 @@ function App() {
       </main>
 
       <footer className="app-footer">
-        <p>Click screens in sidebar or tap elements to navigate • Built with React + Vite</p>
+        <p>{isDesktop ? "Click outside the mobile frame to return to Desktop View" : "Switch to full screen (>1024px) to view Web Application mode"}</p>
       </footer>
     </div>
   )

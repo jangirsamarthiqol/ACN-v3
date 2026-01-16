@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ACN v3 Design System - Global Styles */
 
 :root {
