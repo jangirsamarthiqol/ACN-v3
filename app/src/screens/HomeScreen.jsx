@@ -43,7 +43,7 @@ function HomeScreen({ onNavigate }) {
           borderTopLeftRadius: activeTab === 'Buy' ? '0' : '24px' // Dynamic corner adjustment
         }}>
           
-          <div className="modern-search-input-box" onClick={() => onNavigate('search', { context: activeTab })}>
+          <div className="modern-search-input-box" onClick={() => onNavigate('global-search', { context: activeTab })}>
             <input 
               type="text" 
               className="modern-input" 

@@ -7,6 +7,7 @@ import ScreenSelector from './components/ScreenSelector'
 // Import all screens
 import HomeScreen from './screens/HomeScreen'
 import SearchScreen from './screens/SearchScreen'
+import PropertiesMarketplace from './screens/PropertiesMarketplace'
 import SearchResultsScreen from './screens/SearchResultsScreen'
 import FilterSheet from './screens/FilterSheet'
 import BusinessDashboard from './screens/BusinessDashboard'
@@ -39,7 +40,8 @@ const screens = [
   
   // Home & Search
   { id: 'home', name: 'ACN Home', category: 'Home', component: HomeScreen },
-  { id: 'search', name: 'Search', category: 'Home', component: SearchScreen },
+  { id: 'search', name: 'Properties', category: 'Home', component: PropertiesMarketplace },
+  { id: 'global-search', name: 'Search', category: 'Home', component: SearchScreen },
   { id: 'search-results', name: 'Search Results', category: 'Home', component: SearchResultsScreen },
   { id: 'filter', name: 'Filter Sheet', category: 'Home', component: FilterSheet },
   { id: 'property-detail', name: 'Property Detail', category: 'Home', component: PropertyDetail },
