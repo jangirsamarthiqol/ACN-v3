@@ -2,24 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ACN v3 Design System - Global Styles */
+/* ACN v3 Design System - Exact Colors from Design */
 
 :root {
-  --primary: #0066CC;
-  --primary-dark: #004C99;
-  --primary-light: #E3F2FD;
-  --secondary: #00C853;
-  --purple: #8B5CF6;
-  --purple-dark: #6D28D9;
-  --orange: #FF9800;
-  --red: #FF5252;
-  --background: #F5F7FA;
+  /* Primary Brand Colors - From Design */
+  --primary: #2F5D4E;
+  --primary-light: #E8F5F1;
+  --primary-dark: #1A3A2E;
+  --primary-black: #1A1A1A;
+
+  /* Backgrounds - Light & Clean */
+  --bg-primary: #F5F5F5;
+  --bg-secondary: #FAFAFA;
+  --bg-tertiary: #F0F0F0;
   --surface: #FFFFFF;
+
+  /* Accent Colors - From Design */
+  --accent-mint: #7DD3C0;
+  --accent-mint-light: #A8E6D5;
+  --accent-mint-lighter: #D4F4DD;
+  --accent-orange: #F59E0B;
+  --accent-red: #EF4444;
+  --accent-blue: #3B82F6;
+  --accent-purple: #8B5CF6;
+  --accent-indigo: #6366F1;
+
+  /* Property Status Colors */
+  --status-live: #D4F4DD;
+  --status-live-text: #15803D;
+  --status-new: #7DD3C0;
+  --status-new-text: #FFFFFF;
+  --status-review: #FEF3C7;
+  --status-review-text: #B45309;
+  --status-delisted: #FEE2E2;
+  --status-delisted-text: #DC2626;
+
+  /* Requirement Status Colors */
+  --req-status-open: #D4F4DD;
+  --req-status-open-text: #15803D;
+  --req-status-pending: #FEF3C7;
+  --req-status-pending-text: #B45309;
+  --req-status-closed: #E5E7EB;
+  --req-status-closed-text: #6B7280;
+
+  /* Text - From Design */
   --text-primary: #1A1A1A;
-  --text-secondary: #666666;
-  --text-tertiary: #999999;
-  --border: #E0E0E0;
-  --border-light: #F0F0F0;
+  --text-secondary: #6B7280;
+  --text-tertiary: #9CA3AF;
+  --text-muted: #D1D5DB;
+  --text-purple: #8B5CF6;
+
+  /* Borders - Subtle */
+  --border-light: #F3F4F6;
+  --border: #E5E7EB;
+  --border-dark: #D1D5DB;
+
+  /* Shadows - Subtle */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.12);
+
+  /* Legacy aliases */
+  --primary-color: var(--primary);
+  --bg-color: var(--bg-primary);
+  --background: var(--bg-primary);
 }
 
 * {

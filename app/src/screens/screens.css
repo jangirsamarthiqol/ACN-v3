@@ -1,20 +1,6 @@
 /* Shared Screen Styles */
+/* Note: CSS variables are now defined in index.css for consistency */
 
-:root {
-       --bg-color: #fcfbf7;
-       --bg-secondary: #f4f1ea;
-       --surface-color: #ffffff;
-       --primary-color: #1b4d3e;
-       --primary-light: #dcfce7;
-       --accent-color: #fbbf24;
-       --text-main: #1b4d3e;
-       --text-body: #4a5d55;
-       --border-color: #e2e0d6;
-       --success-color: #15803d;
-       --danger-color: #ef4444;
-       --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
-       --shadow-md: 0 4px 6px -1px rgba(27, 77, 62, 0.05);
-}
 
 .screen {
        background: var(--bg-color);

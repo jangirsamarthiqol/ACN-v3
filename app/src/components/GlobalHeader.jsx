@@ -72,12 +72,11 @@ function GlobalHeader({ onNavigate, activeTab = 'ACN', title }) {
 
       <style>{`
         .premium-header-container {
-          background: rgba(252, 251, 247, 0.95);
-          backdrop-filter: blur(12px);
-          position: sticky;
-          top: 0;
-          z-index: 100;
-          border-bottom: 1px solid rgba(0,0,0,0.05);
+          background: var(--bg-primary);
+          /* backdrop-filter: blur(12px); - Removed blur as it's not sticky/overlay anymore */
+          position: relative; /* Changed from sticky to relative */
+          z-index: 40; /* Lower z-index than sticky search bars */
+          border-bottom: 1px solid var(--border-light);
           display: flex;
           flex-direction: column;
         }
@@ -101,53 +100,53 @@ function GlobalHeader({ onNavigate, activeTab = 'ACN', title }) {
           width: 40px; height: 40px;
           border-radius: 50%;
           padding: 2px;
-          background: linear-gradient(135deg, #1b4d3e, #34d399); /* Premium Green Gradient */
+          background: linear-gradient(135deg, var(--primary), var(--accent-mint));
           position: relative;
         }
         .avatar-ring-large img {
           width: 100%; height: 100%;
           border-radius: 50%;
-          border: 2px solid white;
-          background: #f4f4f5;
+          border: 2px solid var(--bg-primary);
+          background: var(--bg-secondary);
         }
         .online-dot-large {
           position: absolute; bottom: 0; right: 0;
           width: 12px; height: 12px;
           background: #10B981;
-          border: 2px solid white;
+          border: 2px solid var(--bg-primary);
           border-radius: 50%;
         }
 
         .greeting-text {
           display: flex; flex-direction: column;
         }
-        .sub-greet { font-size: 11px; color: #666; font-weight: 500; }
-        .main-name { font-size: 16px; font-weight: 700; color: #1A1A1A; line-height: 1.1; }
+        .sub-greet { font-size: 11px; color: var(--text-tertiary); font-weight: 500; }
+        .main-name { font-size: 16px; font-weight: 700; color: var(--text-primary); line-height: 1.1; }
 
         .notification-btn-new {
           width: 40px; height: 40px;
           border-radius: 12px;
-          background: white;
-          border: 1px solid rgba(0,0,0,0.05);
+          background: var(--surface);
+          border: 1px solid var(--border-light);
           display: flex; align-items: center; justify-content: center;
-          color: #1A1A1A;
+          color: var(--text-primary);
           position: relative;
           cursor: pointer;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+          box-shadow: var(--shadow-sm);
           transition: all 0.2s;
         }
         .notification-btn-new:active { transform: scale(0.95); }
         .badge-pulse {
           position: absolute; top: 10px; right: 10px;
           width: 8px; height: 8px;
-          background: #EF4444; border: 1.5px solid white;
+          background: var(--accent-red); border: 1.5px solid var(--surface);
           border-radius: 50%;
         }
 
         /* Bottom Row - Nav */
         .header-nav-row {
           padding: 4px 16px 12px;
-          border-top: 1px solid rgba(0,0,0,0.02);
+          border-top: 1px solid var(--border-light);
         }
 
         .segmented-control-scroll {
@@ -164,19 +163,19 @@ function GlobalHeader({ onNavigate, activeTab = 'ACN', title }) {
           background: transparent;
           border: 1px solid transparent;
           font-size: 13px; font-weight: 600;
-          color: #666;
+          color: var(--text-secondary);
           display: flex; align-items: center; justify-content: center; gap: 6px;
           cursor: pointer;
           transition: all 0.2s ease;
           text-align: center;
         }
 
-        .segment-btn:hover { background: rgba(0,0,0,0.03); }
+        .segment-btn:hover { background: var(--bg-secondary); }
 
         .segment-btn.active {
-          background: #1b4d3e;
+          background: var(--primary);
           color: white;
-          box-shadow: 0 4px 12px rgba(27, 77, 62, 0.2);
+          box-shadow: var(--shadow-md);
         }
       `}</style>
     </header>

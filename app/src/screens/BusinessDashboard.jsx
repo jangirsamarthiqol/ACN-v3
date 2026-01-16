@@ -19,8 +19,8 @@ import {
 
 const BusinessDashboard = ({ onNavigate }) => {
   return (
-    <div className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 flex justify-center min-h-screen font-display">
-      <div className="w-full max-w-md min-h-screen relative pb-32 bg-background-light dark:bg-background-dark">
+    <div className="bg-background-light text-text-primary flex justify-center min-h-screen font-display">
+      <div className="w-full max-w-md min-h-screen relative pb-32 bg-background-light">
         
         <GlobalHeader activeTab="My Business" onNavigate={onNavigate} title="Business Dashboard" />
 
@@ -28,12 +28,12 @@ const BusinessDashboard = ({ onNavigate }) => {
         <div className="px-4 py-6 space-y-8">
           {/* Dashboard Summary */}
           <section>
-            <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-4 ml-1">Dashboard Summary</h2>
+            <h2 className="text-xs font-bold uppercase tracking-widest text-text-tertiary mb-4 ml-1">Dashboard Summary</h2>
             <div className="grid grid-cols-2 gap-4">
               {/* Card 1 */}
               <div
                 onClick={() => onNavigate('properties')}
-                className="bg-primary p-5 rounded-3xl text-white shadow-lg shadow-emerald-900/10 cursor-pointer transition-transform active:scale-95">
+                className="bg-primary p-5 rounded-3xl text-white shadow-lg shadow-primary/20 cursor-pointer transition-transform active:scale-95">
                 <Building2 className="opacity-70 mb-4" size={24} />
                 <div className="text-3xl font-bold tracking-tight">48</div>
                 <p className="text-[10px] font-bold opacity-90 mt-1 uppercase tracking-tight">Live Inventories</p>
@@ -42,7 +42,7 @@ const BusinessDashboard = ({ onNavigate }) => {
               {/* Card 2 */}
               <div
                 onClick={() => onNavigate('requirements')}
-                className="bg-indigo-600 p-5 rounded-3xl text-white shadow-lg shadow-indigo-900/10 cursor-pointer transition-transform active:scale-95">
+                className="bg-accent-indigo p-5 rounded-3xl text-white shadow-lg shadow-accent-indigo/20 cursor-pointer transition-transform active:scale-95">
                 <FileText className="opacity-70 mb-4" size={24} />
                 <div className="text-3xl font-bold tracking-tight">23</div>
                 <p className="text-[10px] font-bold opacity-90 mt-1 uppercase tracking-tight">Open Requirements</p>
@@ -51,14 +51,14 @@ const BusinessDashboard = ({ onNavigate }) => {
               {/* Card 3 */}
               <div
                 onClick={() => onNavigate('enquiries')}
-                className="bg-emerald-500 p-5 rounded-3xl text-white shadow-lg shadow-emerald-900/10 cursor-pointer transition-transform active:scale-95">
+                className="bg-accent-mint p-5 rounded-3xl text-white shadow-lg shadow-accent-mint/20 cursor-pointer transition-transform active:scale-95">
                 <Mail className="opacity-70 mb-4" size={24} />
                 <div className="text-3xl font-bold tracking-tight">156</div>
                 <p className="text-[10px] font-bold opacity-90 mt-1 uppercase tracking-tight">Enquiries</p>
                 <p className="text-[10px] opacity-70 mt-2">↓ 89 Rec | ↑ 67 Sent</p>
               </div>
               {/* Card 4 */}
-              <div className="bg-orange-500 p-5 rounded-3xl text-white shadow-lg shadow-orange-900/10">
+              <div className="bg-accent-orange p-5 rounded-3xl text-white shadow-lg shadow-accent-orange/20">
                 <Eye className="opacity-70 mb-4" size={24} />
                 <div className="text-3xl font-bold tracking-tight">12</div>
                 <p className="text-[10px] font-bold opacity-90 mt-1 uppercase tracking-tight">Properties Under Review</p>
@@ -69,17 +69,17 @@ const BusinessDashboard = ({ onNavigate }) => {
 
           {/* Quick Actions */}
           <section>
-            <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-4 ml-1">Quick Actions</h2>
+            <h2 className="text-xs font-bold uppercase tracking-widest text-text-tertiary mb-4 ml-1">Quick Actions</h2>
             <div className="grid grid-cols-2 gap-4">
               <button
                 onClick={() => onNavigate('add-inventory')}
-                className="flex flex-col items-center justify-center py-6 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-3xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors">
+                className="flex flex-col items-center justify-center py-6 border-2 border-dashed border-border rounded-3xl text-text-secondary hover:bg-background-secondary transition-colors">
                 <Store className="text-primary mb-2" size={30} />
                 <span className="text-sm font-bold">Add Inventory</span>
               </button>
               <button
                 onClick={() => onNavigate('add-requirement')}
-                className="flex flex-col items-center justify-center py-6 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-3xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors">
+                className="flex flex-col items-center justify-center py-6 border-2 border-dashed border-border rounded-3xl text-text-secondary hover:bg-background-secondary transition-colors">
                 <FilePlus2 className="text-primary mb-2" size={30} />
                 <span className="text-sm font-bold">Add Requirement</span>
               </button>
