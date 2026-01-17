@@ -152,16 +152,7 @@ const RequirementsMarketplace = ({ onNavigate }) => {
           
           {/* Matching Requirements */}
           <section>
-              <div className="px-5 mb-2">
-                 <div className="flex items-center gap-2 p-3 bg-primary/5 border border-primary/10 rounded-xl mb-4">
-                     <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                        <Briefcase size={16} />
-                     </div>
-                     <p className="text-xs text-text-secondary leading-snug">
-                        Matches found for your listed properties in <span className="font-bold text-primary">Whitefield</span> and <span className="font-bold text-primary">Koramangala</span>.
-                     </p>
-                 </div>
-              </div>
+
               <SectionHeader title="Matching Requirements" onSeeAll={() => {}} />
               <HorizontalScroll>
                   {matchingRequirements.map(req => (
