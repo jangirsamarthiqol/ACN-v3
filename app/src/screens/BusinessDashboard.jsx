@@ -1,6 +1,5 @@
-import GlobalHeader from '../components/GlobalHeader';
-
 import React from 'react';
+import GlobalHeader from '../components/GlobalHeader';
 import BusinessBottomNav from '../components/BusinessBottomNav';
 import {
   Building2,
@@ -12,9 +11,6 @@ import {
   AlertTriangle,
   MessageCircle,
   ChevronRight,
-  LayoutDashboard,
-  Building,
-  Heart,
 } from 'lucide-react';
 
 const BusinessDashboard = ({ onNavigate }) => {
@@ -72,7 +68,7 @@ const BusinessDashboard = ({ onNavigate }) => {
             <h2 className="text-xs font-bold uppercase tracking-widest text-text-tertiary mb-4 ml-1">Quick Actions</h2>
             <div className="grid grid-cols-2 gap-4">
               <button
-                onClick={() => onNavigate('add-inventory')}
+                onClick={() => onNavigate('add-property')}
                 className="flex flex-col items-center justify-center py-6 border-2 border-dashed border-border rounded-3xl text-text-secondary hover:bg-background-secondary transition-colors">
                 <Store className="text-primary mb-2" size={30} />
                 <span className="text-sm font-bold">Add Inventory</span>
@@ -88,39 +84,38 @@ const BusinessDashboard = ({ onNavigate }) => {
 
           {/* Actions Required */}
           <section>
-            <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-4 ml-1">Actions Required</h2>
+            <h2 className="text-xs font-bold uppercase tracking-widest text-text-tertiary mb-4 ml-1">Actions Required</h2>
             <div className="space-y-3">
-              <div className="bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800/30 p-4 rounded-2xl flex items-start gap-4">
+              <div className="bg-red-50 border border-red-100 p-4 rounded-2xl flex items-start gap-4">
                 <div className="bg-red-500 text-white p-2.5 rounded-xl flex items-center justify-center shadow-sm">
                   <AlertTriangle className="leading-none" size={20} />
                 </div>
                 <div className="flex-1">
-                  <p className="text-slate-900 dark:text-slate-100 font-bold text-sm">8 inventories getting delisted</p>
-                  <p className="text-red-600 dark:text-red-400 text-xs mt-1">Renew before they expire tonight at 11:59 PM</p>
+                  <p className="text-text-primary font-bold text-sm">8 inventories getting delisted</p>
+                  <p className="text-red-600 text-xs mt-1">Renew before they expire tonight at 11:59 PM</p>
                 </div>
-                <ChevronRight className="text-slate-400 self-center" size={18} />
+                <ChevronRight className="text-text-tertiary self-center" size={18} />
               </div>
 
-              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/30 p-4 rounded-2xl flex items-start gap-4">
+              <div className="bg-blue-50 border border-blue-100 p-4 rounded-2xl flex items-start gap-4">
                 <div className="bg-blue-500 text-white p-2.5 rounded-xl flex items-center justify-center shadow-sm">
                   <MessageCircle className="leading-none" size={20} />
                 </div>
                 <div className="flex-1">
-                  <p className="text-slate-900 dark:text-slate-100 font-bold text-sm">New enquiry received</p>
-                  <p className="text-blue-600 dark:text-blue-400 text-xs mt-1">High intent buyer for locality: Mumbai South</p>
+                  <p className="text-text-primary font-bold text-sm">New enquiry received</p>
+                  <p className="text-blue-600 text-xs mt-1">High intent buyer for locality: Mumbai South</p>
                 </div>
-                <ChevronRight className="text-slate-400 self-center" size={18} />
+                <ChevronRight className="text-text-tertiary self-center" size={18} />
               </div>
             </div>
           </section>
         </div>
 
         {/* Bottom Nav */}
-        {/* Bottom Nav */}
         <BusinessBottomNav activeTab="dashboard" onNavigate={onNavigate} />
 
         {/* Home Indicator */}
-        <div className="fixed bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-slate-200 dark:bg-slate-800 rounded-full"></div>
+        <div className="fixed bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-gray-300 rounded-full"></div>
       </div>
     </div>
   );

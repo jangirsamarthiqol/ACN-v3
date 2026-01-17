@@ -98,12 +98,7 @@ const SearchResultsScreen = ({ onNavigate, params = {} }) => {
                  <button className="flex items-center gap-1 px-3 py-1.5 bg-primary text-white rounded-lg text-xs font-bold border border-primary shadow-sm shadow-primary/20 whitespace-nowrap">
                     Sort: Relevance <ChevronDown size={12} />
                  </button>
-                 <button className="px-3 py-1.5 bg-surface border border-border-light rounded-lg text-xs font-medium text-text-secondary whitespace-nowrap">
-                    4+ Ratings
-                 </button>
-                 <button className="px-3 py-1.5 bg-surface border border-border-light rounded-lg text-xs font-medium text-text-secondary whitespace-nowrap">
-                    Posted by Owner
-                 </button>
+
              </div>
          </div>
       </header>

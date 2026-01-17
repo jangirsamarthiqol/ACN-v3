@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, MapPin, BadgeIndianRupee, Calendar, User, ArrowRight, Eye, ChevronRight, Phone, MessageCircle, Share2, Filter, Briefcase } from 'lucide-react';
+import { Search, MapPin, IndianRupee, Calendar, User, ArrowRight, Eye, ChevronRight, Phone, MessageCircle, Share2, Filter, Briefcase } from 'lucide-react';
 import GlobalHeader from '../components/GlobalHeader';
 import GlobalBottomNav from '../components/GlobalBottomNav';
 
@@ -59,7 +59,7 @@ const RequirementCard = ({ req, onNavigate }) => (
         <div className="bg-background-secondary rounded-xl p-3 border border-border-light mb-2">
             <div className="flex justify-between items-center mb-1">
                  <span className="text-[11px] font-semibold text-text-tertiary">Budget Range</span>
-                 <BadgeIndianRupee size={14} className="text-text-secondary" />
+                 <IndianRupee size={14} className="text-text-secondary" />
             </div>
             <p className="text-lg font-bold text-primary tracking-tight">{req.budget}</p>
         </div>
@@ -219,7 +219,7 @@ const RequirementsMarketplace = ({ onNavigate }) => {
 
        </div>
 
-       <GlobalBottomNav activeTab="home" onNavigate={onNavigate} context="home" />
+       <GlobalBottomNav activeTab="requirements-marketplace" onNavigate={onNavigate} context="home" />
 
        <style>{`
          .hide-scrollbar::-webkit-scrollbar {

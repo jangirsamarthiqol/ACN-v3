@@ -1,7 +1,8 @@
-import { Scale, FileText, CheckCircle, ArrowRight, Star, Users, Clock, ChevronRight, Bell } from 'lucide-react'
-import GlobalHeader from '../components/GlobalHeader'
-import GlobalBottomNav from '../components/GlobalBottomNav'
-import './screens.css'
+import React from 'react';
+import { Scale, FileText, CheckCircle, ArrowRight, Star, Users, Clock, ChevronRight, Bell } from 'lucide-react';
+import GlobalHeader from '../components/GlobalHeader';
+import GlobalBottomNav from '../components/GlobalBottomNav';
+import './screens.css';
 
 function ServicesLanding({ onNavigate }) {
   const comingSoon = [
@@ -11,254 +12,136 @@ function ServicesLanding({ onNavigate }) {
     { icon: '🛡️', name: 'Insurance', desc: 'Property protection' },
     { icon: '🧭', name: 'Vastu', desc: 'Vastu consultation' },
     { icon: '📸', name: 'Photography', desc: 'Property shoots' }
-  ]
+  ];
 
   return (
-    <div className="screen services-screen">
+    <div className="bg-background-light min-h-screen pb-24 font-display text-text-primary">
       {/* Global Header */}
       <GlobalHeader onNavigate={onNavigate} activeTab="Services" title="Services Hub" />
 
-      <div className="screen-content-scroll" style={{paddingBottom: 80}}>
-        {/* Helper Header for context */}
-        {/* Helper Header for context */}
-        {/* services-header removed */}
-
-      {/* Featured Legal Services */}
-      <div className="featured-service-card">
-        <div className="featured-badge">⭐ Most Popular</div>
-        <div className="featured-icon">
-          <Scale size={48} color="white" />
-        </div>
-        <h2>Legal Services</h2>
-        <p>Expert legal support for property documentation, registration, and verification</p>
-        <div className="featured-bullets">
-          <span>✓ Title Verification</span>
-          <span>✓ Agreement Drafting</span>
-          <span>✓ Registration Support</span>
-        </div>
-        <button className="explore-btn" onClick={() => onNavigate('legal-services')}>
-          Explore Services <ArrowRight size={16} />
-        </button>
-        <div className="service-count" onClick={() => onNavigate('service-tracking')} style={{cursor: 'pointer'}}>50+ Services Available</div>
-      </div>
-
-      {/* Trust Indicators */}
-      <div className="trust-indicators">
-        <div className="trust-item">
-          <Users size={20} color="#0066CC" />
-          <span><strong>5000+</strong> Services</span>
-        </div>
-        <div className="trust-item">
-          <Star size={20} color="#FFB300" />
-          <span><strong>4.8</strong> Rating</span>
-        </div>
-        <div className="trust-item">
-          <Clock size={20} color="#00C853" />
-          <span><strong>Fast</strong> Delivery</span>
-        </div>
-      </div>
-
-      {/* Coming Soon */}
-      <section className="section">
-        <div className="section-header">
-          <h2>More Services Coming Soon</h2>
-        </div>
-        <div className="coming-soon-grid">
-          {comingSoon.map((service, i) => (
-            <div key={i} className="coming-soon-card">
-              <span className="icon">{service.icon}</span>
-              <h4>{service.name}</h4>
-              <p>{service.desc}</p>
-              <span className="coming-soon-badge">Coming Soon</span>
+      <div className="p-4 space-y-6">
+        {/* Featured Legal Services */}
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-primary-dark text-white p-6 shadow-xl shadow-primary/20">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
+          
+          <div className="relative z-10">
+            <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold mb-4 border border-white/10">
+              ⭐ Most Popular
+            </span>
+            <div className="mb-4">
+              <Scale size={40} className="text-white opacity-90" />
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Notify Me */}
-      <div className="notify-card">
-        <Bell size={24} color="#0066CC" />
-        <div className="notify-content">
-          <h4>Want to know when these launch?</h4>
-          <p>Get notified when new services are available</p>
-        </div>
-        <button className="notify-btn">Notify Me</button>
-      </div>
-
-      {/* Why Choose */}
-      <section className="section">
-        <h2 style={{marginBottom: 16}}>Why Choose ACN Services?</h2>
-        <div className="benefits-card">
-          {['Verified Partners', 'Competitive Pricing', 'Dedicated Support', 'Quick Turnaround'].map((benefit, i) => (
-            <div key={i} className="benefit-item">
-              <CheckCircle size={18} color="#00C853" />
-              <span>{benefit}</span>
+            <h2 className="text-2xl font-bold mb-2">Legal Services</h2>
+            <p className="text-sm opacity-90 mb-5 leading-relaxed max-w-[90%]">
+              Expert legal support for property documentation, registration, and verification
+            </p>
+            
+            <div className="flex flex-wrap gap-x-4 gap-y-2 mb-6">
+              {['Title Verification', 'Agreement Drafting', 'Registration Support'].map(item => (
+                <span key={item} className="text-xs font-semibold bg-white/10 px-2 py-1 rounded-md">
+                  ✓ {item}
+                </span>
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
 
-      <style>{`
-        .services-screen {
-          padding-bottom: 20px;
-        }
-        .services-header {
-          padding: 24px 16px;
-          text-align: center;
-          color: white;
-        }
-        .services-header h1 {
-          font-size: 24px;
-          font-weight: 700;
-          margin-bottom: 4px;
-        }
-        .services-header p {
-          font-size: 14px;
-          opacity: 0.9;
-        }
-        .featured-service-card {
-          background: linear-gradient(135deg, #0066CC 0%, #4F46E5 100%);
-          margin: 16px;
-          border-radius: 20px;
-          padding: 24px;
-          color: white;
-          position: relative;
-          overflow: hidden;
-        }
-        .featured-badge {
-          background: linear-gradient(135deg, #FFD700, #FFA500);
-          color: #1A1A1A;
-          padding: 6px 12px;
-          border-radius: 12px;
-          font-size: 12px;
-          font-weight: 600;
-          display: inline-block;
-          margin-bottom: 16px;
-        }
-        .featured-icon {
-          margin-bottom: 16px;
-          opacity: 0.9;
-        }
-        .featured-service-card h2 {
-          font-size: 26px;
-          font-weight: 700;
-          margin-bottom: 8px;
-        }
-        .featured-service-card > p {
-          font-size: 14px;
-          opacity: 0.9;
-          margin-bottom: 16px;
-          line-height: 1.5;
-        }
-        .featured-bullets {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 12px;
-          margin-bottom: 20px;
-        }
-        .featured-bullets span {
-          font-size: 13px;
-          opacity: 0.95;
-        }
-        .explore-btn {
-          background: white;
-          color: #0066CC;
-          border: none;
-          padding: 14px 24px;
-          border-radius: 12px;
-          font-size: 15px;
-          font-weight: 600;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          cursor: pointer;
-        }
-        .service-count {
-          position: absolute;
-          bottom: 16px;
-          right: 16px;
-          background: rgba(255,255,255,0.2);
-          padding: 6px 12px;
-          border-radius: 16px;
-          font-size: 12px;
-        }
-        .trust-indicators {
-          display: flex;
-          justify-content: space-around;
-          padding: 16px;
-          background: white;
-          margin: 0 16px;
-          border-radius: 12px;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        }
-        .trust-item {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 4px;
-          font-size: 13px;
-          color: #666;
-        }
-        .trust-item strong {
-          color: #1A1A1A;
-        }
-        .coming-soon-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 12px;
-        }
-        .notify-card {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          background: #E3F2FD;
-          margin: 0 16px;
-          padding: 16px;
-          border-radius: 12px;
-        }
-        .notify-content {
-          flex: 1;
-        }
-        .notify-content h4 {
-          font-size: 14px;
-          font-weight: 600;
-          margin-bottom: 2px;
-        }
-        .notify-content p {
-          font-size: 12px;
-          color: #666;
-        }
-        .notify-btn {
-          background: #0066CC;
-          color: white;
-          border: none;
-          padding: 10px 16px;
-          border-radius: 8px;
-          font-size: 13px;
-          font-weight: 500;
-          cursor: pointer;
-        }
-        .benefits-card {
-          background: white;
-          border-radius: 12px;
-          padding: 16px;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        }
-        .benefit-item {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          padding: 12px 0;
-          border-bottom: 1px solid #F0F0F0;
-          font-size: 14px;
-          color: #1A1A1A;
-        }
-        .benefit-item:last-child {
-          border-bottom: none;
-        }
-      `}</style>
+            <div className="flex items-center justify-between">
+              <button 
+                onClick={() => onNavigate('legal-services')}
+                className="flex items-center gap-2 bg-white text-primary px-5 py-3 rounded-xl text-sm font-bold shadow-lg active:scale-95 transition-all"
+              >
+                Explore Services <ArrowRight size={16} />
+              </button>
+              <div 
+                onClick={() => onNavigate('service-tracking')} 
+                className="text-xs font-medium opacity-80 underline underline-offset-2 cursor-pointer"
+              >
+                50+ Services
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Trust Indicators */}
+        <div className="grid grid-cols-3 gap-2 bg-white p-4 rounded-2xl border border-border shadow-sm">
+          <div className="flex flex-col items-center gap-1.5 text-center">
+            <div className="p-2 bg-blue-50 text-blue-600 rounded-full mb-1">
+              <Users size={18} />
+            </div>
+            <div className="text-xs text-text-secondary leading-tight">
+              <span className="block font-bold text-text-primary text-sm">5000+</span>
+              Services
+            </div>
+          </div>
+          <div className="border-l border-border-light pl-2 flex flex-col items-center gap-1.5 text-center">
+            <div className="p-2 bg-amber-50 text-amber-500 rounded-full mb-1">
+              <Star size={18} />
+            </div>
+            <div className="text-xs text-text-secondary leading-tight">
+              <span className="block font-bold text-text-primary text-sm">4.8</span>
+              Rating
+            </div>
+          </div>
+          <div className="border-l border-border-light pl-2 flex flex-col items-center gap-1.5 text-center">
+            <div className="p-2 bg-green-50 text-green-600 rounded-full mb-1">
+              <Clock size={18} />
+            </div>
+            <div className="text-xs text-text-secondary leading-tight">
+              <span className="block font-bold text-text-primary text-sm">Fast</span>
+              Delivery
+            </div>
+          </div>
+        </div>
+
+        {/* Coming Soon */}
+        <section>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-bold text-text-primary">Coming Soon</h2>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            {comingSoon.map((service, i) => (
+              <div key={i} className="bg-white p-4 rounded-2xl border border-border flex flex-col gap-2 relative overflow-hidden group">
+                <div className="text-2xl mb-1">{service.icon}</div>
+                <div>
+                  <h4 className="font-bold text-text-primary text-sm">{service.name}</h4>
+                  <p className="text-[10px] text-text-tertiary">{service.desc}</p>
+                </div>
+                <div className="absolute top-2 right-2 px-2 py-0.5 bg-background-secondary rounded-full text-[10px] font-bold text-text-tertiary uppercase tracking-wider">
+                  Soon
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Notify Me */}
+        <div className="bg-gradient-to-r from-[#E3F2FD] to-[#F1F8FF] p-4 rounded-2xl flex items-center gap-4 border border-blue-100">
+          <div className="bg-white p-3 rounded-full shadow-sm text-primary">
+            <Bell size={20} />
+          </div>
+          <div className="flex-1">
+            <h4 className="text-sm font-bold text-primary mb-0.5">Get Notified</h4>
+            <p className="text-xs text-text-secondary">Know when new services launch</p>
+          </div>
+          <button className="px-3 py-1.5 bg-primary text-white text-xs font-bold rounded-lg shadow-md shadow-primary/20">
+            Notify
+          </button>
+        </div>
+
+        {/* Why Choose */}
+        <section>
+          <h2 className="text-lg font-bold text-text-primary mb-4">Why Choose ACN?</h2>
+          <div className="bg-white rounded-2xl border border-border overflow-hidden">
+            {['Verified Partners', 'Competitive Pricing', 'Dedicated Support', 'Quick Turnaround'].map((benefit, i) => (
+              <div key={i} className="flex items-center gap-3 p-4 border-b border-border-light last:border-0 hover:bg-background-secondary/50">
+                <CheckCircle size={18} className="text-green-500" />
+                <span className="text-sm font-bold text-text-secondary">{benefit}</span>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
-      <GlobalBottomNav onNavigate={onNavigate} activeTab="services" context="services" />
+
+      <GlobalBottomNav onNavigate={onNavigate} activeTab="services" />
     </div>
   )
 }

@@ -466,7 +466,7 @@ function HomeScreen({ onNavigate }) {
           </div>
           <div className="horizontal-scroll">
             {[1, 2, 3].map(i => (
-              <div key={i} className="requirement-card" onClick={() => onNavigate('requirements')}>
+              <div key={i} className="requirement-card" onClick={() => onNavigate('requirements-marketplace')}>
                 <span className="req-tag">Buy</span>
                 <h4>3 BHK in Indiranagar</h4>
                 <p><MapPin size={12} style={{display: 'inline', marginRight: 4}} /> Indiranagar, Bangalore</p>
