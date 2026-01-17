@@ -215,80 +215,68 @@ function HomeScreen({ onNavigate }) {
               </div>
               <div className="alert-content">
                 <h4>Action Required</h4>
-                <p><strong>12 properties</strong> are expiring this week. Renew now to maintain visibility.</p>
+                <p><strong>12 properties</strong> are expiring this week. Renew now.</p>
               </div>
               <ChevronRight size={18} color="#9CA3AF" />
             </div>
 
-            {/* Growth Metrics Row */}
-            <div className="growth-grid">
+            {/* Growth Metrics Grid */}
+            <div className="simple-stats-grid">
               
-              {/* Enquiries - The Layout for Leads */}
-              <div className="growth-card blue-theme" onClick={() => onNavigate('enquiries')}>
-                <div className="growth-header">
-                  <span className="growth-title">New Enquiries</span>
-                  <div className="growth-icon"><MessageCircle size={18} /></div>
+              {/* 1. Live Inventory */}
+              <div className="simple-stat-card" onClick={() => onNavigate('dashboard')}>
+                <div className="stat-icon-box bg-purple-50 text-purple-600">
+                  <Building2 size={20} />
                 </div>
-                <div className="growth-main">
-                  <span className="growth-value">8</span>
-                  <span className="growth-delta">
-                    <TrendingUp size={12} /> +2 today
-                  </span>
-                </div>
-                <div className="growth-footer">
-                  <div className="avatars-stack">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=A" alt="" />
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=B" alt="" />
-                    <span className="more-count">+6</span>
+                <div className="stat-info">
+                  <span className="stat-label">Live Inventory</span>
+                  <div className="stat-main">
+                    <span className="stat-value">48</span>
+                    <span className="stat-delta positive">↑ 2</span>
                   </div>
                 </div>
               </div>
 
-              {/* Matches - The Layout for Opportunities */}
-              <div className="growth-card green-theme" onClick={() => onNavigate('requirements-marketplace')}>
-                 <div className="growth-header">
-                  <span className="growth-title">New Matches</span>
-                  <div className="growth-icon"><Zap size={18} /></div>
+              {/* 2. Active Requirements */}
+              <div className="simple-stat-card" onClick={() => onNavigate('my-requirements')}>
+                <div className="stat-icon-box bg-pink-50 text-pink-600">
+                  <FileText size={20} />
                 </div>
-                <div className="growth-main">
-                  <span className="growth-value">15</span>
-                  <span className="growth-sub">Properties fit your requirements</span>
+                <div className="stat-info">
+                  <span className="stat-label">Active Reqs</span>
+                  <div className="stat-main">
+                    <span className="stat-value">12</span>
+                    <span className="stat-delta positive">↑ 3</span>
+                  </div>
                 </div>
-                 <div className="growth-footer">
-                   <span className="action-link">View Results</span>
-                 </div>
               </div>
 
-              {/* Active Inventory - New Logic Card */}
-              <div className="growth-card purple-theme" onClick={() => onNavigate('dashboard')}>
-                 <div className="growth-header">
-                  <span className="growth-title">Active Inventory</span>
-                  <div className="growth-icon"><Building2 size={18} /></div>
+              {/* 3. New Enquiries */}
+              <div className="simple-stat-card" onClick={() => onNavigate('enquiries')}>
+                <div className="stat-icon-box bg-blue-50 text-blue-600">
+                  <MessageCircle size={20} />
                 </div>
-                <div className="growth-main">
-                  <span className="growth-value">24</span>
-                  <span className="growth-sub">Properties live on market</span>
+                <div className="stat-info">
+                  <span className="stat-label">New Enquiries</span>
+                  <div className="stat-main">
+                    <span className="stat-value">8</span>
+                    <span className="stat-delta positive">↑ 5</span>
+                  </div>
                 </div>
-                 <div className="growth-footer">
-                   <span className="action-link">View Dashboard</span>
-                 </div>
               </div>
 
-               {/* Profile Visits - New Logic Card */}
-               <div className="growth-card orange-theme" onClick={() => onNavigate('profile')}>
-                 <div className="growth-header">
-                  <span className="growth-title">Profile Visits</span>
-                  <div className="growth-icon"><Users size={18} /></div>
+              {/* 4. New Matches */}
+              <div className="simple-stat-card" onClick={() => onNavigate('requirements-marketplace')}>
+                <div className="stat-icon-box bg-green-50 text-green-600">
+                  <Zap size={20} />
                 </div>
-                <div className="growth-main">
-                  <span className="growth-value">1.2k</span>
-                  <span className="growth-delta" style={{color: '#EA580C'}}>
-                    <TrendingUp size={12} /> +12% this week
-                  </span>
+                <div className="stat-info">
+                  <span className="stat-label">New Matches</span>
+                  <div className="stat-main">
+                    <span className="stat-value">15</span>
+                    <span className="stat-delta text-text-tertiary text-[10px] font-normal">--</span>
+                  </div>
                 </div>
-                 <div className="growth-footer">
-                   <span className="action-link" style={{color: '#EA580C'}}>View Profile</span>
-                 </div>
               </div>
 
             </div>
@@ -305,102 +293,106 @@ function HomeScreen({ onNavigate }) {
 
           /* Alert Card */
           .alert-card-modern {
-            background: #FEF2F2;
-            border: 1px solid #FECACA;
-            border-radius: 16px;
-            padding: 16px;
+            background: white;
+            border: 1px solid #FFE4E6;
+            border-radius: 12px;
+            padding: 12px 16px;
             display: flex;
             align-items: center;
             gap: 12px;
             cursor: pointer;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
             transition: all 0.2s;
           }
-          .alert-card-modern:active { transform: scale(0.98); }
+          .alert-card-modern:active { transform: scale(0.99); background: #FFF1F2; }
           
           .alert-icon-area {
             position: relative;
             flex-shrink: 0;
-            width: 40px;
-            height: 40px;
-            background: white;
-            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            background: #FEF2F2;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 4px rgba(220, 38, 38, 0.1);
           }
           .pulse-ring {
-            position: absolute; inset: -4px;
-            border: 2px solid #FCA5A5;
-            border-radius: 50%;
+            position: absolute; inset: -2px;
+            border: 1.5px solid #FECACA;
+            border-radius: 10px;
             opacity: 0.5;
             animation: pulse-red 2s infinite;
           }
-          @keyframes pulse-red { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(1.4); opacity: 0; } }
+          @keyframes pulse-red { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(1.3); opacity: 0; } }
           
           .alert-content { flex: 1; }
-          .alert-content h4 { font-size: 14px; font-weight: 700; color: #991B1B; margin-bottom: 2px; }
-          .alert-content p { font-size: 12px; color: #7F1D1D; line-height: 1.4; }
+          .alert-content h4 { font-size: 13px; font-weight: 700; color: #991B1B; margin-bottom: 2px; }
+          .alert-content p { font-size: 11px; color: #7F1D1D; line-height: 1.4; }
 
-          /* Growth Grid */
-          .growth-grid {
+          /* Simple 2x2 Grid */
+          .simple-stats-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
           }
-          .growth-card {
+          
+          .simple-stat-card {
             background: white;
-            border-radius: 16px;
+            border: 1px solid #F1F5F9;
+            border-radius: 12px;
             padding: 16px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            height: 140px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            border: 1px solid rgba(0,0,0,0.04);
+            gap: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
             transition: all 0.2s;
           }
-          .growth-card:active { transform: scale(0.98); }
+          .simple-stat-card:active { transform: scale(0.98); background: #F8FAFC; }
 
-          /* Blue Theme (Enquiries) */
-          .growth-card.blue-theme { background: linear-gradient(145deg, #ffffff, #F0F9FF); border-bottom: 3px solid #0EA5E9; }
-          .growth-card.blue-theme .growth-icon { background: #E0F2FE; color: #0284C7; }
-          .growth-card.blue-theme .growth-value { color: #0C4A6E; }
-
-          /* Green Theme (Matches) */
-          .growth-card.green-theme { background: linear-gradient(145deg, #ffffff, #F0FDF4); border-bottom: 3px solid #22C55E; }
-          .growth-card.green-theme .growth-icon { background: #DCFCE7; color: #16A34A; }
-          .growth-card.green-theme .growth-value { color: #14532D; }
-
-          .growth-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
-          .growth-title { font-size: 12px; font-weight: 600; color: #64748B; text-transform: uppercase; letter-spacing: 0.5px; }
-          .growth-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-
-          .growth-main { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-          .growth-value { font-size: 32px; font-weight: 800; line-height: 1; letter-spacing: -1px; }
-          .growth-delta { font-size: 11px; color: #16A34A; display: flex; align-items: center; gap: 2px; font-weight: 600; margin-top: 4px; }
-          .growth-sub { font-size: 11px; color: #64748B; margin-top: 4px; line-height: 1.3; }
-
-          .growth-footer { margin-top: auto; }
-          .avatars-stack { display: flex; align-items: center; }
-          .avatars-stack img { width: 24px; height: 24px; border-radius: 50%; border: 2px solid white; margin-right: -8px; }
-          .avatars-stack .more-count { width: 24px; height: 24px; border-radius: 50%; background: #F1F5F9; border: 2px solid white; font-size: 9px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #64748B; z-index: 2; margin-left: 8px; }
-
-          .action-link { font-size: 11px; font-weight: 700; color: #16A34A; text-decoration: underline; }
-
-          /* Purple Theme (Inventory) */
-          .growth-card.purple-theme { background: linear-gradient(145deg, #ffffff, #F3E8FF); border-bottom: 3px solid #9333EA; }
-          .growth-card.purple-theme .growth-icon { background: #F3E8FF; color: #9333EA; }
-          .growth-card.purple-theme .growth-value { color: #581C87; }
-          .growth-card.purple-theme .action-link { color: #9333EA; }
-
-          /* Orange Theme (Visits) */
-          .growth-card.orange-theme { background: linear-gradient(145deg, #ffffff, #FFF7ED); border-bottom: 3px solid #EA580C; }
-          .growth-card.orange-theme .growth-icon { background: #FFEDD5; color: #EA580C; }
-          .growth-card.orange-theme .growth-value { color: #7C2D12; }
+          .stat-icon-box {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          
+          .stat-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+          }
+          
+          .stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #64748B;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+          }
+          
+          .stat-main {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+          }
+          
+          .stat-value {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1E293B;
+            line-height: 1;
+          }
+          
+          .stat-delta {
+            font-size: 11px;
+            font-weight: 700;
+          }
+          .stat-delta.positive { color: #16A34A; }
+          .stat-delta.negative { color: #DC2626; }
         `}</style>
 
         {/* New Launch Projects */}
