@@ -57,7 +57,7 @@ function NotificationScreen({ onNavigate }) {
       unread: true,
       initials: 'ACN',
       actions: [
-        { label: 'View Requirements', primary: true, action: 'requirements' }
+        { label: 'View Requirements', primary: true, action: 'my-requirements' }
       ]
     },
     {

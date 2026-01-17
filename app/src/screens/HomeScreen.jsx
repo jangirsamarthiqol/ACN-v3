@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { 
   Search, SlidersHorizontal, Bell, Heart, ChevronRight, Home, Building2, 
   FileText, Sparkles, MapPin, Tag, Key, Briefcase, Users, ChevronDown,
-  AlertCircle, MessageCircle, Zap, TrendingUp
+  AlertCircle, MessageCircle, Zap, TrendingUp, Crown, Video, Calendar, Star, PlusCircle
 } from 'lucide-react'
 import GlobalHeader from '../components/GlobalHeader'
 import GlobalBottomNav from '../components/GlobalBottomNav'
@@ -61,47 +61,140 @@ function HomeScreen({ onNavigate }) {
         {/* Banner Carousel */}
         <section className="section banner-section">
           <div className="banner-carousel-container" style={{overflowX: 'auto', display: 'flex', scrollSnapType: 'x mandatory', gap: 16, paddingBottom: 16}}>
-            {/* Banner 1 */}
-            <div className="banner-card gradient-blue-purple" style={{minWidth: '100%', scrollSnapAlign: 'center'}}>
+            
+            {/* 1. Add Inventory */}
+            <div 
+              className="banner-card" 
+              style={{minWidth: '100%', background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', scrollSnapAlign: 'center'}}
+              onClick={() => onNavigate('add-property')}
+            >
               <div className="banner-content">
-                <span className="banner-badge">Featured</span>
-                <h3>Premium Properties</h3>
-                <p>Exclusive deals this week</p>
-                <button className="banner-btn">Explore Now →</button>
+                <span className="banner-badge" style={{background: 'rgba(255,255,255,0.2)', color: 'white'}}>Grow Business</span>
+                <h3 style={{color: 'white'}}>List New Inventory</h3>
+                <p style={{color: 'rgba(255,255,255,0.9)'}}>Reach 10k+ verified buyers instantly</p>
+                <button className="banner-btn" style={{background: 'white', color:'#6366f1'}}>List Property <PlusCircle size={14} /></button>
               </div>
               <div className="banner-illustration">
-                <Building2 size={64} strokeWidth={1} />
+                <Building2 size={64} strokeWidth={1} color="white" />
               </div>
             </div>
-            
-            {/* Banner 2 */}
-            <div className="banner-card gradient-green-teal" style={{minWidth: '100%', background: 'linear-gradient(135deg, #11998e, #38ef7d)', scrollSnapAlign: 'center'}}>
+
+            {/* 2. Add Requirement */}
+            <div 
+              className="banner-card" 
+              style={{minWidth: '100%', background: 'linear-gradient(135deg, #ec4899, #d946ef)', scrollSnapAlign: 'center'}}
+              onClick={() => onNavigate('add-requirement')}
+            >
               <div className="banner-content">
-                <span className="banner-badge" style={{background: 'rgba(255,255,255,0.2)', color: 'white'}}>New Year Offer</span>
-                <h3 style={{color: 'white'}}>Zero Brokerage</h3>
-                <p style={{color: 'rgba(255,255,255,0.9)'}}>On select new launch projects</p>
-                <button className="banner-btn" style={{background: 'white', color:'#11998e'}}>View Projects →</button>
+                <span className="banner-badge" style={{background: 'rgba(255,255,255,0.2)', color: 'white'}}>Client Needs</span>
+                <h3 style={{color: 'white'}}>Post Requirement</h3>
+                <p style={{color: 'rgba(255,255,255,0.9)'}}>Get matched with top properties</p>
+                <button className="banner-btn" style={{background: 'white', color:'#ec4899'}}>Add Request <FileText size={14} /></button>
+              </div>
+              <div className="banner-illustration">
+                <FileText size={64} strokeWidth={1} color="white" />
+              </div>
+            </div>
+
+            {/* 3. Agent Spotlight */}
+            <div className="banner-card" style={{minWidth: '100%', background: 'linear-gradient(135deg, #f59e0b, #d97706)', scrollSnapAlign: 'center'}}>
+              <div className="banner-content">
+                <span className="banner-badge" style={{background: 'rgba(255,255,255,0.2)', color: 'white'}}>Agent Spotlight</span>
+                <h3 style={{color: 'white'}}>Star Performer</h3>
+                <p style={{color: 'rgba(255,255,255,0.9)'}}>Detailed insights from top agents</p>
+                <button className="banner-btn" style={{background: 'white', color:'#d97706'}}>Read Story <Star size={14} /></button>
+              </div>
+              <div className="banner-illustration">
+                <Star size={64} strokeWidth={1} color="white" />
+              </div>
+            </div>
+
+            {/* 4. Special Inventory Announcement */}
+            <div className="banner-card" style={{minWidth: '100%', background: 'linear-gradient(135deg, #10b981, #059669)', scrollSnapAlign: 'center'}}>
+              <div className="banner-content">
+                <span className="banner-badge" style={{background: 'rgba(255,255,255,0.2)', color: 'white'}}>Just Launched</span>
+                <h3 style={{color: 'white'}}>Prestige City Phase 2</h3>
+                <p style={{color: 'rgba(255,255,255,0.9)'}}>Exclusive pre-launch allocation</p>
+                <button className="banner-btn" style={{background: 'white', color:'#059669'}}>View Details <Sparkles size={14} /></button>
               </div>
               <div className="banner-illustration">
                 <Sparkles size={64} strokeWidth={1} color="white" />
               </div>
             </div>
 
-            {/* Banner 3 */}
-            <div className="banner-card gradient-orange-red" style={{minWidth: '100%', background: 'linear-gradient(135deg, #FF512F, #DD2476)', scrollSnapAlign: 'center'}}>
+            {/* 5. Upgrade to Premium */}
+            <div 
+              className="banner-card" 
+              style={{minWidth: '100%', background: 'linear-gradient(135deg, #1e293b, #0f172a)', scrollSnapAlign: 'center'}}
+              onClick={() => onNavigate('subscription')}
+            >
               <div className="banner-content">
-                <span className="banner-badge" style={{background: 'rgba(255,255,255,0.2)', color: 'white'}}>ACN Edge</span>
-                <h3 style={{color: 'white'}}>Get Verified Leads</h3>
-                <p style={{color: 'rgba(255,255,255,0.9)'}}>Boost your business 2x faster</p>
-                <button className="banner-btn" style={{background: 'white', color:'#DD2476'}}>Try Free →</button>
+                <span className="banner-badge" style={{background: 'linear-gradient(90deg, #fbbf24, #f59e0b)', color: 'black', fontWeight: 'bold'}}>ACN Gold</span>
+                <h3 style={{color: '#fcd34d'}}>Go Premium</h3>
+                <p style={{color: 'rgba(255,255,255,0.8)'}}>Get unlimited leads & priority support</p>
+                <button className="banner-btn" style={{background: '#fcd34d', color:'black'}}>Upgrade Now <Crown size={14} /></button>
+              </div>
+              <div className="banner-illustration">
+                <Crown size={64} strokeWidth={1} color="#fcd34d" />
+              </div>
+            </div>
+
+            {/* 6. Upgrade to Trial (Micro-market) */}
+            <div className="banner-card" style={{minWidth: '100%', background: 'linear-gradient(135deg, #3b82f6, #2563eb)', scrollSnapAlign: 'center'}}>
+              <div className="banner-content">
+                <span className="banner-badge" style={{background: 'rgba(255,255,255,0.2)', color: 'white'}}>Limited Time</span>
+                <h3 style={{color: 'white'}}>Free 7-Day Trial</h3>
+                <p style={{color: 'rgba(255,255,255,0.9)'}}>Experience Micro-Market Intelligence</p>
+                <button className="banner-btn" style={{background: 'white', color:'#2563eb'}}>Start Trial <Zap size={14} /></button>
+              </div>
+              <div className="banner-illustration">
+                <Zap size={64} strokeWidth={1} color="white" />
+              </div>
+            </div>
+
+            {/* 7. Weekly Webinar */}
+            <div className="banner-card" style={{minWidth: '100%', background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)', scrollSnapAlign: 'center'}}>
+              <div className="banner-content">
+                <span className="banner-badge" style={{background: 'rgba(255,255,255,0.2)', color: 'white'}}>Live Event</span>
+                <h3 style={{color: 'white'}}>Weekly Masterclass</h3>
+                <p style={{color: 'rgba(255,255,255,0.9)'}}>Market Trends 2026 with Experts</p>
+                <button className="banner-btn" style={{background: 'white', color:'#7c3aed'}}>Register Free <Video size={14} /></button>
+              </div>
+              <div className="banner-illustration">
+                <Video size={64} strokeWidth={1} color="white" />
+              </div>
+            </div>
+
+            {/* 8. Agent Meetup */}
+            <div className="banner-card" style={{minWidth: '100%', background: 'linear-gradient(135deg, #f97316, #ea580c)', scrollSnapAlign: 'center'}}>
+              <div className="banner-content">
+                <span className="banner-badge" style={{background: 'rgba(255,255,255,0.2)', color: 'white'}}>Community</span>
+                <h3 style={{color: 'white'}}>Bangalore Agents Meetup</h3>
+                <p style={{color: 'rgba(255,255,255,0.9)'}}>Network with top 100 realtors</p>
+                <button className="banner-btn" style={{background: 'white', color:'#ea580c'}}>RSVP Now <Users size={14} /></button>
               </div>
               <div className="banner-illustration">
                 <Users size={64} strokeWidth={1} color="white" />
               </div>
             </div>
+
+             {/* 9. Referral Banner */}
+             <div className="banner-card" style={{minWidth: '100%', background: 'linear-gradient(135deg, #be185d, #9d174d)', scrollSnapAlign: 'center'}}>
+              <div className="banner-content">
+                <span className="banner-badge" style={{background: 'rgba(255,255,255,0.2)', color: 'white'}}>Rewards</span>
+                <h3 style={{color: 'white'}}>Refer & Earn</h3>
+                <p style={{color: 'rgba(255,255,255,0.9)'}}>Get ₹5000 for every successful referral</p>
+                <button className="banner-btn" style={{background: 'white', color:'#be185d'}}>Invite Friends <Users size={14} /></button>
+              </div>
+              <div className="banner-illustration">
+                <Users size={64} strokeWidth={1} color="white" />
+              </div>
+            </div>
+
           </div>
           <div className="carousel-dots">
             <span className="dot active"></span>
+            <span className="dot"></span>
             <span className="dot"></span>
             <span className="dot"></span>
           </div>
@@ -152,7 +245,7 @@ function HomeScreen({ onNavigate }) {
               </div>
 
               {/* Matches - The Layout for Opportunities */}
-              <div className="growth-card green-theme" onClick={() => onNavigate('search-results')}>
+              <div className="growth-card green-theme" onClick={() => onNavigate('requirements-marketplace')}>
                  <div className="growth-header">
                   <span className="growth-title">New Matches</span>
                   <div className="growth-icon"><Zap size={18} /></div>

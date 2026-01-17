@@ -6,554 +6,292 @@ import {
   Filter, 
   ChevronDown, 
   Clock, 
-  SlidersHorizontal 
+  ChevronUp,
+  Check
 } from 'lucide-react';
 import './screens.css';
 
 const SearchScreen = ({ onNavigate, params = {} }) => {
   const isCommercial = params.context === 'Commercial';
-  const [searchText, setSearchText] = useState('2BHK in Whi');
-  // If Commercial, default to Resale, else use context or default to Buy
+  const [searchText, setSearchText] = useState('');
   const [propertyType, setPropertyType] = useState(isCommercial ? 'Resale' : (params.context || 'Buy'));
-  const [searchIn, setSearchIn] = useState('Properties');
+  const [showAdvanced, setShowAdvanced] = useState(false);
   
-  const hideTypeSelector = ['Buy', 'Rent'].includes(params.context);
-  const typeOptions = isCommercial ? ['Resale', 'Rental'] : ['Buy', 'Rent', 'Commercial', 'Primary'];
+  // Filter States
+  const [selectedBHK, setSelectedBHK] = useState([]);
+  const [budgetRange, setBudgetRange] = useState({ min: '', max: '' });
+  const [selectedStatus, setSelectedStatus] = useState([]);
+
+  const toggleBHK = (bhk) => {
+    if (selectedBHK.includes(bhk)) {
+      setSelectedBHK(selectedBHK.filter(b => b !== bhk));
+    } else {
+      setSelectedBHK([...selectedBHK, bhk]);
+    }
+  };
 
   const recentSearches = [
     { text: 'Whitefield, 3BHK, > ₹1Cr', type: 'Residential' },
     { text: 'Indiranagar, Rent, 2BHK', type: 'Rent' },
     { text: 'Project ID: ACN-8821', type: 'Project' },
-    { text: 'Koramangala, Commercial Office', type: 'Commercial' },
   ];
 
   return (
-    <div className="screen search-screen-new">
-      {/* Top App Bar */}
-      <header className="app-bar search-header">
-        <button className="icon-btn" onClick={() => onNavigate('home')}>
-          <ArrowLeft size={24} color="#1b4d3e" />
+    <div className="screen bg-background-light h-full flex flex-col relative">
+      {/* Top Search Header */}
+      <header className="bg-surface px-4 py-3 border-b border-border-light flex items-center gap-3 shrink-0">
+        <button className="w-10 h-10 -ml-2 flex items-center justify-center rounded-full active:bg-background-secondary text-text-primary transition-colors" onClick={() => onNavigate('home')}>
+          <ArrowLeft size={22} />
         </button>
         
-        <div className="search-field-container">
-          <Search size={20} className="search-input-icon" />
+        <div className="flex-1 relative">
+          <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-text-tertiary" />
           <input 
             type="text" 
-            className="search-input-new" 
+            className="w-full bg-background-secondary border border-transparent focus:border-primary/30 focus:bg-surface focus:ring-4 focus:ring-primary/10 rounded-xl py-2.5 pl-10 pr-10 text-sm font-medium text-text-primary outline-none transition-all placeholder:text-text-tertiary" 
             placeholder="Search by project, location or ID" 
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
+            autoFocus
           />
           {searchText && (
-            <button className="clear-search-btn" onClick={() => setSearchText('')}>
-              <X size={20} />
+            <button className="absolute right-3 top-1/2 -translate-y-1/2 text-text-tertiary hover:text-text-primary" onClick={() => setSearchText('')}>
+              <X size={16} />
             </button>
           )}
         </div>
-
-        <button className="icon-btn" onClick={() => onNavigate('filter')}>
-          <Filter size={24} color="#1b4d3e" />
-        </button>
       </header>
 
-      <main className="screen-content no-scrollbar">
-        {/* Layer 1: Property Type (Conditional) */}
-        {!hideTypeSelector && (
-          <section className="segment-section">
-            <h3>{isCommercial ? 'CATEGORY' : 'PROPERTY TYPE'}</h3>
-            <div className="horizontal-scroll no-pad">
-              {typeOptions.map(type => (
+      <main className="flex-1 overflow-y-auto pb-32">
+        {/* Context Tabs */}
+        <div className="bg-surface px-4 py-3 border-b border-border-light">
+           <div className="flex gap-2 overflow-x-auto hide-scrollbar">
+              {(isCommercial ? ['Resale', 'Rental'] : ['Buy', 'Rent', 'Commercial', 'New Projects']).map(type => (
                 <button 
                   key={type}
-                  className={`type-btn ${propertyType === type ? 'active' : ''}`}
                   onClick={() => setPropertyType(type)}
+                  className={`px-4 py-1.5 rounded-full text-xs font-bold border transition-all whitespace-nowrap ${
+                    propertyType === type 
+                      ? 'bg-primary text-white border-primary shadow-sm' 
+                      : 'bg-surface border-border-light text-text-secondary hover:border-primary/30'
+                  }`}
                 >
                   {type}
                 </button>
               ))}
-              <button className="type-btn disabled">Land Parcel</button>
-            </div>
-          </section>
-        )}
+           </div>
+        </div>
 
-        {/* Layer 2: Search In */}
-        <section className="segment-section pb-4">
-          <h3>SEARCH IN</h3>
-          <div className="search-in-toggle">
-            <button 
-              className={`toggle-option ${searchIn === 'Properties' ? 'active' : ''}`}
-              onClick={() => setSearchIn('Properties')}
-            >
-              Properties
-            </button>
-            <button 
-              className={`toggle-option ${searchIn === 'Requirements' ? 'active' : ''}`}
-              onClick={() => setSearchIn('Requirements')}
-            >
-              Requirements
-            </button>
-          </div>
-        </section>
-
-        <div className="divider"></div>
-
-        {/* Exposed Advanced Filters */}
-        <section className="segment-section pt-4">
-          <div className="section-header-mini">
-            <h3>FILTERS</h3>
-            <button className="clear-all-btn">Reset</button>
-          </div>
-          
-          <div className="filters-grid">
-            {/* Field: Budget */}
-            <div className="filter-group">
-              <label className="filter-label">Budget</label>
-              <div className="budget-inputs">
-                <div className="select-wrapper">
-                  <select className="filter-select">
-                     <option>Min</option>
-                     <option>₹20 L</option>
-                     <option>₹50 L</option>
-                     <option>₹1 Cr</option>
-                  </select>
-                  <ChevronDown size={14} className="select-arrow" />
-                </div>
-                <span className="separator">-</span>
-                <div className="select-wrapper">
-                  <select className="filter-select">
-                     <option>Max</option>
-                     <option>₹80 L</option>
-                     <option>₹2 Cr</option>
-                     <option>₹5 Cr+</option>
-                  </select>
-                  <ChevronDown size={14} className="select-arrow" />
+        {/* Inline Filters Section */}
+        <div className="bg-surface mt-2 border-y border-border-light p-5 space-y-5">
+           
+           {/* Row 1: Budget & Config */}
+           <div className="flex flex-col gap-5">
+              
+              {/* Asset Type / Category */}
+              <div>
+                <label className="text-xs font-bold text-text-secondary mb-2 block uppercase tracking-wide">Property Category</label>
+                <div className="flex gap-2 overflow-x-auto hide-scrollbar -mx-5 px-5">
+                   {['Apartment', 'Villa', 'Indep. House', 'Plot', 'Studio', 'Penthouse'].map(type => (
+                     <button key={type} className="px-4 py-2 rounded-xl text-sm font-semibold border border-border-light bg-background-light text-text-secondary whitespace-nowrap hover:bg-background-secondary hover:border-border hover:text-text-primary transition-colors flex-shrink-0">
+                       {type}
+                     </button>
+                   ))}
                 </div>
               </div>
-            </div>
 
-            {/* Field: Configuration */}
-            <div className="filter-group full-width">
-              <label className="filter-label">Configuration</label>
-              <div className="pills-row">
-                {['1 BHK', '2 BHK', '3 BHK', '4 BHK', 'Villa'].map(bhk => (
-                  <button key={bhk} className="filter-pill">{bhk}</button>
-                ))}
+              {/* Configuration */}
+              <div>
+                <label className="text-xs font-bold text-text-secondary mb-2 block uppercase tracking-wide">Configuration</label>
+                <div className="flex flex-wrap gap-2">
+                   {['1 BHK', '2 BHK', '3 BHK', '4 BHK', '5+ BHK'].map(bhk => {
+                     const isSelected = selectedBHK.includes(bhk);
+                     return (
+                       <button 
+                        key={bhk}
+                        onClick={() => toggleBHK(bhk)}
+                        className={`px-4 py-2 rounded-xl text-sm font-semibold border transition-all flex items-center gap-1.5 flex-1 justify-center ${
+                          isSelected 
+                            ? 'bg-primary/5 border-primary text-primary' 
+                            : 'bg-background-light border-transparent text-text-secondary hover:bg-background-secondary'
+                        }`}
+                       >
+                         {isSelected && <Check size={14} />}
+                         {bhk}
+                       </button>
+                     )
+                   })}
+                </div>
               </div>
-            </div>
 
-            {/* Field: Status */}
-            <div className="filter-group full-width">
-              <label className="filter-label">Status</label>
-              <div className="pills-row">
-                <button className="filter-pill active">All</button>
-                <button className="filter-pill">Ready to Move</button>
-                <button className="filter-pill">Under Construction</button>
+              {/* Budget Inputs */}
+              <div>
+                <label className="text-xs font-bold text-text-secondary mb-2 block uppercase tracking-wide">Budget Range</label>
+                <div className="flex items-center gap-3">
+                   <div className="relative flex-1">
+                      <select 
+                        className="w-full appearance-none bg-background-light border border-transparent rounded-xl px-4 py-2.5 text-sm font-medium text-text-primary focus:border-primary/50 focus:bg-surface outline-none"
+                        value={budgetRange.min}
+                        onChange={(e) => setBudgetRange({...budgetRange, min: e.target.value})}
+                      >
+                         <option value="">Min Price</option>
+                         <option value="20L">₹20 Lakhs</option>
+                         <option value="50L">₹50 Lakhs</option>
+                         <option value="1Cr">₹1 Cr</option>
+                      </select>
+                      <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-text-tertiary pointer-events-none" />
+                   </div>
+                   <span className="text-text-tertiary font-medium">-</span>
+                   <div className="relative flex-1">
+                      <select 
+                        className="w-full appearance-none bg-background-light border border-transparent rounded-xl px-4 py-2.5 text-sm font-medium text-text-primary focus:border-primary/50 focus:bg-surface outline-none"
+                        value={budgetRange.max}
+                        onChange={(e) => setBudgetRange({...budgetRange, max: e.target.value})}
+                      >
+                         <option value="">Max Price</option>
+                         <option value="50L">₹50 Lakhs</option>
+                         <option value="1Cr">₹1 Cr</option>
+                         <option value="5Cr">₹5 Cr</option>
+                      </select>
+                      <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-text-tertiary pointer-events-none" />
+                   </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </section>
 
-        <div className="divider my-2"></div>
+           </div>
+           
+           {/* Expandable Advanced Filters */}
+           <div>
+              <button 
+                onClick={() => setShowAdvanced(!showAdvanced)}
+                className="flex items-center justify-between text-sm font-bold text-primary w-full py-2 px-3 bg-primary/5 rounded-xl hover:bg-primary/10 transition-colors"
+              >
+                  <span>{showAdvanced ? 'Hide Advanced Filters' : 'Show Advanced Filters'}</span>
+                  {showAdvanced ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+              </button>
+
+              {showAdvanced && (
+                <div className="pt-6 space-y-6 animate-in slide-in-from-top-2 fade-in duration-200">
+                    
+                    {/* Status & Possession */}
+                    <div>
+                      <label className="text-xs font-bold text-text-secondary mb-2 block uppercase tracking-wide">Possession Status</label>
+                      <div className="flex flex-wrap gap-2">
+                        {['Ready to Move', 'In 1 Year', 'In 2 Years', 'New Launch'].map(status => (
+                          <button key={status} className="px-3 py-2 rounded-lg border border-border-light bg-surface text-xs font-semibold text-text-secondary hover:border-primary hover:text-primary transition-colors flex-1 text-center whitespace-nowrap">
+                            {status}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Furnished & Bathrooms */}
+                    <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="text-xs font-bold text-text-secondary mb-2 block uppercase tracking-wide">Furnishing</label>
+                          <div className="flex flex-col gap-2">
+                            {['Fully Furnished', 'Semi Furnished', 'Unfurnished'].map(item => (
+                              <button key={item} className="px-3 py-2 rounded-lg border border-border-light bg-surface text-xs font-semibold text-text-secondary text-left hover:border-primary hover:text-primary transition-colors">
+                                {item}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                        <div>
+                           <label className="text-xs font-bold text-text-secondary mb-2 block uppercase tracking-wide">Bathrooms</label>
+                           <div className="grid grid-cols-2 gap-2">
+                             {['1', '2', '3', '4+'].map(num => (
+                               <button key={num} className="px-3 py-2 rounded-lg border border-border-light bg-surface text-xs font-semibold text-text-secondary hover:border-primary hover:text-primary transition-colors text-center">
+                                 {num}
+                               </button>
+                             ))}
+                           </div>
+                        </div>
+                    </div>
+
+                    {/* Tenant Preference (Only for Rent) */}
+                    {propertyType === 'Rent' && (
+                        <div>
+                          <label className="text-xs font-bold text-text-secondary mb-2 block uppercase tracking-wide">Tenant Preference</label>
+                          <div className="flex gap-2">
+                            {['Family', 'Bachelor', 'Company'].map(pref => (
+                              <button key={pref} className="px-4 py-2 rounded-lg border border-border-light bg-surface text-xs font-semibold text-text-secondary hover:border-primary hover:text-primary transition-colors flex-1">
+                                {pref}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                    )}
+
+                    {/* Amenities */}
+                    <div>
+                       <label className="text-xs font-bold text-text-secondary mb-3 block uppercase tracking-wide">Amenities</label>
+                       <div className="grid grid-cols-3 gap-2">
+                          {['Parking', 'Lift', 'Power Backup', 'Gym', 'Club House', 'Swimming Pool', 'Security', 'Park', 'Gas Pipeline'].map(amenity => (
+                             <button key={amenity} className="px-2 py-2 rounded-lg border border-border-light bg-surface text-[11px] font-medium text-text-secondary hover:border-primary hover:text-primary hover:bg-primary/5 transition-colors text-center truncate">
+                                {amenity}
+                             </button>
+                          ))}
+                       </div>
+                    </div>
+
+                </div>
+              )}
+           </div>
+
+        </div>
+
+        {/* Divider */}
+        <div className="h-2 bg-background-tertiary/50"></div>
 
         {/* Recent Searches */}
-        <section className="search-list-section">
-          <h3>Recent Searches</h3>
-          <div className="recent-list">
-            {recentSearches.map((item, index) => (
-              <div key={index} className="recent-item" onClick={() => onNavigate('search-results')}>
-                <div className="recent-info">
-                  <Clock size={20} className="text-secondary" />
-                  <span>{item.text}</span>
+        <div className="p-5">
+           <div className="flex justify-between items-center mb-4">
+              <h3 className="text-sm font-bold text-text-primary">Recent Searches</h3>
+              <button className="text-xs font-bold text-text-tertiary hover:text-primary transition-colors">Clear</button>
+           </div>
+           
+           <div className="space-y-4">
+              {recentSearches.map((search, idx) => (
+                <div key={idx} className="flex items-center justify-between group cursor-pointer" onClick={() => onNavigate('search-results')}>
+                   <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-background-light flex items-center justify-center text-text-tertiary group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                         <Clock size={18} />
+                      </div>
+                      <div>
+                         <p className="text-sm font-medium text-text-primary">{search.text}</p>
+                         <p className="text-[10px] uppercase font-bold text-text-tertiary tracking-wide">{search.type}</p>
+                      </div>
+                   </div>
+                   <button className="text-text-muted hover:text-accent-red transition-colors p-2">
+                      <X size={16} />
+                   </button>
                 </div>
-                <button className="remove-recent-btn">
-                  <X size={20} />
-                </button>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+           </div>
+        </div>
 
-        <div className="divider my-2"></div>
-
-        {/* Trusted Agents */}
-        <section className="segment-section">
-          <div className="section-header-mini">
-            <h3>Trusted Agents</h3>
-            {/* ... */}
-          </div>
-          {/* ... (Kept Trusted Agents Logic same, just closing tags properly if needed in surrounding context, but here I am replacing the upper block) */} 
-          {/* Note: I need to duplicate the Trusted Agents map logic if I replace the whole block, or target carefully. 
-              The original code block spans from line 94 to 176 which includes Recent Searches and Trusted Agents. 
-              I should replace carefully. 
-              Actually, the previous block I am targeting starts at 94 (Refine Search) and ends at 176 (Sticky Bottom).
-              Wait, the target content for replacement should include Trusted Agents if I am rewriting it or I should narrow the range.
-              Let's rewrite the Trusted Agents section to ensure it's preserved.
-           */}
-           <div className="horizontal-scroll no-pad" style={{paddingBottom: 16}}>
-            {[
-              { name: 'Rajesh K', rating: '4.9', area: 'Indiranagar', img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Rajesh' },
-              { name: 'Priya D', rating: '4.8', area: 'Whitefield', img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Priya' },
-              { name: 'Amit S', rating: '4.7', area: 'HSR Layout', img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Amit' },
-              { name: 'Suresh M', rating: '4.9', area: 'Koramangala', img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Suresh' }
-            ].map((agent, i) => (
-              <div key={i} className="agent-card-mini" style={{
-                background: 'white', border: '1px solid #e2e0d6', borderRadius: 12, padding: 12,
-                minWidth: 120, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8,
-                marginRight: 8, flexShrink: 0
-              }}>
-                <div style={{width: 48, height: 48, borderRadius: '50%', overflow: 'hidden', background: '#f4f1ea'}}>
-                   <img src={agent.img} alt="" style={{width: '100%', height: '100%'}} />
-                </div>
-                <div style={{textAlign: 'center'}}>
-                   <h4 style={{fontSize: 13, fontWeight: 600, margin: 0}}>{agent.name}</h4>
-                   <span style={{fontSize: 11, color: '#666'}}>{agent.area}</span>
-                </div>
-                <div style={{display: 'flex', alignItems: 'center', gap: 4, background: '#FEF3C7', padding: '2px 8px', borderRadius: 8}}>
-                   <span style={{fontSize: 10, fontWeight: 700, color: '#B45309'}}>★ {agent.rating}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
       </main>
 
-      {/* Sticky Bottom Advanced Filter - CHANGED TO SEARCH CTA */}
-      <div className="sticky-bottom-action">
-        <button className="advanced-filter-btn primary-cta" onClick={() => onNavigate('search-results')}>
-          <Search size={20} />
-          Search Properties
+      {/* Floating Action CTA */}
+      <div className="absolute bottom-6 left-5 right-5 z-50">
+        <button 
+           className="w-full bg-primary text-white h-14 rounded-2xl font-bold text-lg shadow-xl shadow-primary/30 flex items-center justify-center gap-2 active:scale-95 transition-transform"
+           onClick={() => onNavigate('search-results')}
+        >
+           <Search size={20} strokeWidth={2.5} />
+           View {selectedBHK.length > 0 ? '14' : '420+'} Properties
         </button>
       </div>
 
       <style>{`
-        .search-screen-new {
-          background: #fcfbf7;
-        }
-        .search-header {
-          background: #fcfbf7;
-          border-bottom: 1px solid #e2e0d6;
-          padding: 8px 16px;
-          gap: 12px;
-        }
-        .search-field-container {
-          flex: 1;
-          position: relative;
-          display: flex;
-          align-items: center;
-        }
-        .search-input-icon {
-          position: absolute;
-          left: 12px;
-          color: #9ca3af;
-        }
-        .search-input-new {
-          width: 100%;
-          padding: 12px 40px 12px 40px;
-          background: white;
-          border: 1px solid #e2e0d6;
-          border-radius: 8px;
-          font-size: 14px;
-          color: #1b4d3e;
-          outline: none;
-        }
-        .search-input-new:focus {
-          border-color: #1b4d3e;
-          box-shadow: 0 0 0 2px rgba(27, 77, 62, 0.1);
-        }
-        .clear-search-btn {
-          position: absolute;
-          right: 12px;
-          background: none;
-          border: none;
-          color: #9ca3af;
-          cursor: pointer;
-          padding: 0;
-          display: flex;
-        }
-        
-        .segment-section {
-          padding: 16px 16px 8px;
-        }
-        .segment-section h3 {
-          font-size: 11px;
-          font-weight: 600;
-          color: #4a5d55;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          margin-bottom: 8px;
-        }
-        .pb-4 { padding-bottom: 16px; }
-        .pt-4 { padding-top: 16px; }
-
-        .horizontal-scroll.no-pad {
-          margin: 0;
-          padding: 0 0 4px;
-          gap: 8px;
-        }
-        
-        .type-btn {
-          flex-shrink: 0;
-          height: 44px;
-          padding: 0 24px;
-          border-radius: 8px;
-          border: 1px solid transparent; /* default border */
-          background: white;
-          color: #1b4d3e;
-          font-size: 14px;
-          font-weight: 500;
-          cursor: pointer;
-          transition: all 0.2s;
-        }
-        .type-btn:hover {
-          background: #f4f1ea;
-        }
-        .type-btn.active {
-          background: #1b4d3e;
-          color: white;
-          box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-        }
-        .type-btn.disabled {
-          background: rgba(244, 241, 234, 0.5);
-          color: #a8a29e;
-          cursor: not-allowed;
-        }
-
-        .search-in-toggle {
-          display: flex;
-          gap: 12px;
-        }
-        .toggle-option {
-          flex: 1;
-          height: 44px;
-          border-radius: 8px;
-          border: 1px solid transparent;
-          background: white;
-          color: #1b4d3e;
-          font-size: 14px;
-          font-weight: 500;
-          cursor: pointer;
-          transition: all 0.2s;
-        }
-        .toggle-option:hover {
-          background: #f4f1ea;
-        }
-        .toggle-option.active {
-          background: #1b4d3e;
-          color: white;
-          box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-        }
-
-        .divider {
-          height: 4px;
-          background: #f4f1ea;
-          width: 100%;
-        }
-        .my-2 { margin: 8px 0; }
-
-        .section-header-mini {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 12px;
-        }
-        .section-header-mini h3 {
-          margin-bottom: 0;
-          text-transform: none;
-          font-size: 14px;
-          font-weight: 600;
-        }
-        .clear-all-btn {
-          font-size: 12px;
-          color: #1b4d3e; /* primary */
-          background: none;
-          border: none;
-          font-weight: 500;
-          cursor: pointer;
-        }
-        .clear-all-btn:hover {
-          text-decoration: underline;
-        }
-
-        .chips-scroll {
-          display: flex;
-          gap: 8px;
-          overflow-x: auto;
-          padding-bottom: 8px;
-        }
-        .chips-scroll::-webkit-scrollbar { display: none; }
-
-        .chip {
-          flex-shrink: 0;
-          height: 32px;
-          padding: 0 16px;
-          border-radius: 100px;
-          background: white;
-          border: 1px solid #e2e0d6;
-          color: #1b4d3e;
-          font-size: 12px;
-          font-weight: 500;
-          display: flex;
-          align-items: center;
-          gap: 4px;
-          cursor: pointer;
-        }
-        .budget-chip {
-          background: #eff6ff;
-          border-color: #dbeafe;
-          color: #1d4ed8; /* blue-ish for contrast */
-          padding-left: 12px;
-        }
-        .text-secondary { color: #9ca3af; }
-
-        .search-list-section {
-          padding: 8px 16px 100px; /* ample padding for bottom sticky */
-        }
-        .search-list-section h3 {
-          font-size: 14px;
-          font-weight: 600;
-          color: #4a5d55;
-          margin-bottom: 8px;
-        }
-        
-        .recent-list {
-          display: flex;
-          flex-direction: column;
-        }
-        .recent-item {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 12px 0;
-          border-bottom: 1px solid #f4f1ea;
-          cursor: pointer;
-        }
-        .recent-item:hover {
-          background: rgba(244, 241, 234, 0.3);
-        }
-        .recent-info {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          overflow: hidden;
-        }
-        .recent-info span {
-          font-size: 14px;
-          color: #1b4d3e;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-        .remove-recent-btn {
-          background: none;
-          border: none;
-          color: #d1d5db;
-          cursor: pointer;
-          padding: 4px;
-          border-radius: 50%;
-        }
-        .remove-recent-btn:hover {
-          color: #9ca3af;
-          background: #f4f1ea;
-        }
-
-        .sticky-bottom-action {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          padding: 16px;
-          background: rgba(252, 251, 247, 0.95);
-          backdrop-filter: blur(4px);
-          border-top: 1px solid #e2e0d6;
-          z-index: 50;
-        }
-        .advanced-filter-btn {
-          width: 100%;
-          height: 48px;
-          background: #1b4d3e; /* primary */
-          color: white;
-          border: none;
-          border-radius: 8px;
-          font-size: 15px;
-          font-weight: 600;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 8px;
-          cursor: pointer;
-          box-shadow: 0 4px 12px rgba(27, 77, 62, 0.2);
-        }
-        .advanced-filter-btn:hover {
-          background: #14532d;
-        }
-
-        /* Inline Filter Styles */
-        .filters-grid {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-        }
-        .filter-group {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-        }
-        .filter-label {
-          font-size: 12px;
-          font-weight: 600;
-          color: #1A1A1A;
-        }
-        .budget-inputs {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-        .select-wrapper {
-          position: relative;
-          flex: 1;
-        }
-        .filter-select {
-          width: 100%;
-          padding: 10px 12px;
-          font-size: 13px;
-          border: 1px solid #e2e0d6;
-          border-radius: 8px;
-          appearance: none;
-          background: white;
-          color: #1b4d3e;
-          font-weight: 500;
-        }
-        .select-arrow {
-          position: absolute;
-          right: 12px;
-          top: 50%;
-          transform: translateY(-50%);
-          pointer-events: none;
-          color: #9ca3af;
-        }
-        .separator {
-          color: #9ca3af;
-        }
-        .pills-row {
-          display: flex;
-          gap: 8px;
-          flex-wrap: wrap;
-        }
-        .filter-pill {
-          padding: 8px 16px;
-          border-radius: 6px;
-          border: 1px solid #e2e0d6;
-          background: white;
-          font-size: 13px;
-          color: #666;
-          cursor: pointer;
-          transition: all 0.2s;
-        }
-        .filter-pill.active {
-          background: #1b4d3e;
-          color: white;
-          border-color: #1b4d3e;
-        }
+         .hide-scrollbar::-webkit-scrollbar {
+             display: none;
+         }
+         .hide-scrollbar {
+             -ms-overflow-style: none;
+             scrollbar-width: none;
+         }
       `}</style>
     </div>
   );

@@ -20,11 +20,11 @@ const BusinessBottomNav = ({ activeTab, onNavigate }) => {
           <span className={`text-[9px] mt-1 leading-none text-center ${activeTab === 'properties' ? 'font-bold' : 'font-medium'}`}>My<br/>Properties</span>
         </a>
         <a 
-          onClick={() => onNavigate('requirements')} 
-          className={`flex flex-col items-center py-1 px-1 cursor-pointer flex-1 ${activeTab === 'requirements' ? 'text-primary' : 'text-text-tertiary hover:text-text-secondary transition-colors'}`}
+          onClick={() => onNavigate('my-requirements')} 
+          className={`flex flex-col items-center py-1 px-1 cursor-pointer flex-1 ${activeTab === 'my-requirements' ? 'text-primary' : 'text-text-tertiary hover:text-text-secondary transition-colors'}`}
         >
-          <FileText size={20} strokeWidth={activeTab === 'requirements' ? 2.5 : 2} />
-          <span className={`text-[9px] mt-1 leading-none text-center ${activeTab === 'requirements' ? 'font-bold' : 'font-medium'}`}>My<br/>Reqs</span>
+          <FileText size={20} strokeWidth={activeTab === 'my-requirements' ? 2.5 : 2} />
+          <span className={`text-[9px] mt-1 leading-none text-center ${activeTab === 'my-requirements' ? 'font-bold' : 'font-medium'}`}>My<br/>Reqs</span>
         </a>
         <a 
           onClick={() => onNavigate('enquiries')} 

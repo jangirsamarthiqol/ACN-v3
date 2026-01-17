@@ -6,7 +6,7 @@ function AddRequirementForm({ onNavigate }) {
     <div className="screen">
       {/* Header - Focused View */}
       <header className="screen-header">
-        <button className="back-btn" onClick={() => onNavigate('requirements')}>
+        <button className="back-btn" onClick={() => onNavigate('my-requirements')}>
           <ArrowLeft size={24} />
         </button>
         <h1>Add Requirement</h1>
@@ -169,8 +169,8 @@ function AddRequirementForm({ onNavigate }) {
 
       {/* Footer */}
       <div className="form-footer">
-        <button className="btn btn-outline" onClick={() => onNavigate('requirements')}>Cancel</button>
-        <button className="btn btn-purple" onClick={() => onNavigate('requirements')}>Save Requirement</button>
+        <button className="btn btn-outline" onClick={() => onNavigate('my-requirements')}>Cancel</button>
+        <button className="btn btn-purple" onClick={() => onNavigate('my-requirements')}>Save Requirement</button>
       </div>
 
       <style>{`

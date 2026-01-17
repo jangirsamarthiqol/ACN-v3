@@ -16,13 +16,13 @@ function GlobalBottomNav({ onNavigate, activeTab = 'home', context = 'home' }) {
       { id: 'home', icon: Home, label: 'Home' },
       { id: 'search', icon: Building2, label: 'Properties' },
       { id: 'add-action', icon: Plus, label: 'Add', isAction: true }, // Central Add Button
-      { id: 'requirements', icon: FileText, label: 'Requirements' },
+      { id: 'requirements-marketplace', icon: FileText, label: 'Requirements' },
       { id: 'shortlist', icon: Heart, label: 'Shortlist' }
     ],
     business: [
       { id: 'dashboard', icon: LayoutDashboard, label: 'Dashboard' },
       { id: 'properties', icon: Building2, label: 'My Properties' },
-      { id: 'requirements', icon: FileText, label: 'My Requirements' },
+      { id: 'my-requirements', icon: FileText, label: 'My Requirements' },
       { id: 'enquiries', icon: Mail, label: 'My Enquiries' }
     ],
     services: [

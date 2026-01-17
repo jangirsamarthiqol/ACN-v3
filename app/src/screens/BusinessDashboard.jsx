@@ -41,7 +41,7 @@ const BusinessDashboard = ({ onNavigate }) => {
               </div>
               {/* Card 2 */}
               <div
-                onClick={() => onNavigate('requirements')}
+                onClick={() => onNavigate('my-requirements')}
                 className="bg-accent-indigo p-5 rounded-3xl text-white shadow-lg shadow-accent-indigo/20 cursor-pointer transition-transform active:scale-95">
                 <FileText className="opacity-70 mb-4" size={24} />
                 <div className="text-3xl font-bold tracking-tight">23</div>

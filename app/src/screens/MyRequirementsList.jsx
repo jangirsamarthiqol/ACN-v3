@@ -147,7 +147,7 @@ const MyRequirementsList = ({ onNavigate }) => {
         </div>
 
 
-        <BusinessBottomNav activeTab="requirements" onNavigate={onNavigate} />
+        <BusinessBottomNav activeTab="my-requirements" onNavigate={onNavigate} />
       </div>
     </div>
   );

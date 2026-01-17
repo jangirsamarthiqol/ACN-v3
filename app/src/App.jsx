@@ -33,6 +33,8 @@ import OnboardingScreen from './screens/OnboardingScreen'
 import MarketingScreen from './screens/MarketingScreen'
 import EdgeScreen from './screens/EdgeScreen'
 
+import RequirementsMarketplace from './screens/RequirementsMarketplace'
+
 const screens = [
   // Onboarding
   { id: 'login', name: 'Login', category: 'Onboarding', component: LoginScreen },
@@ -41,6 +43,7 @@ const screens = [
   // Home & Search
   { id: 'home', name: 'ACN Home', category: 'Home', component: HomeScreen },
   { id: 'search', name: 'Properties', category: 'Home', component: PropertiesMarketplace },
+  { id: 'requirements-marketplace', name: 'Requirements', category: 'Home', component: RequirementsMarketplace },
   { id: 'global-search', name: 'Search', category: 'Home', component: SearchScreen },
   { id: 'search-results', name: 'Search Results', category: 'Home', component: SearchResultsScreen },
   { id: 'filter', name: 'Filter Sheet', category: 'Home', component: FilterSheet },
@@ -51,7 +54,7 @@ const screens = [
   { id: 'dashboard', name: 'Dashboard', category: 'My Business', component: BusinessDashboard },
   { id: 'properties', name: 'My Properties', category: 'My Business', component: MyPropertiesList },
   { id: 'add-property', name: 'Add Property', category: 'My Business', component: AddPropertyForm },
-  { id: 'requirements', name: 'My Requirements', category: 'My Business', component: MyRequirementsList },
+  { id: 'my-requirements', name: 'My Requirements', category: 'My Business', component: MyRequirementsList },
   { id: 'add-requirement', name: 'Add Requirement', category: 'My Business', component: AddRequirementForm },
   { id: 'enquiries', name: 'My Enquiries', category: 'My Business', component: MyEnquiries },
   
