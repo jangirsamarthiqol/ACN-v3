@@ -28,18 +28,12 @@ import AddRequirementForm from './screens/AddRequirementForm'
 import HelpSupport from './screens/HelpSupport'
 import NotificationScreen from './screens/NotificationScreen'
 import PopupsPreview from './screens/PopupsPreview'
-import LoginScreen from './screens/LoginScreen'
-import OnboardingScreen from './screens/OnboardingScreen'
 import MarketingScreen from './screens/MarketingScreen'
 import EdgeScreen from './screens/EdgeScreen'
 
 import RequirementsMarketplace from './screens/RequirementsMarketplace'
 
 const screens = [
-  // Onboarding
-  { id: 'login', name: 'Login', category: 'Onboarding', component: LoginScreen },
-  { id: 'onboarding', name: 'Onboarding', category: 'Onboarding', component: OnboardingScreen },
-  
   // Home & Search
   { id: 'home', name: 'ACN Home', category: 'Home', component: HomeScreen },
   { id: 'search', name: 'Properties', category: 'Home', component: PropertiesMarketplace },
@@ -76,7 +70,7 @@ const screens = [
 ]
 
 function App() {
-  const [currentScreen, setCurrentScreen] = useState('login')
+  const [currentScreen, setCurrentScreen] = useState('home')
   const [screenParams, setScreenParams] = useState({})
   
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024)
