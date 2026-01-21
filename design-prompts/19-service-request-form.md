@@ -36,16 +36,16 @@ Design the service request/booking form:
 - Each shows name + price
 - Selected: Primary border + fill tint
 
-**Property Details:**
+**Inventory Details:**
 - Radio buttons:
-  - "For existing property" (links to my properties)
-  - "For new property" (shows form fields)
+  - "For existing inventory" (links to my properties)
+  - "For new inventory" (shows form fields)
 - If existing:
   - Search dropdown: "Select from My Properties"
-  - Shows property cards in dropdown
+  - Shows inventory cards in dropdown
 - If new:
-  - Property address: Multi-line text input
-  - Property type: Dropdown
+  - Inventory address: Multi-line text input
+  - Inventory type: Dropdown
   - Transaction value: Number input with ₹ (for pricing calculation)
 
 **Urgency:**
@@ -63,7 +63,7 @@ Design the service request/booking form:
 **Document Checklist:**
 Each document type as card (stacked vertically):
 - Document icon (left, colored)
-- Document name: "Property Documents" (16px, semi-bold)
+- Document name: "Inventory Documents" (16px, semi-bold)
 - Required/Optional badge (right):
   - Required: Red text
   - Optional: Gray text
@@ -101,8 +101,8 @@ Each document type as card (stacked vertically):
 - Preferred contact method:
   - Radio: Phone | Email | WhatsApp (icons with each)
 
-**Property Owner Details (If different):**
-- Toggle: "I am the property owner" (default on)
+**Inventory Owner Details (If different):**
+- Toggle: "I am the inventory owner" (default on)
 - If toggled off:
   - Owner Name: Text input
   - Owner Phone: Number input
@@ -142,7 +142,7 @@ Each document type as card (stacked vertically):
 - Base Price: ₹10,000
 - Add-ons (if any):
   - Express delivery: +₹3,000
-  - Additional property: +₹5,000
+  - Additional inventory: +₹5,000
 - Subtotal: ₹18,000
 - GST (18%): ₹3,240
 - Discount: -₹1,000 (if applied, green text)

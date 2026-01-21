@@ -79,7 +79,7 @@ function ShortlistScreen({ onNavigate }) {
                     </p>
                     <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                       <span style={{fontSize: 16, fontWeight: 700, color: 'var(--primary-color)'}}>{item.price}</span>
-                      <button className="btn btn-outline" style={{padding: '6px 12px', fontSize: 12}} onClick={() => onNavigate('property-detail')}>
+                      <button className="btn btn-outline" style={{padding: '6px 12px', fontSize: 12}} onClick={() => onNavigate('inventory-detail')}>
                         View Details
                       </button>
                     </div>
@@ -90,10 +90,10 @@ function ShortlistScreen({ onNavigate }) {
           ) : (
             <div className="empty-state" style={{textAlign: 'center', padding: '40px 20px', color: '#888'}}>
               <Heart size={48} style={{opacity: 0.2, marginBottom: 16}} />
-              <h3>No Shortlisted Properties</h3>
-              <p>Properties you like will appear here.</p>
+              <h3>No Shortlisted Inventories</h3>
+              <p>Inventories you like will appear here.</p>
               <button className="btn btn-primary" style={{marginTop: 16}} onClick={() => onNavigate('search')}>
-                Browse Properties
+                Browse Inventories
               </button>
             </div>
           )
@@ -124,7 +124,7 @@ function ShortlistScreen({ onNavigate }) {
                          <h4 style={{fontSize: 14, fontWeight: 600, marginBottom: 4}}>{col.name}</h4>
                          <MoreVertical size={14} color="#888" />
                        </div>
-                       <span style={{fontSize: 12, color: '#666'}}>{col.count} Properties</span>
+                       <span style={{fontSize: 12, color: '#666'}}>{col.count} Inventories</span>
                     </div>
                  </div>
                ))}

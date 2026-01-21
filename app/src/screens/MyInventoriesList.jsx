@@ -3,10 +3,10 @@ import { Search, ChevronDown, SlidersHorizontal, MoreVertical, Ruler, Mail, User
 import BusinessBottomNav from '../components/BusinessBottomNav';
 import GlobalHeader from '../components/GlobalHeader';
 
-const MyPropertiesList = ({ onNavigate }) => {
+const MyInventoriesList = ({ onNavigate }) => {
   const [activeTab, setActiveTab] = useState('Resale');
 
-  const properties = [
+  const inventories = [
     {
       id: 1,
       title: 'Lodha Bellissimo',
@@ -55,7 +55,7 @@ const MyPropertiesList = ({ onNavigate }) => {
     <div className="bg-background-light text-text-primary flex justify-center min-h-screen font-display">
       <div className="w-full max-w-md min-h-screen pb-32 flex flex-col">
         {/* Status Bar is handled by MobileFrame */}
-        <GlobalHeader activeTab="My Business" onNavigate={onNavigate} title="My Properties" />
+        <GlobalHeader activeTab="My Business" onNavigate={onNavigate} title="My Inventories" />
         
         {/* Search & Header Section */}
         <div className="sticky top-0 z-50 bg-background-light/95 backdrop-blur-sm px-4 pt-2 pb-4 space-y-4 border-b border-border-light">
@@ -63,7 +63,7 @@ const MyPropertiesList = ({ onNavigate }) => {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-text-tertiary group-focus-within:text-primary" size={20} />
             <input 
               className="w-full bg-background-secondary border-none rounded-2xl py-3 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none text-text-primary placeholder-text-tertiary" 
-              placeholder="Search properties, localities..." 
+              placeholder="Search inventories, localities..." 
               type="text"
             />
           </div>
@@ -100,14 +100,14 @@ const MyPropertiesList = ({ onNavigate }) => {
           </div>
         </div>
 
-        {/* Property List */}
+        {/* Inventory List */}
         <div className="px-4 space-y-4">
-          {properties.map((property) => (
-            <div key={property.id} className={`bg-surface rounded-3xl shadow-sm border border-border overflow-hidden ${property.status === 'Under Review' ? 'opacity-90' : ''}`}>
+          {inventories.map((inventory) => (
+            <div key={inventory.id} className={`bg-surface rounded-3xl shadow-sm border border-border overflow-hidden ${inventory.status === 'Under Review' ? 'opacity-90' : ''}`}>
               <div className="flex p-4 gap-4">
-                <div className={`w-24 h-24 rounded-2xl bg-accent-mint-lighter flex-shrink-0 relative overflow-hidden ${property.status === 'Under Review' ? 'grayscale' : ''}`}>
-                  <img alt="Property" className="w-full h-full object-cover" src={property.image} />
-                  {property.status === 'Live' && (
+                <div className={`w-24 h-24 rounded-2xl bg-accent-mint-lighter flex-shrink-0 relative overflow-hidden ${inventory.status === 'Under Review' ? 'grayscale' : ''}`}>
+                  <img alt="Inventory" className="w-full h-full object-cover" src={inventory.image} />
+                  {inventory.status === 'Live' && (
                     <div className="absolute top-1 left-1 bg-white/90 backdrop-blur px-1.5 py-0.5 rounded-lg">
                       <span className="text-[8px] font-bold text-primary uppercase">New</span>
                     </div>
@@ -116,47 +116,47 @@ const MyPropertiesList = ({ onNavigate }) => {
                 
                 <div className="flex-1 min-w-0">
                   <div className="flex justify-between items-start">
-                    <h3 className="text-base font-bold text-text-primary truncate">{property.title}</h3>
+                    <h3 className="text-base font-bold text-text-primary truncate">{inventory.title}</h3>
                     <MoreVertical className="text-text-tertiary" size={20} />
                   </div>
-                  <p className="text-xs font-semibold text-text-secondary mb-1">{property.type} • {property.location}</p>
+                  <p className="text-xs font-semibold text-text-secondary mb-1">{inventory.type} • {inventory.location}</p>
                   
                   <div className="mt-2 flex flex-wrap items-baseline gap-x-2">
-                    <span className="text-lg font-bold text-primary">{property.price}</span>
-                    <span className="text-[10px] text-text-tertiary font-medium">{property.pricePerSqFt}</span>
+                    <span className="text-lg font-bold text-primary">{inventory.price}</span>
+                    <span className="text-[10px] text-text-tertiary font-medium">{inventory.pricePerSqFt}</span>
                   </div>
                   
                   <div className="mt-1 flex items-center gap-1">
                     <Ruler className="text-text-tertiary" size={14} />
-                    <span className="text-[10px] font-bold text-text-secondary uppercase tracking-tight">{property.area}</span>
+                    <span className="text-[10px] font-bold text-text-secondary uppercase tracking-tight">{inventory.area}</span>
                   </div>
                 </div>
               </div>
               
               <div className="px-4 py-3 bg-background-secondary flex items-center justify-between border-y border-border-light">
                 <div className="flex items-center gap-3">
-                  <span className={`px-2 py-0.5 text-[10px] font-bold rounded-md uppercase tracking-wider ${property.statusClass}`}>
-                    {property.status}
+                  <span className={`px-2 py-0.5 text-[10px] font-bold rounded-md uppercase tracking-wider ${inventory.statusClass}`}>
+                    {inventory.status}
                   </span>
                   <div className="flex items-center gap-1 text-text-secondary">
                     <Mail size={16} />
-                    <span className="text-[10px] font-bold">{property.enquiries} Enquiries</span>
+                    <span className="text-[10px] font-bold">{inventory.enquiries} Enquiries</span>
                   </div>
                 </div>
                 
-                <div className={`flex items-center gap-1 px-2 py-1 rounded-lg ${property.matches > 0 ? 'text-accent-blue bg-blue-50' : 'text-text-tertiary bg-background-tertiary'}`}>
-                  <UserSearch size={16} className={property.matches > 0 ? 'text-accent-blue' : ''} />
-                  <span className="text-[10px] font-bold">{property.matches} Matched Reqs</span>
+                <div className={`flex items-center gap-1 px-2 py-1 rounded-lg ${inventory.matches > 0 ? 'text-accent-blue bg-blue-50' : 'text-text-tertiary bg-background-tertiary'}`}>
+                  <UserSearch size={16} className={inventory.matches > 0 ? 'text-accent-blue' : ''} />
+                  <span className="text-[10px] font-bold">{inventory.matches} Matched Reqs</span>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <BusinessBottomNav activeTab="properties" onNavigate={onNavigate} />
+        <BusinessBottomNav activeTab="inventories" onNavigate={onNavigate} />
       </div>
     </div>
   );
 };
 
-export default MyPropertiesList;
+export default MyInventoriesList;

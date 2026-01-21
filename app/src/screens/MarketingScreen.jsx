@@ -11,7 +11,7 @@ function MarketingScreen({ onNavigate }) {
     {
       id: 1,
       title: 'Q1 Market Sentiment Survey',
-      desc: 'Share your views on current property prices in Bangalore.',
+      desc: 'Share your views on current inventory prices in Bangalore.',
       reward: '50 Credits',
       time: '3 min',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop'

@@ -66,13 +66,13 @@ function HomeScreen({ onNavigate }) {
             <div 
               className="banner-card" 
               style={{minWidth: '100%', background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', scrollSnapAlign: 'center'}}
-              onClick={() => onNavigate('add-property')}
+              onClick={() => onNavigate('add-inventory')}
             >
               <div className="banner-content">
                 <span className="banner-badge" style={{background: 'rgba(255,255,255,0.2)', color: 'white'}}>Grow Business</span>
                 <h3 style={{color: 'white'}}>List New Inventory</h3>
                 <p style={{color: 'rgba(255,255,255,0.9)'}}>Reach 10k+ verified buyers instantly</p>
-                <button className="banner-btn" style={{background: 'white', color:'#6366f1'}}>List Property <PlusCircle size={14} /></button>
+                <button className="banner-btn" style={{background: 'white', color:'#6366f1'}}>List Inventory <PlusCircle size={14} /></button>
               </div>
               <div className="banner-illustration">
                 <Building2 size={64} strokeWidth={1} color="white" />
@@ -88,7 +88,7 @@ function HomeScreen({ onNavigate }) {
               <div className="banner-content">
                 <span className="banner-badge" style={{background: 'rgba(255,255,255,0.2)', color: 'white'}}>Client Needs</span>
                 <h3 style={{color: 'white'}}>Post Requirement</h3>
-                <p style={{color: 'rgba(255,255,255,0.9)'}}>Get matched with top properties</p>
+                <p style={{color: 'rgba(255,255,255,0.9)'}}>Get matched with top inventories</p>
                 <button className="banner-btn" style={{background: 'white', color:'#ec4899'}}>Add Request <FileText size={14} /></button>
               </div>
               <div className="banner-illustration">
@@ -215,7 +215,7 @@ function HomeScreen({ onNavigate }) {
               </div>
               <div className="alert-content">
                 <h4>Action Required</h4>
-                <p><strong>12 properties</strong> are expiring this week. Renew now.</p>
+                <p><strong>12 inventories</strong> are expiring this week. Renew now.</p>
               </div>
               <ChevronRight size={18} color="#9CA3AF" />
             </div>
@@ -403,7 +403,7 @@ function HomeScreen({ onNavigate }) {
           </div>
           <div className="horizontal-scroll">
             {[1, 2, 3].map(i => (
-              <div key={i} className="project-card" onClick={() => onNavigate('property-detail')}>
+              <div key={i} className="project-card" onClick={() => onNavigate('inventory-detail')}>
                 <div className="project-image">
                   <img src={`https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=300&fit=crop`} alt="New Launch" />
                   <span className="premium-badge" style={{background: 'linear-gradient(135deg, #1b4d3e, #064e3b)', color: 'white'}}>New Launch</span>
@@ -423,17 +423,17 @@ function HomeScreen({ onNavigate }) {
           </div>
         </section>
 
-        {/* Recently Viewed Properties */}
+        {/* Recently Viewed Inventories */}
         <section className="section">
           <div className="section-header">
-            <h2>Recently Viewed Properties</h2>
+            <h2>Recently Viewed Inventories</h2>
             <button className="link-btn">View All <ChevronRight size={16} /></button>
           </div>
           <div className="horizontal-scroll">
             {[1, 2, 3].map(i => (
-              <div key={i} className="project-card" onClick={() => onNavigate('property-detail')}>
+              <div key={i} className="project-card" onClick={() => onNavigate('inventory-detail')}>
                 <div className="project-image">
-                  <img src={`https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=300&fit=crop`} alt="Property" />
+                  <img src={`https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=300&fit=crop`} alt="Inventory" />
                   <button className="heart-btn"><Heart size={18} /></button>
                 </div>
                 <div className="project-info">
@@ -486,7 +486,7 @@ function HomeScreen({ onNavigate }) {
               <span className="insight-tag trend">Trend</span>
             </div>
             <div className="insight-content">
-              <h4>Bangalore Property Prices Rise 12%</h4>
+              <h4>Bangalore Inventory Prices Rise 12%</h4>
               <p>Latest market data shows significant growth...</p>
               <span className="insight-meta">Jan 3, 2026 · 3 min read</span>
             </div>

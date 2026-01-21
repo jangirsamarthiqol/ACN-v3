@@ -18,7 +18,7 @@ Design the enquiries management screen with incoming/outgoing views:
 - Search: "Search enquiries..." (48px height)
 - Filter chips (horizontal scroll):
   - "Status ▾": All, New, Responded, Closed
-  - "Type ▾": Property, Requirement
+  - "Type ▾": Inventory, Requirement
   - "Date ▾": Today, This Week, This Month
   - "Sort ▾": Newest, Oldest
 
@@ -48,13 +48,13 @@ Design the enquiries management screen with incoming/outgoing views:
 
 #### Enquiry Type Badge
 - Small pill below header:
-  - "Property Enquiry" - Blue (#E3F2FD bg, #1565C0 text)
+  - "Inventory Enquiry" - Blue (#E3F2FD bg, #1565C0 text)
   - "Requirement Enquiry" - Purple (#F3E5F5 bg, #7B1FA2 text)
 
-#### Property/Requirement Preview
+#### Inventory/Requirement Preview
 - Mini card within card:
   - Thumbnail image (60x60px, left, rounded)
-  - Property ID: "#ACN12345" (11px, gray)
+  - Inventory ID: "#ACN12345" (11px, gray)
   - Title: "3 BHK Apartment, Prestige Lakeside" (14px, #1A1A1A)
   - Key detail: "₹1.2 Cr | 1450 sq.ft" (13px, gray)
   - "View Details →" link (12px, primary color)
@@ -62,7 +62,7 @@ Design the enquiries management screen with incoming/outgoing views:
 
 #### Enquiry Message
 - Quote-style box (left border 3px, light blue bg):
-  - Message preview (2 lines): "Hi, I'm interested in this property for my client who is..."
+  - Message preview (2 lines): "Hi, I'm interested in this inventory for my client who is..."
   - "Read More" link if longer
 - Contact info row:
   - "📞 +91 98765 43***" (masked, "Tap to reveal" tooltip)
@@ -109,7 +109,7 @@ Design the enquiries management screen with incoming/outgoing views:
 - Similar card styling
 
 #### Card Header
-- Property/Requirement info at top:
+- Inventory/Requirement info at top:
   - Thumbnail and title
 - "To: Priya Sharma (Agent)" (14px, gray)
 
@@ -133,7 +133,7 @@ Design the enquiries management screen with incoming/outgoing views:
 #### Action Buttons
 - "Follow Up" (if no response after 2 days)
 - "Call" / "WhatsApp" icons
-- "View Property" link
+- "View Inventory" link
 
 #### Three-dot Menu
 - Withdraw enquiry
@@ -151,7 +151,7 @@ Design the enquiries management screen with incoming/outgoing views:
 
 **Sections:**
 - Status: Multi-select chips
-- Enquiry Type: Property / Requirement / Both
+- Enquiry Type: Inventory / Requirement / Both
 - Date Range: Custom date picker
 - Priority: High Priority / All
 - Verification: Verified Only / All

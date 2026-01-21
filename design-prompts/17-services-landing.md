@@ -23,9 +23,9 @@ Design the Services hub landing page:
   - Badge: "Most Popular" (small gold pill #FFD700, dark text, top-left)
   - Icon: Legal/gavel icon (48px, white, with subtle glow)
   - Title: "Legal Services" (24px, bold, white)
-  - Description: "Expert legal support for property documentation, verification, and more" (14px, white 90% opacity, 2 lines)
+  - Description: "Expert legal support for inventory documentation, verification, and more" (14px, white 90% opacity, 2 lines)
   - Features list (white, checkmarks):
-    - ✓ "Property Title Verification"
+    - ✓ "Inventory Title Verification"
     - ✓ "Agreement Drafting"
     - ✓ "Registration Support"
   - CTA Button: "Explore Services →" (white background, primary text #0066CC, 12px padding, 8px radius)
@@ -80,8 +80,8 @@ Design the Services hub landing page:
 
 4. **Insurance**
    - Icon: Shield icon
-   - Title: "Property Insurance"
-   - Description: "Comprehensive property protection"
+   - Title: "Inventory Insurance"
+   - Description: "Comprehensive inventory protection"
 
 5. **Vastu Consultation**
    - Icon: Compass/direction icon
@@ -90,8 +90,8 @@ Design the Services hub landing page:
 
 6. **Photography**
    - Icon: Camera icon
-   - Title: "Property Photography"
-   - Description: "Professional property shoots"
+   - Title: "Inventory Photography"
+   - Description: "Professional inventory shoots"
 
 ## INTEREST CAPTURE SECTION
 - Card with light blue background (#E3F2FD)

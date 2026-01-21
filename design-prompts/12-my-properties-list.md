@@ -5,7 +5,7 @@ Design the My Properties management screen:
 ## HEADER
 - Back button (left, 44px)
 - Title: "My Properties" (20px, bold, center, #1A1A1A)
-- Add button: "+ Add Property" (right, primary color #0066CC text, or icon)
+- Add button: "+ Add Inventory" (right, primary color #0066CC text, or icon)
 
 ## TOGGLE & FILTERS
 - Segmented control (full width, 16px margins):
@@ -40,7 +40,7 @@ Design the My Properties management screen:
 - 24px, gray when unselected, primary when selected
 
 #### Image Section (120px width)
-- Property image (aspect 3:2)
+- Inventory image (aspect 3:2)
 - Status badge overlay (top-left):
   - "Active" - Green pill (#4CAF50)
   - "Inactive" - Gray pill (#9E9E9E)
@@ -51,12 +51,12 @@ Design the My Properties management screen:
 #### Content Section (Right, padding 12px)
 
 **Header Row:**
-- Property ID: "#ACN12345" (11px, gray #888888)
+- Inventory ID: "#ACN12345" (11px, gray #888888)
 - Three-dot menu (right):
   - Options: Edit, Share, Change Status, Delete
 
 **Main Content:**
-- Property title: "3 BHK Apartment" (16px, semi-bold, #1A1A1A)
+- Inventory title: "3 BHK Apartment" (16px, semi-bold, #1A1A1A)
 - Project: "Prestige Lakeside Habitat" (14px, primary color, clickable link)
 - Location: "Varthur, Bangalore" (13px, gray, with pin icon)
 - Details row (12px, gray):
@@ -67,7 +67,7 @@ Design the My Properties management screen:
 - Negotiable badge (if applicable, small pill)
 
 **Info Row:**
-- Property type: "Apartment" (outline pill)
+- Inventory type: "Apartment" (outline pill)
 - Listing type: "Resale" (outline pill)
 - Posted: "5 days ago" (11px, gray)
 
@@ -96,13 +96,13 @@ Design the My Properties management screen:
 - Bottom-right, circular (56px), primary color
 - "+" icon (white)
 - Shadow for elevation
-- "Add Property" on first tap/tooltip
+- "Add Inventory" on first tap/tooltip
 
 ## EMPTY STATE
-- Illustration: Empty folder/property outline
+- Illustration: Empty folder/inventory outline
 - Text: "No properties added yet" (18px, bold)
-- Subtext: "Add your first property to start managing your inventory" (14px, gray)
-- Button: "Add Property" (large, primary, filled)
+- Subtext: "Add your first inventory to start managing your inventory" (14px, gray)
+- Button: "Add Inventory" (large, primary, filled)
 
 ## FILTER RESULTS INFO
 - Above list: "Showing 34 of 48 properties" (12px, gray)

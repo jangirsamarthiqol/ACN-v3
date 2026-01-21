@@ -1,6 +1,6 @@
-# Prompt 24: Property Detail View (Discovery)
+# Prompt 24: Inventory Detail View (Discovery)
 
-Design a comprehensive property detail screen for property discovery:
+Design a comprehensive inventory detail screen for inventory discovery:
 
 ## IMAGE GALLERY (Top, full-width)
 - Full-width swipeable image carousel
@@ -19,7 +19,7 @@ Design a comprehensive property detail screen for property discovery:
 
 **Verification Badge (Overlaying bottom of images):**
 - Position: Bottom-left corner
-- "✓ Verified Property" (green pill, checkmark icon)
+- "✓ Verified Inventory" (green pill, checkmark icon)
 - Or "★ Premium Listing" (gold pill)
 
 ## QUICK ACTION BAR (Sticky below images)
@@ -45,9 +45,9 @@ Each chip: 40px height, 16px horizontal padding, border radius 20px
 - Subtext: "₹8,275 per sq.ft" (14px, gray #666666)
 - Negotiable badge (if applicable): "Negotiable" (small green pill)
 
-**Property Title:**
+**Inventory Title:**
 - "Spacious 3 BHK Apartment" (20px, semi-bold, #1A1A1A)
-- Property ID: "#ACN12345" (12px, gray, with copy icon, tappable)
+- Inventory ID: "#ACN12345" (12px, gray, with copy icon, tappable)
 
 **Project Name (if applicable):**
 - "Prestige Lakeside Habitat" (16px, primary color, link style)
@@ -98,12 +98,12 @@ Each card: White, 12px radius, subtle shadow, 12px padding
 
 **Details Grid (2 columns, label:value):**
 - Transaction Type: "Resale"
-- Property Type: "Apartment"
+- Inventory Type: "Apartment"
 - Furnishing: "Semi-Furnished"
 - Facing: "North-East"
 - Overlooking: "Garden View"
 - Floor: "5 out of 15"
-- Age of Property: "3 years"
+- Age of Inventory: "3 years"
 - Possession: "Ready to Move"
 - Total Floors: "15"
 - Carpet Area: "1,250 sq.ft"
@@ -116,7 +116,7 @@ Labels: 13px, gray
 Values: 14px, #1A1A1A
 
 **Description Section:**
-- "About this property" header (16px, semi-bold)
+- "About this inventory" header (16px, semi-bold)
 - Description text (14px, gray, line-height 1.6)
 - "Read more" / "Read less" toggle if text exceeds 4 lines
 - Well-formatted paragraphs
@@ -135,7 +135,7 @@ Values: 14px, #1A1A1A
 ### LOCATION TAB
 **Map View:**
 - Interactive map (height: 250px)
-- Property marker (custom ACN pin)
+- Inventory marker (custom ACN pin)
 - "Open in Maps" button overlay
 - "Get Directions" button
 
@@ -197,7 +197,7 @@ Values: 14px, #1A1A1A
 - "WhatsApp" (outline, green WhatsApp icon)
 - "View Profile →" (text link, below)
 
-## MATCHING REQUIREMENTS SECTION (If this is your property)
+## MATCHING REQUIREMENTS SECTION (If this is your inventory)
 - Header: "5 Matching Requirements" with "View All →"
 - Horizontal scroll: Top 3 requirement cards preview
 - Each card: Requirement summary, Match %, "Enquire" button
@@ -229,8 +229,8 @@ Values: 14px, #1A1A1A
 - "Schedule Visit" (outline, calendar icon, left, 50%)
 - "Enquire Now" (filled primary, message icon, right, 50%)
 
-**Or if it's your property:**
-- "Edit Property" (outline, left)
+**Or if it's your inventory:**
+- "Edit Inventory" (outline, left)
 - "View Matches" (filled, right)
 
 ## ENQUIRY BOTTOM SHEET (When "Enquire Now" tapped)
@@ -238,7 +238,7 @@ Values: 14px, #1A1A1A
 - Handle bar, close button
 
 **Content:**
-- Pre-filled message template: "Hi, I'm interested in this 3 BHK property..."
+- Pre-filled message template: "Hi, I'm interested in this 3 BHK inventory..."
 - Edit option (pencil icon)
 - Your contact details:
   - Name (display)

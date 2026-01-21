@@ -39,7 +39,7 @@ Design a subscription and credits management screen:
 
 **Content:**
 - Large number: "48" (40px, bold, primary color)
-- Type: "Property Listing Credits" (14px, gray)
+- Type: "Inventory Listing Credits" (14px, gray)
 - Subtext: "Renews on Jan 30, 2026" (12px, gray)
 
 **Usage Bar:**
@@ -71,7 +71,7 @@ Design a subscription and credits management screen:
 - Badge: "Current Plan" (if applicable, gray pill)
 - Price: "₹0" (28px, bold) + "/month" (14px, gray)
 - Features list (checkmarks and X):
-  - ✓ "5 Property Listings"
+  - ✓ "5 Inventory Listings"
   - ✓ "Basic Search"
   - ✓ "10 Enquiries/month"
   - ✗ "Priority Support" (gray, crossed)
@@ -88,7 +88,7 @@ Design a subscription and credits management screen:
 - Price: "₹999" (28px, bold) + "/month"
 - Yearly: "₹9,990/year" + "Save ₹2,000" (green badge)
 - Features list (all checkmarks):
-  - ✓ "25 Property Listings"
+  - ✓ "25 Inventory Listings"
   - ✓ "Advanced Search & Filters"
   - ✓ "50 Enquiries/month"
   - ✓ "Basic Analytics"
@@ -106,7 +106,7 @@ Design a subscription and credits management screen:
 - Price: "₹2,499" (28px, bold) + "/month"
 - Yearly: "₹24,990/year" + "Save ₹5,000"
 - Features (all checkmarks, green):
-  - ✓ "Unlimited Property Listings"
+  - ✓ "Unlimited Inventory Listings"
   - ✓ "Advanced Search & Filters"
   - ✓ "Unlimited Enquiries"
   - ✓ "Advanced Analytics"

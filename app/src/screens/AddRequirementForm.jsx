@@ -49,9 +49,9 @@ function AddRequirementForm({ onNavigate }) {
           </div>
         </section>
 
-        {/* Property Type */}
+        {/* Inventory Type */}
         <section>
-          <h3 className="text-base font-bold text-text-primary mb-3">Property Type</h3>
+          <h3 className="text-base font-bold text-text-primary mb-3">Inventory Type</h3>
           <div className="bg-white p-4 rounded-2xl border border-border shadow-sm">
             <div className="grid grid-cols-2 gap-3">
               {['Apartment', 'Villa', 'Plot', 'Independent House'].map((type, i) => (

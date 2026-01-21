@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import './screens.css';
 
-function PropertyDetail({ onNavigate }) {
+function InventoryDetail({ onNavigate }) {
   const [activeTab, setActiveTab] = useState('overview');
   const [isLiked, setIsLiked] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
@@ -32,7 +32,7 @@ function PropertyDetail({ onNavigate }) {
       <div className="h-80 relative bg-black">
         <img 
           src="https://images.unsplash.com/photo-1600596542815-e36cb06c37f6?auto=format&fit=crop&q=80&w=800&h=600" 
-          alt="Property Hero" 
+          alt="Inventory Hero" 
           className="w-full h-full object-cover opacity-90"
         />
         <div className="absolute top-0 left-0 right-0 p-4 pt-12 flex justify-between bg-gradient-to-b from-black/60 to-transparent">
@@ -139,13 +139,13 @@ function PropertyDetail({ onNavigate }) {
                 <p className="text-sm text-text-secondary leading-relaxed">
                   A meticulously designed 3 BHK apartment offering a blend of luxury and comfort. 
                   Featuring spacious interiors, modern fittings, and excellent natural light. 
-                  The property is located in a prime area with easy access to IT parks and international schools.
+                  The inventory is located in a prime area with easy access to IT parks and international schools.
                   <span className="text-primary font-bold cursor-pointer ml-1">Read More</span>
                 </p>
               </div>
 
               <div>
-                <h4 className="text-sm font-bold text-text-primary mb-3">Property Details</h4>
+                <h4 className="text-sm font-bold text-text-primary mb-3">Inventory Details</h4>
                 <div className="space-y-2">
                   <div className="flex justify-between p-3 bg-white border border-border rounded-xl">
                     <span className="text-xs font-medium text-text-secondary">Configuration</span>
@@ -229,7 +229,7 @@ function PropertyDetail({ onNavigate }) {
         <div className="fixed inset-0 bg-black/50 z-[100] flex items-end justify-center" onClick={() => setShowShareModal(false)}>
           <div className="bg-white w-full max-w-md rounded-t-3xl p-6 animate-slide-up" onClick={e => e.stopPropagation()}>
              <div className="w-10 h-1 bg-border-dark rounded-full mx-auto mb-6"></div>
-             <h3 className="text-lg font-bold text-text-primary mb-6">Share Property</h3>
+             <h3 className="text-lg font-bold text-text-primary mb-6">Share Inventory</h3>
              
              {/* Branding Toggle */}
              <div className="bg-background-secondary p-4 rounded-xl flex justify-between items-center mb-6">
@@ -283,4 +283,4 @@ function PropertyDetail({ onNavigate }) {
   )
 }
 
-export default PropertyDetail
+export default InventoryDetail

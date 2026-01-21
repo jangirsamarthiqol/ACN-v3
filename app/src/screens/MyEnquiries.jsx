@@ -13,28 +13,28 @@ const MyEnquiries = ({ onNavigate }) => {
       name: 'Suman Sharma',
       initial: 'S',
       date: '9th July 2025',
-      property: '2BHK apartment in Birla Trimaya phase 1',
+      inventory: '2BHK apartment in Birla Trimaya phase 1',
       typeIcon: Building2,
-      type: 'Property Interested In'
+      type: 'Inventory Interested In'
     },
     {
       id: 2,
       name: 'Rohan Malhotra',
       initial: 'R',
       date: '8th July 2025',
-      property: '1200Sqft plot in Birla Trimaya phase 2',
+      inventory: '1200Sqft plot in Birla Trimaya phase 2',
       typeIcon: Mountain,
-      type: 'Property Interested In'
+      type: 'Inventory Interested In'
     },
     {
       id: 3,
       name: 'Anita Desai',
       initial: 'A',
       date: '7th July 2025',
-      property: '3BHK Penthouse, Sobha Dream Acres',
+      inventory: '3BHK Penthouse, Sobha Dream Acres',
       phone: '+91 70243 96102',
       typeIcon: Building2,
-      type: 'Property Interested In'
+      type: 'Inventory Interested In'
     }
   ];
 
@@ -125,7 +125,7 @@ const MyEnquiries = ({ onNavigate }) => {
                     </div>
                     <div className="min-w-0">
                       <p className="text-xs text-text-tertiary font-medium uppercase tracking-wider">{enquiry.type}</p>
-                      <p className="text-[13px] text-text-primary font-semibold truncate">{enquiry.property}</p>
+                      <p className="text-[13px] text-text-primary font-semibold truncate">{enquiry.inventory}</p>
                     </div>
                   </div>
                   <button className="w-8 h-8 rounded-full bg-background-secondary text-primary flex items-center justify-center shrink-0">

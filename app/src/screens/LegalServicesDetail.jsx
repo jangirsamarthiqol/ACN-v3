@@ -8,7 +8,7 @@ function LegalServicesDetail({ onNavigate }) {
     {
       id: 1,
       name: 'Title Verification',
-      desc: 'Complete property title search and verification',
+      desc: 'Complete inventory title search and verification',
       originalPrice: '₹15,000',
       price: '₹12,000',
       discount: 'Save 20%',
@@ -28,7 +28,7 @@ function LegalServicesDetail({ onNavigate }) {
     {
       id: 3,
       name: 'Registration Support',
-      desc: 'Complete property registration assistance',
+      desc: 'Complete inventory registration assistance',
       originalPrice: '₹18,000',
       price: '₹15,000',
       discount: 'Save 17%',
@@ -38,7 +38,7 @@ function LegalServicesDetail({ onNavigate }) {
     {
       id: 4,
       name: 'Due Diligence',
-      desc: 'Comprehensive property legal check',
+      desc: 'Comprehensive inventory legal check',
       originalPrice: '₹25,000',
       price: '₹20,000',
       discount: 'Save 20%',

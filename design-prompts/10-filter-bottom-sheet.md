@@ -24,7 +24,7 @@ Design a comprehensive filter modal/bottom sheet:
 - Each section has 24px margin top
 
 ### SECTION 1 - PROPERTY TYPE
-- Label: "Property Type" (16px, semi-bold, #1A1A1A)
+- Label: "Inventory Type" (16px, semi-bold, #1A1A1A)
 - 12px gap below label
 - Multi-select chips (wrap to multiple rows):
   - "Apartment", "Villa", "Plot", "Commercial", "PG"

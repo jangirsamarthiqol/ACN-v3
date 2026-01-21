@@ -14,14 +14,14 @@ function GlobalBottomNav({ onNavigate, activeTab = 'home', context = 'home' }) {
   const navItems = {
     home: [
       { id: 'home', icon: Home, label: 'Home' },
-      { id: 'search', icon: Building2, label: 'Properties' },
+      { id: 'search', icon: Building2, label: 'Inventories' },
       { id: 'add-action', icon: Plus, label: 'Add', isAction: true }, // Central Add Button
       { id: 'requirements-marketplace', icon: FileText, label: 'Requirements' },
       { id: 'shortlist', icon: Heart, label: 'Shortlist' }
     ],
     business: [
       { id: 'dashboard', icon: LayoutDashboard, label: 'Dashboard' },
-      { id: 'properties', icon: Building2, label: 'My Properties' },
+      { id: 'properties', icon: Building2, label: 'My Inventories' },
       { id: 'my-requirements', icon: FileText, label: 'My Requirements' },
       { id: 'enquiries', icon: Mail, label: 'My Enquiries' }
     ],
@@ -40,7 +40,7 @@ function GlobalBottomNav({ onNavigate, activeTab = 'home', context = 'home' }) {
       {showAddMenu && (
         <div className="absolute bottom-24 left-1/2 -translate-x-1/2 w-64 bg-surface rounded-2xl shadow-xl border border-border-light p-2 flex flex-col gap-2 z-[60] animate-in slide-in-from-bottom-5 fade-in duration-200 pointer-events-auto">
           <button 
-            onClick={() => handleAddAction('add-property')}
+            onClick={() => handleAddAction('add-inventory')}
             className="flex items-center gap-3 p-3 rounded-xl hover:bg-background-secondary transition-colors text-left"
           >
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
@@ -48,7 +48,7 @@ function GlobalBottomNav({ onNavigate, activeTab = 'home', context = 'home' }) {
             </div>
             <div>
               <span className="block text-sm font-bold text-text-primary">Add Inventory</span>
-              <span className="block text-[10px] text-text-tertiary">List a new property</span>
+              <span className="block text-[10px] text-text-tertiary">List a new inventory</span>
             </div>
           </button>
           <button 

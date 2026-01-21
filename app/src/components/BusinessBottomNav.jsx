@@ -14,10 +14,10 @@ const BusinessBottomNav = ({ activeTab, onNavigate }) => {
         </a>
         <a 
           onClick={() => onNavigate('properties')} 
-          className={`flex flex-col items-center py-1 px-1 cursor-pointer flex-1 ${activeTab === 'properties' ? 'text-primary' : 'text-text-tertiary hover:text-text-secondary transition-colors'}`}
+          className={`flex flex-col items-center py-1 px-1 cursor-pointer flex-1 ${activeTab === 'inventories' ? 'text-primary' : 'text-text-tertiary hover:text-text-secondary transition-colors'}`}
         >
-          <Building size={20} strokeWidth={activeTab === 'properties' ? 2.5 : 2} />
-          <span className={`text-[9px] mt-1 leading-none text-center ${activeTab === 'properties' ? 'font-bold' : 'font-medium'}`}>My<br/>Properties</span>
+          <Building size={20} strokeWidth={activeTab === 'inventories' ? 2.5 : 2} />
+          <span className={`text-[9px] mt-1 leading-none text-center ${activeTab === 'inventories' ? 'font-bold' : 'font-medium'}`}>My<br/>Inventories</span>
         </a>
         <a 
           onClick={() => onNavigate('my-requirements')} 

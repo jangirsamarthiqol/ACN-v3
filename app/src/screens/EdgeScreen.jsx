@@ -16,7 +16,7 @@ function EdgeScreen({ onNavigate }) {
       source: 'Economic Times',
       time: '2 hours ago',
       image: 'https://images.unsplash.com/photo-1570125909232-eb2be3b11374?w=400&h=200&fit=crop',
-      summary: 'The central government has approved the much-awaited Phase 3 of Namma Metro, connecting key IT corridors. This is expected to boost property prices in...'
+      summary: 'The central government has approved the much-awaited Phase 3 of Namma Metro, connecting key IT corridors. This is expected to boost inventory prices in...'
     },
     {
       id: 2,

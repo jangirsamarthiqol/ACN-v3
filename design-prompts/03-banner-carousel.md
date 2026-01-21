@@ -20,7 +20,7 @@ Design an engaging banner carousel section for real estate app:
   - Headline text (white, bold, 20px): "Premium Properties"
   - Subtext (white, 14px, opacity 0.9): "Exclusive deals this week"
   - CTA button: "Explore Now" (white background, primary text #0066CC, 8px radius, 12px padding)
-- Right side (40%): Illustrative icon or minimal property graphic (white/light outline style)
+- Right side (40%): Illustrative icon or minimal inventory graphic (white/light outline style)
 - Padding: 20px all around
 - Content vertically centered
 

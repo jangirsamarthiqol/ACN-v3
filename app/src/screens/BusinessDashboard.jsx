@@ -57,7 +57,7 @@ const BusinessDashboard = ({ onNavigate }) => {
               <div className="bg-accent-orange p-5 rounded-3xl text-white shadow-lg shadow-accent-orange/20">
                 <Eye className="opacity-70 mb-4" size={24} />
                 <div className="text-3xl font-bold tracking-tight">12</div>
-                <p className="text-[10px] font-bold opacity-90 mt-1 uppercase tracking-tight">Properties Under Review</p>
+                <p className="text-[10px] font-bold opacity-90 mt-1 uppercase tracking-tight">Inventories Under Review</p>
                 <p className="text-[10px] font-semibold mt-2 underline cursor-pointer">View All →</p>
               </div>
             </div>
@@ -68,7 +68,7 @@ const BusinessDashboard = ({ onNavigate }) => {
             <h2 className="text-xs font-bold uppercase tracking-widest text-text-tertiary mb-4 ml-1">Quick Actions</h2>
             <div className="grid grid-cols-2 gap-4">
               <button
-                onClick={() => onNavigate('add-property')}
+                onClick={() => onNavigate('add-inventory')}
                 className="flex flex-col items-center justify-center py-6 border-2 border-dashed border-border rounded-3xl text-text-secondary hover:bg-background-secondary transition-colors">
                 <Store className="text-primary mb-2" size={30} />
                 <span className="text-sm font-bold">Add Inventory</span>

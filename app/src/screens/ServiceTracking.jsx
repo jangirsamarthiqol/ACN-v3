@@ -9,7 +9,7 @@ function ServiceTracking({ onNavigate }) {
       id: 'SVC1234',
       name: 'Title Verification',
       status: 'in-progress',
-      property: '3 BHK, Prestige Lakeside',
+      inventory: '3 BHK, Prestige Lakeside',
       professional: 'Adv. Ramesh Kumar',
       rating: 4.8,
       requestedDate: 'Jan 3, 2026',
@@ -30,7 +30,7 @@ function ServiceTracking({ onNavigate }) {
       id: 'SVC1235',
       name: 'Agreement Drafting',
       status: 'action-required',
-      property: '2 BHK, Brigade Orchards',
+      inventory: '2 BHK, Brigade Orchards',
       professional: 'Adv. Priya Desai',
       rating: 4.6,
       requestedDate: 'Jan 2, 2026',
@@ -108,10 +108,10 @@ function ServiceTracking({ onNavigate }) {
               ))}
             </div>
 
-            {/* Property Info */}
-            <div className="tracking-property">
-              <span className="property-label">Property:</span>
-              <span className="property-name">{service.property}</span>
+            {/* Inventory Info */}
+            <div className="tracking-inventory">
+              <span className="inventory-label">Inventory:</span>
+              <span className="inventory-name">{service.inventory}</span>
             </div>
 
             {/* Professional */}
@@ -295,17 +295,17 @@ function ServiceTracking({ onNavigate }) {
           font-size: 8px;
           color: #00C853;
         }
-        .tracking-property {
+        .tracking-inventory {
           display: flex;
           gap: 6px;
           font-size: 13px;
           padding: 10px 0;
           border-top: 1px solid #F0F0F0;
         }
-        .property-label {
+        .inventory-label {
           color: #888;
         }
-        .property-name {
+        .inventory-name {
           color: #1A1A1A;
         }
         .tracking-professional {

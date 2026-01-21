@@ -18,7 +18,7 @@ function NotificationScreen({ onNavigate }) {
       unread: true,
       initials: 'ACN',
       actions: [
-        { label: 'View Property', primary: true, action: 'property-detail' },
+        { label: 'View Inventory', primary: true, action: 'inventory-detail' },
         { label: 'Mark as available', primary: false }
       ]
     },
@@ -31,7 +31,7 @@ function NotificationScreen({ onNavigate }) {
       unread: true,
       initials: 'ACN',
       actions: [
-        { label: 'View Property', primary: true, action: 'property-detail' },
+        { label: 'View Inventory', primary: true, action: 'inventory-detail' },
         { label: 'Mark as available', primary: false }
       ]
     },
@@ -39,7 +39,7 @@ function NotificationScreen({ onNavigate }) {
       id: 3,
       type: 'enquiry',
       title: 'New enquiry received!',
-      body: 'New enquiry received for your property Nikoo Homes - Phase 4 (ID PA1560).',
+      body: 'New enquiry received for your inventory Nikoo Homes - Phase 4 (ID PA1560).',
       time: '5d',
       unread: true,
       initials: 'MS',
@@ -123,7 +123,7 @@ function NotificationScreen({ onNavigate }) {
                       className={`action-btn ${action.primary ? 'primary' : 'secondary'}`}
                       onClick={() => action.action && onNavigate(action.action)}
                     >
-                      {action.action === 'property-detail' && <Home size={14} />}
+                      {action.action === 'inventory-detail' && <Home size={14} />}
                       {action.label}
                     </button>
                   ))}

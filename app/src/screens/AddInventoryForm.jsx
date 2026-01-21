@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ArrowLeft, Camera, Upload, ChevronDown, Plus, X, MapPin, Building2, Home } from 'lucide-react';
 import './screens.css';
 
-function AddPropertyForm({ onNavigate }) {
+function AddInventoryForm({ onNavigate }) {
   const [activeType, setActiveType] = useState('apartment');
   const [photos, setPhotos] = useState([]);
 
@@ -16,7 +16,7 @@ function AddPropertyForm({ onNavigate }) {
         >
           <ArrowLeft size={24} />
         </button>
-        <h1 className="text-lg font-bold text-text-primary">Add Property</h1>
+        <h1 className="text-lg font-bold text-text-primary">Add Inventory</h1>
         <button className="text-sm font-bold text-primary px-3 py-1.5 bg-primary/10 rounded-full hover:bg-primary/20 transition-colors">
           Save Draft
         </button>
@@ -52,9 +52,9 @@ function AddPropertyForm({ onNavigate }) {
           </div>
         </section>
 
-        {/* Property Type */}
+        {/* Inventory Type */}
         <section>
-          <h3 className="text-base font-bold text-text-primary mb-3">Property Type</h3>
+          <h3 className="text-base font-bold text-text-primary mb-3">Inventory Type</h3>
           <div className="bg-white p-4 rounded-2xl border border-border shadow-sm space-y-4">
             <div className="grid grid-cols-2 gap-3">
               {[
@@ -134,9 +134,9 @@ function AddPropertyForm({ onNavigate }) {
           </div>
         </section>
 
-        {/* Property Details */}
+        {/* Inventory Details */}
         <section>
-          <h3 className="text-base font-bold text-text-primary mb-3">Property Details</h3>
+          <h3 className="text-base font-bold text-text-primary mb-3">Inventory Details</h3>
           <div className="bg-white p-4 rounded-2xl border border-border shadow-sm space-y-4">
              <div className="grid grid-cols-2 gap-3">
                <div>
@@ -224,4 +224,4 @@ function AddPropertyForm({ onNavigate }) {
   )
 }
 
-export default AddPropertyForm
+export default AddInventoryForm

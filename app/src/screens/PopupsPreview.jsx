@@ -142,7 +142,7 @@ const PopupsPreview = () => {
 
       case 'delisting':
         return (
-          <Modal isOpen={true} onClose={closePopup} title="Property Delisted">
+          <Modal isOpen={true} onClose={closePopup} title="Inventory Delisted">
              <div className="modal-hero" style={{ background: '#FFEBEE', height: '140px' }}>
                  <div className="modal-hero-icon" style={{ color: '#D32F2F', border: '4px solid #FFCDD2' }}>
                     <Trash2 size={32} />
@@ -152,12 +152,12 @@ const PopupsPreview = () => {
              <div className="text-center mb-4">
                <h3 style={{ fontSize: '18px', marginBottom: '8px' }}>Commercial Office Space</h3>
                <p className="text-muted" style={{ fontSize: '14px' }}>
-                  This property has been inactive for 45 days. To maintain quality, it has been temporarily delisted.
+                  This inventory has been inactive for 45 days. To maintain quality, it has been temporarily delisted.
                </p>
              </div>
 
              <div className="modal-actions" style={{ padding: 0 }}>
-               <button className="modal-btn modal-btn-primary" onClick={closePopup}>Relist Property</button>
+               <button className="modal-btn modal-btn-primary" onClick={closePopup}>Relist Inventory</button>
                {/* <button className="modal-btn modal-btn-text" onClick={closePopup}>Permanently Delete</button> */}
              </div>
           </Modal>
@@ -226,7 +226,7 @@ const PopupsPreview = () => {
                 <div style={{ marginBottom: '24px', position: 'relative', width: '200px', height: '12px', background: '#F5F7FA', borderRadius: '100px', overflow: 'hidden' }}>
                     <div style={{ width: '30%', height: '100%', background: '#EF5350' }}></div>
                 </div>
-                <p className="text-center mb-4">You've only listed <strong>1 property</strong> this week. Agents who list 3+ properties get 5x more visibility.</p>
+                <p className="text-center mb-4">You've only listed <strong>1 inventory</strong> this week. Agents who list 3+ inventories get 5x more visibility.</p>
                 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', width: '100%' }}>
                    <div className="feature-item" style={{ flexDirection: 'column', textAlign: 'center', alignItems: 'center' }}>
@@ -240,7 +240,7 @@ const PopupsPreview = () => {
                 </div>
              </div>
              <div className="modal-actions">
-                <button className="modal-btn modal-btn-primary" onClick={closePopup}>Add Property Now</button>
+                <button className="modal-btn modal-btn-primary" onClick={closePopup}>Add Inventory Now</button>
              </div>
           </Modal>
          );

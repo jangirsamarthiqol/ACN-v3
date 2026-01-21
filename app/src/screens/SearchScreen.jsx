@@ -14,7 +14,7 @@ import './screens.css';
 const SearchScreen = ({ onNavigate, params = {} }) => {
   const isCommercial = params.context === 'Commercial';
   const [searchText, setSearchText] = useState('');
-  const [propertyType, setPropertyType] = useState(isCommercial ? 'Resale' : (params.context || 'Buy'));
+  const [inventoryType, setInventoryType] = useState(isCommercial ? 'Resale' : (params.context || 'Buy'));
   const [showAdvanced, setShowAdvanced] = useState(false);
   
   // Filter States
@@ -69,9 +69,9 @@ const SearchScreen = ({ onNavigate, params = {} }) => {
               {(isCommercial ? ['Resale', 'Rental'] : ['Buy', 'Rent', 'Commercial', 'New Projects']).map(type => (
                 <button 
                   key={type}
-                  onClick={() => setPropertyType(type)}
+                  onClick={() => setInventoryType(type)}
                   className={`px-4 py-1.5 rounded-full text-xs font-bold border transition-all whitespace-nowrap ${
-                    propertyType === type 
+                    inventoryType === type 
                       ? 'bg-primary text-white border-primary shadow-sm' 
                       : 'bg-surface border-border-light text-text-secondary hover:border-primary/30'
                   }`}
@@ -90,7 +90,7 @@ const SearchScreen = ({ onNavigate, params = {} }) => {
               
               {/* Asset Type / Category */}
               <div>
-                <label className="text-xs font-bold text-text-secondary mb-2 block uppercase tracking-wide">Property Category</label>
+                <label className="text-xs font-bold text-text-secondary mb-2 block uppercase tracking-wide">Inventory Category</label>
                 <div className="flex gap-2 overflow-x-auto hide-scrollbar -mx-5 px-5">
                    {['Apartment', 'Villa', 'Indep. House', 'Plot', 'Studio', 'Penthouse'].map(type => (
                      <button key={type} className="px-4 py-2 rounded-xl text-sm font-semibold border border-border-light bg-background-light text-text-secondary whitespace-nowrap hover:bg-background-secondary hover:border-border hover:text-text-primary transition-colors flex-shrink-0">
@@ -210,7 +210,7 @@ const SearchScreen = ({ onNavigate, params = {} }) => {
                     </div>
 
                     {/* Tenant Preference (Only for Rent) */}
-                    {propertyType === 'Rent' && (
+                    {inventoryType === 'Rent' && (
                         <div>
                           <label className="text-xs font-bold text-text-secondary mb-2 block uppercase tracking-wide">Tenant Preference</label>
                           <div className="flex gap-2">
@@ -280,7 +280,7 @@ const SearchScreen = ({ onNavigate, params = {} }) => {
            onClick={() => onNavigate('search-results')}
         >
            <Search size={20} strokeWidth={2.5} />
-           View {selectedBHK.length > 0 ? '14' : '420+'} Properties
+           View {selectedBHK.length > 0 ? '14' : '420+'} Inventories
         </button>
       </div>
 

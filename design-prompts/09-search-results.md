@@ -25,7 +25,7 @@ Design a search results listing page with filtering:
 
 ## FILTER BAR (Horizontal scroll, below results info)
 - Quick filter chips (horizontal scroll)
-- Chips: "Price ▾", "BHK ▾", "Property Type ▾", "Possession ▾", "More Filters ▾"
+- Chips: "Price ▾", "BHK ▾", "Inventory Type ▾", "Possession ▾", "More Filters ▾"
 - Active filters show differently:
   - "₹50L - 1Cr ×" (primary color background, white text, × to remove)
   - "2,3 BHK ×" (same style)
@@ -46,7 +46,7 @@ Design a search results listing page with filtering:
 - Horizontal layout
 
 #### Left Side (120px width)
-- Property image (aspect ratio ~4:3)
+- Inventory image (aspect ratio ~4:3)
 - Badge overlay (top-left):
   - "Premium" (gold/yellow)
   - "Verified ✓" (green)
@@ -60,7 +60,7 @@ Design a search results listing page with filtering:
 - Shortlist heart icon (top-right, outline when not saved, filled red when saved)
 
 **Middle Section:**
-- Property name: "Prestige Sunset Park" (16px, semi-bold, #1A1A1A, 1 line max)
+- Inventory name: "Prestige Sunset Park" (16px, semi-bold, #1A1A1A, 1 line max)
 - Location: "Koramangala, Bangalore" (13px, gray #666666, with pin icon)
 - Config: "2 BHK | 1200 sq.ft" (13px, gray, with icons)
 

@@ -27,9 +27,9 @@ function FilterSheet({ onNavigate }) {
 
         {/* Content */}
         <div className="sheet-content">
-          {/* Property Type */}
+          {/* Inventory Type */}
           <section className="filter-section">
-            <h3>Property Type</h3>
+            <h3>Inventory Type</h3>
             <div className="chip-group">
               {['Apartment', 'Villa', 'Plot', 'Commercial', 'PG'].map(type => (
                 <button 
@@ -137,7 +137,7 @@ function FilterSheet({ onNavigate }) {
             <h3>Additional Filters</h3>
             <div className="toggle-group">
               <div className="toggle-item">
-                <span>Verified Properties Only</span>
+                <span>Verified Inventories Only</span>
                 <div className="toggle on"></div>
               </div>
               <div className="toggle-item">

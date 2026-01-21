@@ -7,15 +7,15 @@ import ScreenSelector from './components/ScreenSelector'
 // Import all screens
 import HomeScreen from './screens/HomeScreen'
 import SearchScreen from './screens/SearchScreen'
-import PropertiesMarketplace from './screens/PropertiesMarketplace'
+import InventoriesMarketplace from './screens/InventoriesMarketplace'
 import SearchResultsScreen from './screens/SearchResultsScreen'
 import FilterSheet from './screens/FilterSheet'
 import BusinessDashboard from './screens/BusinessDashboard'
-import MyPropertiesList from './screens/MyPropertiesList'
+import MyInventoriesList from './screens/MyInventoriesList'
 import MyRequirementsList from './screens/MyRequirementsList'
 import ShortlistScreen from './screens/ShortlistScreen'
 import MyEnquiries from './screens/MyEnquiries'
-import PropertyDetail from './screens/PropertyDetail'
+import InventoryDetail from './screens/InventoryDetail'
 import ServicesLanding from './screens/ServicesLanding'
 import LegalServicesDetail from './screens/LegalServicesDetail'
 import ServiceRequestForm from './screens/ServiceRequestForm'
@@ -23,7 +23,7 @@ import ServiceTracking from './screens/ServiceTracking'
 import ProfileScreen from './screens/ProfileScreen'
 import EditProfile from './screens/EditProfile'
 import SubscriptionManagement from './screens/SubscriptionManagement'
-import AddPropertyForm from './screens/AddPropertyForm'
+import AddInventoryForm from './screens/AddInventoryForm'
 import AddRequirementForm from './screens/AddRequirementForm'
 import HelpSupport from './screens/HelpSupport'
 import NotificationScreen from './screens/NotificationScreen'
@@ -36,18 +36,18 @@ import RequirementsMarketplace from './screens/RequirementsMarketplace'
 const screens = [
   // Home & Search
   { id: 'home', name: 'ACN Home', category: 'Home', component: HomeScreen },
-  { id: 'search', name: 'Properties', category: 'Home', component: PropertiesMarketplace },
+  { id: 'search', name: 'Inventories', category: 'Home', component: InventoriesMarketplace },
   { id: 'requirements-marketplace', name: 'Requirements', category: 'Home', component: RequirementsMarketplace },
   { id: 'global-search', name: 'Search', category: 'Home', component: SearchScreen },
   { id: 'search-results', name: 'Search Results', category: 'Home', component: SearchResultsScreen },
   { id: 'filter', name: 'Filter Sheet', category: 'Home', component: FilterSheet },
-  { id: 'property-detail', name: 'Property Detail', category: 'Home', component: PropertyDetail },
+  { id: 'inventory-detail', name: 'Inventory Detail', category: 'Home', component: InventoryDetail },
   { id: 'shortlist', name: 'Shortlist', category: 'Home', component: ShortlistScreen },
   
   // My Business
   { id: 'dashboard', name: 'Dashboard', category: 'My Business', component: BusinessDashboard },
-  { id: 'properties', name: 'My Properties', category: 'My Business', component: MyPropertiesList },
-  { id: 'add-property', name: 'Add Property', category: 'My Business', component: AddPropertyForm },
+  { id: 'properties', name: 'My Inventories', category: 'My Business', component: MyInventoriesList },
+  { id: 'add-inventory', name: 'Add Inventory', category: 'My Business', component: AddInventoryForm },
   { id: 'my-requirements', name: 'My Requirements', category: 'My Business', component: MyRequirementsList },
   { id: 'add-requirement', name: 'Add Requirement', category: 'My Business', component: AddRequirementForm },
   { id: 'enquiries', name: 'My Enquiries', category: 'My Business', component: MyEnquiries },

@@ -75,19 +75,19 @@ function ServiceRequestForm({ onNavigate }) {
             </div>
 
             <div className="form-group">
-              <label>Property Selection</label>
+              <label>Inventory Selection</label>
               <div className="radio-options horizontal">
                 <label className="radio-option active">
-                  <input type="radio" name="property" defaultChecked />
-                  <span className="radio-label">Existing Property</span>
+                  <input type="radio" name="inventory" defaultChecked />
+                  <span className="radio-label">Existing Inventory</span>
                 </label>
                 <label className="radio-option">
-                  <input type="radio" name="property" />
-                  <span className="radio-label">New Property</span>
+                  <input type="radio" name="inventory" />
+                  <span className="radio-label">New Inventory</span>
                 </label>
               </div>
               <div className="select-field">
-                <span>Select from My Properties</span>
+                <span>Select from My Inventories</span>
                 <ChevronDown size={18} />
               </div>
             </div>

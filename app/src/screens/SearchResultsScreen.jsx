@@ -106,7 +106,7 @@ const SearchResultsScreen = ({ onNavigate, params = {} }) => {
       {/* 2. Results Count Info */}
       <div className="px-5 py-3 flex justify-between items-center bg-background-light/50 backdrop-blur-sm sticky top-[105px] z-20">
          <span className="text-xs font-bold text-text-secondary uppercase tracking-wide">
-             Showing {results.length} Properties
+             Showing {results.length} Inventories
          </span>
          <div className="flex items-center gap-1 bg-white border border-border-light rounded-lg p-1">
              <button className={`p-1.5 rounded-md transition-colors ${viewMode === 'list' ? 'bg-primary/10 text-primary' : 'text-text-tertiary'}`} onClick={() => setViewMode('list')}>
@@ -120,30 +120,30 @@ const SearchResultsScreen = ({ onNavigate, params = {} }) => {
 
       {/* 3. Results List */}
       <main className="flex-1 overflow-y-auto px-4 pb-32 space-y-4">
-          {results.map((property, idx) => (
-             <div key={property.id} className="bg-surface rounded-3xl border border-border-light overflow-hidden shadow-sm group active:scale-[0.99] transition-transform duration-200" onClick={() => onNavigate('property-detail')}>
+          {results.map((inventory, idx) => (
+             <div key={inventory.id} className="bg-surface rounded-3xl border border-border-light overflow-hidden shadow-sm group active:scale-[0.99] transition-transform duration-200" onClick={() => onNavigate('inventory-detail')}>
                  
                  {/* Image Area */}
                  <div className="h-56 relative bg-gray-100">
-                    <img src={property.image} className="w-full h-full object-cover" alt={property.title} />
+                    <img src={inventory.image} className="w-full h-full object-cover" alt={inventory.title} />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80"></div>
                     
                     {/* Top Badges */}
                     <div className="absolute top-4 left-4 flex gap-2">
-                        {property.premium && (
+                        {inventory.premium && (
                             <span className="bg-background-light/90 backdrop-blur text-text-primary text-[10px] font-bold px-2 py-1 rounded-lg shadow-sm border border-white/20">
                                 Premium
                             </span>
                         )}
                          <span className="bg-black/40 backdrop-blur text-white text-[10px] font-bold px-2 py-1 rounded-lg shadow-sm border border-white/20 flex items-center gap-1">
-                            <Clock size={10} /> Checked {property.lastChecked}
+                            <Clock size={10} /> Checked {inventory.lastChecked}
                         </span>
                     </div>
 
                     {/* Bottom Info Overlay */}
                     <div className="absolute bottom-0 left-0 right-0 p-4 pt-10 text-white">
-                        <h3 className="text-xl font-bold tracking-tight leading-tight mb-1">{property.price}</h3>
-                        <p className="text-sm font-medium text-white/90 truncate">{property.title}</p>
+                        <h3 className="text-xl font-bold tracking-tight leading-tight mb-1">{inventory.price}</h3>
+                        <p className="text-sm font-medium text-white/90 truncate">{inventory.title}</p>
                     </div>
                  </div>
 
@@ -153,7 +153,7 @@ const SearchResultsScreen = ({ onNavigate, params = {} }) => {
                      <div className="flex justify-between items-start mb-3">
                          <div className="flex items-center gap-1.5 text-text-secondary">
                              <MapPin size={14} className="text-primary" />
-                             <span className="text-xs font-bold">{property.micromarket}</span>
+                             <span className="text-xs font-bold">{inventory.micromarket}</span>
                          </div>
                      </div>
 
@@ -164,7 +164,7 @@ const SearchResultsScreen = ({ onNavigate, params = {} }) => {
                              <p className="text-[10px] text-text-tertiary uppercase font-bold mb-0.5">Config</p>
                              <div className="flex items-center gap-1.5">
                                  <BedDouble size={14} className="text-text-secondary" />
-                                 <span className="text-xs font-bold text-text-primary">{property.config}</span>
+                                 <span className="text-xs font-bold text-text-primary">{inventory.config}</span>
                              </div>
                          </div>
                          {/* Area */}
@@ -172,7 +172,7 @@ const SearchResultsScreen = ({ onNavigate, params = {} }) => {
                              <p className="text-[10px] text-text-tertiary uppercase font-bold mb-0.5">Area</p>
                              <div className="flex items-center gap-1.5">
                                  <Square size={14} className="text-text-secondary" />
-                                 <span className="text-xs font-bold text-text-primary">{property.area}</span>
+                                 <span className="text-xs font-bold text-text-primary">{inventory.area}</span>
                              </div>
                          </div>
                          {/* Asset Type */}
@@ -180,7 +180,7 @@ const SearchResultsScreen = ({ onNavigate, params = {} }) => {
                              <p className="text-[10px] text-text-tertiary uppercase font-bold mb-0.5">Type</p>
                              <div className="flex items-center gap-1.5">
                                  <Home size={14} className="text-text-secondary" />
-                                 <span className="text-xs font-bold text-text-primary">{property.assetType}</span>
+                                 <span className="text-xs font-bold text-text-primary">{inventory.assetType}</span>
                              </div>
                          </div>
                          {/* Facing */}
@@ -188,7 +188,7 @@ const SearchResultsScreen = ({ onNavigate, params = {} }) => {
                              <p className="text-[10px] text-text-tertiary uppercase font-bold mb-0.5">Facing</p>
                              <div className="flex items-center gap-1.5">
                                  <Compass size={14} className="text-text-secondary" />
-                                 <span className="text-xs font-bold text-text-primary">{property.facing}</span>
+                                 <span className="text-xs font-bold text-text-primary">{inventory.facing}</span>
                              </div>
                          </div>
                      </div>
@@ -227,7 +227,7 @@ const SearchResultsScreen = ({ onNavigate, params = {} }) => {
           Decision: SearchResults often don't have bottom nav to maximize space, but if user wants to go back to home tabs...
           Actually, let's keep it clean without bottom nav, or just back.
           Wait, the user flow usually: Home -> Search -> Results -> Detail.
-          Bottom Nav is usually on Home/Properties/Profile.
+          Bottom Nav is usually on Home/Inventories/Profile.
           I'll remove GlobalBottomNav here to focus on results, as per typical patterns.
       */}
       

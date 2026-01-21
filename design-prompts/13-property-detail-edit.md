@@ -1,10 +1,10 @@
-# Prompt 13: My Business - Property Detail/Edit
+# Prompt 13: My Business - Inventory Detail/Edit
 
-Design a comprehensive property detail and edit screen:
+Design a comprehensive inventory detail and edit screen:
 
 ## HEADER (Sticky)
 - Back button (left, 44px touch target)
-- Property ID: "#ACN12345" (center, 16px, #666666)
+- Inventory ID: "#ACN12345" (center, 16px, #666666)
 - Three-dot menu (right):
   - Options: Share, Delete, Duplicate
 
@@ -29,7 +29,7 @@ Design a comprehensive property detail and edit screen:
 
 ## STATUS BANNER (If not active)
 - Full-width colored banner below gallery
-- "This property is currently Inactive"
+- "This inventory is currently Inactive"
 - "Activate Now" button (white outline)
 - Colors: Orange for Inactive, Red for Delisted, Yellow for Under Review
 
@@ -50,9 +50,9 @@ Design a comprehensive property detail and edit screen:
 - Required field indicator (red asterisk)
 
 **Fields:**
-- Property Type: Dropdown (Apartment, Villa, Plot, etc.)
+- Inventory Type: Dropdown (Apartment, Villa, Plot, etc.)
 - Listing Type: Radio cards (Resale / Rental)
-- Property Title: Text input
+- Inventory Title: Text input
 - Project Name: Searchable dropdown + "+ Add New Project" link
 - Configuration: "3 BHK" dropdown
 - Carpet Area: Number input + unit selector (sq.ft / sq.m)
@@ -61,7 +61,7 @@ Design a comprehensive property detail and edit screen:
 - Total Floors: Number input
 - Furnishing: Chips (Unfurnished, Semi-furnished, Fully furnished)
 - Possession Status: Dropdown
-- Age of Property: Number input (years)
+- Age of Inventory: Number input (years)
 
 ### SECTION 2 - PRICING
 - Section header: "Pricing" (16px, semi-bold)
@@ -85,7 +85,7 @@ Design a comprehensive property detail and edit screen:
 - City: Dropdown (Bangalore default)
 - Pin Code: Number input (6 digits)
 - Map preview (View mode):
-  - 160px height map with property pin
+  - 160px height map with inventory pin
   - "Get Directions" link
 - Map (Edit mode):
   - Drag pin interaction
@@ -162,7 +162,7 @@ Design a comprehensive property detail and edit screen:
 
 ## ACTIVITY LOG
 - Section header: "Activity Log" (16px, semi-bold)
-- Timeline of property changes
+- Timeline of inventory changes
 - "Created on Jan 1, 2026" with user
 - "Price updated on Jan 3" with old→new value
 - "Status changed to Active on Jan 4"
@@ -178,13 +178,13 @@ Design a comprehensive property detail and edit screen:
 
 **View mode:**
 - Two buttons:
-  - "Edit Property" (outline)
-  - "Share Property" (primary, filled)
+  - "Edit Inventory" (outline)
+  - "Share Inventory" (primary, filled)
 
 ## VALIDATION (Edit mode)
 - Required field indicators (red asterisk)
 - Inline error messages (red text below field)
-- Success toast on save: "Property updated successfully"
+- Success toast on save: "Inventory updated successfully"
 
 ---
 

@@ -127,7 +127,7 @@ const MyRequirementsList = ({ onNavigate }) => {
                   <p className="text-sm font-bold text-text-secondary">{req.budget}</p>
                 </div>
                 <div className="w-1/2">
-                  <p className="text-[10px] text-text-tertiary uppercase font-bold tracking-tight">Matched Properties</p>
+                  <p className="text-[10px] text-text-tertiary uppercase font-bold tracking-tight">Matched Inventories</p>
                   <p className={`text-sm font-bold ${req.matchColor}`}>{req.matches} Matches</p>
                 </div>
               </div>

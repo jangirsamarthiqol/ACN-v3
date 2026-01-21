@@ -5,14 +5,14 @@ import './screens.css'
 
 function HelpSupport({ onNavigate }) {
   const faqCategories = [
-    { icon: Building2, label: 'Property Listings', count: 12 },
+    { icon: Building2, label: 'Inventory Listings', count: 12 },
     { icon: CreditCard, label: 'Credits & Billing', count: 8 },
     { icon: Shield, label: 'Account & Security', count: 6 },
     { icon: FileText, label: 'Legal Services', count: 5 }
   ]
 
   const popularFaqs = [
-    'How do I add a new property?',
+    'How do I add a new inventory?',
     'How are credits deducted?',
     'How to verify my RERA number?',
     'How to contact my KAM?'

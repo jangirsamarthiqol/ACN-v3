@@ -121,7 +121,7 @@ function ProfileScreen({ onNavigate }) {
               </div>
               <div>
                 <p className="stat-number">05</p>
-                <p className="stat-label">Properties Live</p>
+                <p className="stat-label">Inventories Live</p>
               </div>
             </div>
           </div>
@@ -142,7 +142,7 @@ function ProfileScreen({ onNavigate }) {
               </div>
             </div>
             <ul className="premium-features">
-              <li><Check size={14} /> Unlimited property listings</li>
+              <li><Check size={14} /> Unlimited inventory listings</li>
               <li><Check size={14} /> Verified leads & contacts</li>
               <li><Check size={14} /> Priority support</li>
             </ul>

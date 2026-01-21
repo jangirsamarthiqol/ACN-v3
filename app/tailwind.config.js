@@ -32,7 +32,7 @@ export default {
           red: '#EF4444',
           blue: '#3B82F6',
         },
-        // Property Status Colors - From Properties Design
+        // Inventory Status Colors - From Properties Design
         status: {
           live: '#D4F4DD',
           'live-text': '#15803D',

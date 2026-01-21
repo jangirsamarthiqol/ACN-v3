@@ -30,8 +30,8 @@ Design the add/edit requirement form wizard:
 - Full width, height: 80px each
 - Icon above text (centered)
 
-**Property Type:**
-- Label: "Property Type" (14px, gray)
+**Inventory Type:**
+- Label: "Inventory Type" (14px, gray)
 - Multi-select chips (wrap layout):
   - "Apartment", "Villa", "Plot", "Commercial", "PG"
 - Selected: Primary fill, white text, checkmark
@@ -64,7 +64,7 @@ Design the add/edit requirement form wizard:
 - "Can add up to 5 locations" helper
 
 ### SECTION 2 - PROPERTY PREFERENCES
-- Header: "Property Preferences" (16px, semi-bold)
+- Header: "Inventory Preferences" (16px, semi-bold)
 - Card styling consistent
 
 **Carpet Area Range:**
@@ -80,7 +80,7 @@ Design the add/edit requirement form wizard:
 - Single select chips:
   - "Ready to Move", "Under Construction", "Any"
 
-**Age of Property:**
+**Age of Inventory:**
 - Dropdown selector:
   - "New (0-1 yr)", "Relatively New (1-5 yrs)", "Moderate (5-10 yrs)", "Old (10+ yrs)", "Any"
 

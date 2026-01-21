@@ -66,9 +66,9 @@ Design a service tracking and management screen:
 
 #### PROPERTY INFO
 - Mini card (light gray bg, 8px radius):
-  - Property thumbnail (40px, left)
-  - Property name: "3 BHK, Prestige Lakeside"
-  - Property ID link: "#ACN12345 →"
+  - Inventory thumbnail (40px, left)
+  - Inventory name: "3 BHK, Prestige Lakeside"
+  - Inventory ID link: "#ACN12345 →"
 
 #### ASSIGNED PROFESSIONAL (If assigned)
 - Row with:

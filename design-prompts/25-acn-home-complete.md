@@ -27,7 +27,7 @@ Design the complete ACN Home screen with all sections combined:
 - Search bar: White, 56px height, 16px radius
   - Search icon (left), placeholder text, filter icon (right)
   - Shadow: 0 4px 12px rgba(0,0,0,0.08)
-- Property type pills below (12px gap):
+- Inventory type pills below (12px gap):
   - "Buy" (active, primary fill), "Rent", "Commercial", "Primary", "Land"
   - Horizontal scroll, 36px height each
 

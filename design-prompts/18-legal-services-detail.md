@@ -12,7 +12,7 @@ Design the Legal Services detail and booking screen:
 - Background: Gradient (blue to indigo #0066CC to #4F46E5)
 - Or: Professional image with overlay
 - Large icon: Legal/gavel (64px, white, centered or left)
-- Headline: "Expert Legal Support for Property Transactions" (22px, bold, white, center)
+- Headline: "Expert Legal Support for Inventory Transactions" (22px, bold, white, center)
 - Subheadline: "Verified lawyers | Transparent pricing | Fast turnaround" (14px, white 90% opacity)
 
 ## SERVICE CATEGORIES (Tabs/Pills)
@@ -43,7 +43,7 @@ Design the Legal Services detail and booking screen:
 - Right: "Most Popular" badge (if applicable, small pill)
 
 #### DESCRIPTION SECTION
-- 2-line description: "Complete property title search and verification with detailed report" (14px, gray #666666)
+- 2-line description: "Complete inventory title search and verification with detailed report" (14px, gray #666666)
 - "What's Included" expandable section:
   - Chevron to expand
   - When expanded: Bullet list of deliverables
@@ -91,7 +91,7 @@ Design the Legal Services detail and booking screen:
    - "Video/phone available"
    - Price: "₹2,000/hour"
 
-5. **Property Due Diligence** (border: teal #009688)
+5. **Inventory Due Diligence** (border: teal #009688)
    - "Comprehensive check"
    - "Detailed report included"
 

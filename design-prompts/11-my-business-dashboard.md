@@ -78,7 +78,7 @@ Design the My Business dashboard with analytics and quick actions:
 - Icon on top (32px, colored), label below (12px, gray)
 - Press state: Scale 0.95
 
-1. "Add Property" - Plus icon (blue #0066CC)
+1. "Add Inventory" - Plus icon (blue #0066CC)
 2. "Add Requirement" - Document+ icon (purple #8B5CF6)
 3. "View Enquiries" - Mail icon (green #00C853)
 4. "Manage Shortlist" - Heart icon (red #FF5252)

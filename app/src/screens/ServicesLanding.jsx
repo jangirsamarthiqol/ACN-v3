@@ -9,9 +9,9 @@ function ServicesLanding({ onNavigate }) {
     { icon: '🏛️', name: 'AOP Services', desc: 'Builder agreements' },
     { icon: '📊', name: 'Market Reports', desc: 'Area insights' },
     { icon: '🏦', name: 'Home Loans', desc: 'Loan assistance' },
-    { icon: '🛡️', name: 'Insurance', desc: 'Property protection' },
+    { icon: '🛡️', name: 'Insurance', desc: 'Inventory protection' },
     { icon: '🧭', name: 'Vastu', desc: 'Vastu consultation' },
-    { icon: '📸', name: 'Photography', desc: 'Property shoots' }
+    { icon: '📸', name: 'Photography', desc: 'Inventory shoots' }
   ];
 
   return (
@@ -33,7 +33,7 @@ function ServicesLanding({ onNavigate }) {
             </div>
             <h2 className="text-2xl font-bold mb-2">Legal Services</h2>
             <p className="text-sm opacity-90 mb-5 leading-relaxed max-w-[90%]">
-              Expert legal support for property documentation, registration, and verification
+              Expert legal support for inventory documentation, registration, and verification
             </p>
             
             <div className="flex flex-wrap gap-x-4 gap-y-2 mb-6">

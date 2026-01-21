@@ -178,7 +178,7 @@
        padding: 4px;
 }
 
-.property-pills {
+.inventory-pills {
        display: flex;
        gap: 8px;
        margin-top: 12px;
@@ -186,7 +186,7 @@
        padding-bottom: 4px;
 }
 
-.property-pills::-webkit-scrollbar {
+.inventory-pills::-webkit-scrollbar {
        display: none;
 }
 
@@ -806,8 +806,8 @@
        color: white;
 }
 
-/* Property List Card */
-.property-list-card {
+/* Inventory List Card */
+.inventory-list-card {
        background: white;
        margin: 0 16px 12px;
        border-radius: 12px;
@@ -815,13 +815,13 @@
        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
-.property-list-card .card-content {
+.inventory-list-card .card-content {
        display: flex;
        padding: 12px;
        gap: 12px;
 }
 
-.property-list-card .card-image {
+.inventory-list-card .card-image {
        width: 100px;
        height: 80px;
        border-radius: 8px;
@@ -830,34 +830,34 @@
        flex-shrink: 0;
 }
 
-.property-list-card .card-image img {
+.inventory-list-card .card-image img {
        width: 100%;
        height: 100%;
        object-fit: cover;
 }
 
-.property-list-card .card-info {
+.inventory-list-card .card-info {
        flex: 1;
        min-width: 0;
 }
 
-.property-list-card .card-id {
+.inventory-list-card .card-id {
        font-size: 11px;
        color: #888;
 }
 
-.property-list-card .card-title {
+.inventory-list-card .card-title {
        font-size: 15px;
        font-weight: 600;
        margin: 2px 0;
 }
 
-.property-list-card .card-subtitle {
+.inventory-list-card .card-subtitle {
        font-size: 13px;
        color: var(--primary-color);
 }
 
-.property-list-card .card-location {
+.inventory-list-card .card-location {
        font-size: 12px;
        color: #666;
        display: flex;
@@ -865,14 +865,14 @@
        gap: 4px;
 }
 
-.property-list-card .card-price {
+.inventory-list-card .card-price {
        font-size: 16px;
        font-weight: 700;
        color: var(--primary-color);
        margin-top: 4px;
 }
 
-.property-list-card .card-stats {
+.inventory-list-card .card-stats {
        display: flex;
        gap: 12px;
        padding: 8px 12px;
@@ -881,7 +881,7 @@
        color: #666;
 }
 
-.property-list-card .card-actions {
+.inventory-list-card .card-actions {
        display: flex;
        gap: 8px;
        padding: 12px;

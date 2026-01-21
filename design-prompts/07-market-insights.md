@@ -29,7 +29,7 @@ Design an insights/market trends section powered by ACN Edge:
   - 10px text, white, 4px padding
 
 ### Card Right Side (60%, padding 12px)
-- Title: "Bangalore Property Prices Rise 12%" (Bold, 15px, #1A1A1A, max 2 lines)
+- Title: "Bangalore Inventory Prices Rise 12%" (Bold, 15px, #1A1A1A, max 2 lines)
 - Description: "Latest market trends show significant growth in residential..." (Gray #666666, 13px, max 2 lines, truncate with ellipsis)
 - Metadata row (11px, gray #999999):
   - Date: "Jan 3, 2026" with calendar icon
@@ -67,5 +67,5 @@ Design an insights/market trends section powered by ACN Edge:
 
 ## Content Examples
 1. Featured: "2026 Real Estate Market Outlook"
-2. Regular: "Bangalore Property Prices Rise 12%"
+2. Regular: "Bangalore Inventory Prices Rise 12%"
 3. Regular: "Top 5 Localities for Investment in Q1"
